@@ -1,3 +1,0 @@
-
-{"chainId":11155111,"type":"DEPLOYMENT_INITIALIZE"}
-{"artifactId":"ForwarderHashedTimelockERC20Module#ForwarderHashedTimelockERC20","constructorArgs":[null],"contractName":"ForwarderHashedTimelockERC20","dependencies":[],"from":"0x687be257d3590697da95a264154c71062c701936","futureId":"ForwarderHashedTimelockERC20Module#ForwarderHashedTimelockERC20","futureType":"NAMED_ARTIFACT_CONTRACT_DEPLOYMENT","libraries":{},"strategy":"basic","strategyConfig":{},"type":"DEPLOYMENT_EXECUTION_STATE_INITIALIZE","value":{"_kind":"bigint","value":"0"}}
