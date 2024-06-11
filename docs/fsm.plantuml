@@ -1,0 +1,19 @@
+@startuml
+' FSM for simple forwarder contract
+
+state Exit {
+ [*] --> Refunding
+ [*] --> Withdrawing
+
+ Refunding --> Refunding: ERC20.Transfer
+ Withdrawing --> Withdrawing: ERC20.Transfer
+}
+
+[*] --> Ready : CreateContract(owner)
+Ready --> Forwarding: TxIn
+Forwarding --> Forwarding: ERC20.Transfer
+Forwarding --> Exit: TxOut
+
+Refunding --> [*]: Event\nRefund(sender, amount)
+Withdrawing --> [*]: Event\nWithdrawal(receiver, amount)
+@enduml

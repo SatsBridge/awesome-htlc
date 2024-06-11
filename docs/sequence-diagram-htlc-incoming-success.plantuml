@@ -1,0 +1,50 @@
+@startuml
+skinparam BoxPadding 20
+
+legend top
+\t\t\t\tHashedTimelockERC20 Contract: **Incoming** Flow
+(Router settles with preimage before the timelock expires and funds remain on the contract)
+end legend
+
+box "Ethereum Network" #A9C5E6
+participant Counterparty as counterparty << Account >>
+participant Router as router << Account >>
+participant ForwardHashedTimelockERC20 as htlc << Smart Contract >>
+participant ERC20Contract as token << Smart Contract >>
+participant Events as events
+end box
+
+note left of htlc
+State stored:
+  bool incoming;
+  address counterparty;
+  address tokenContract;
+  uint amount;
+  bytes32 hashlock;
+  uint timelock; // UNIX ts
+end note
+
+activate token
+  counterparty->token:approve(htlc address, amount)
+  token->counterparty
+deactivate token
+
+activate htlc
+  counterparty->htlc:RequestRouting(\n\tincoming\n\tcounterparty,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
+  activate token
+    htlc->token:transferFrom(counterparty, htlc address, amount)
+    token->htlc
+  deactivate token
+  htlc->events:LogHTLCERC20New(locks, values, etc.)
+  htlc->counterparty:hashlock
+deactivate htlc
+
+counterparty->router:reveals contractId
+router->router:knows/obtains secret preimage\n[sha256(secret preimage) == hashlock]
+
+activate htlc
+  router->htlc:settle(secret preimage)
+  htlc->events:LogHTLCERC20Settle(secret preimage)
+deactivate htlc
+
+@enduml

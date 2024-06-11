@@ -1,0 +1,19 @@
+{
+  "name": "forwarder-timelock-contract-ethereum",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.5",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.4",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.6",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
+    "@nomiclabs/hardhat-truffle5": "^2.0.7",
+    "@openzeppelin/contracts": "^5.0.2",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.12.0",
+    "hardhat": "^2.22.3",
+    "mocha": "^10.4.0",
+    "openzeppelin-solidity": "^3.4.2",
+    "eslint": "^5.13.0",
+    "truffle-assertions": "^0.9.2"
+  }
+}
