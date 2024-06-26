@@ -5,9 +5,9 @@
 
 [Hashed Timelock Contracts](https://en.bitcoin.it/wiki/Hashed_Timelock_Contracts) (HTLCs) for Ethereum:
 
-- [HashedTimelock.sol](contracts/HashedTimelock.sol) - HTLC for native ETH token
-- [ForwarderHashedTimelockERC20.sol](contracts/ForwarderHashedTimelockERC20.sol) - HTLC for ERC20 tokens
-- [HashedTimelockERC721.sol](contracts/HashedTimelockERC721.sol) - HTLC for ERC721 tokens
+- [HashedTimelock.sol](evm/contracts/HashedTimelock.sol) - HTLC for native ETH token
+- [ForwarderHashedTimelockERC20.sol](evm/contracts/ForwarderHashedTimelockERC20.sol) - HTLC for ERC20 tokens
+- [HashedTimelockERC721.sol](evm/contracts/HashedTimelockERC721.sol) - HTLC for ERC721 tokens
 
 Use these contracts for creating HTLCs on the Ethereum side of a cross chain atomic swap (for example the [xcat](https://github.com/chatch/xcat) project).
 
@@ -115,7 +115,7 @@ Compiling ./test/helper/EUToken.sol...
 2.  `withdraw(contractId, preimage)` claim funds revealing the preimage
 3.  `refund(contractId)` if withdraw was not called the contract creator can get a refund by calling this some time after the time lock has expired.
 
-See [test/htlc.js](test/htlc.js) for examples of interacting with the contract from javascript.
+See [test/htlc.js](evm/test/htlc.js) for examples of interacting with the contract from javascript.
 
 ### ForwarderHashedTimelockERC20
 
@@ -123,7 +123,7 @@ See [test/htlc.js](test/htlc.js) for examples of interacting with the contract f
 2.  `withdraw(contractId, preimage)` claim funds revealing the preimage
 3.  `refund(contractId)` if withdraw was not called the contract creator can get a refund by calling this some time after the time lock has expired.
 
-See [test/htlcERC20.js](test/htlcERC20.js) for examples of interacting with the contract from javascript.
+See [test/htlcERC20.js](evm/test/htlcERC20.js) for examples of interacting with the contract from javascript.
 
 ### HashedTimelockERC721
 
