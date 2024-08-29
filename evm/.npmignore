@@ -1,7 +1,0 @@
-build/
-config*.js
-contracts/
-migrations/
-src/
-test/
-truffle.js

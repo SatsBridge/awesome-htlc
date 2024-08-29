@@ -1806,8 +1806,8 @@
     },
     "61ab4641fa30d9310391025086eec65d200d79268e1b7cd402565e01ba64be3c": {
       "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1295
+        "filename": "../node_modules/@broxus/contracts/contracts/access/InternalOwner.tsol",
+        "line": 37
       }
     },
     "629726c55de70e46d30e4b47ada179853548b73402add718fa30bd683dfd28b5": {
