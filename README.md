@@ -20,3 +20,6 @@ need for third-party intermediaries.
   * Everscale/Venom implementations for TIP3 token standard.
 
 ### Reading Materials
+
+* [Bitcointalk: Alt chains and atomic transfers](https://bitcointalk.org/index.php?topic=193281.msg2003765#msg2003765)
+* [The Most Used Smart-Contract Ever](https://medium.com/@satsbridge/the-most-used-smart-contract-of-all-times-2f749428adb7)
