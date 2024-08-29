@@ -1,0 +1,293 @@
+pragma ever-solidity >= 0.62.0;
+pragma AbiHeader expire;
+pragma AbiHeader pubkey;
+
+import '@broxus/contracts/contracts/utils/RandomNonce.tsol';
+import "@broxus/contracts/contracts/utils/CheckPubKey.tsol";
+import '@broxus/contracts/contracts/access/InternalOwner.tsol';
+import "@broxus/contracts/contracts/libraries/MsgFlag.tsol";
+
+import "@broxus/tip3/contracts/interfaces/ITokenWallet.tsol";
+import "@broxus/tip3/contracts/interfaces/ITokenRoot.tsol";
+import "@broxus/tip3/contracts/interfaces/IAcceptTokensTransferCallback.tsol";
+import "./libs/TokenMsgFlag.tsol";
+import "./libs/Errors.tsol";
+
+
+contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokensTransferCallback {
+    bool public incoming_;
+
+    address static tokenRoot_;
+    address public tokenWallet_;
+    address public counterparty_;
+    uint64 public timelock_;
+    uint128 public amount_;
+    uint128 public capacity_;
+    uint public hashlock_;
+
+    // hash time locked contract
+    event HTLCNew(
+        bool incoming,
+        address indexed counterparty,
+        address indexed tokenWallet,
+        address indexed tokenRoot,
+        uint128 amount,
+        uint hashlock,
+        uint64 timelock
+    );
+
+    event HTLCSettle(uint indexed preimage, address tokenRoot, uint128 amount);
+    event HTLCRefund(uint indexed hashlock, address tokenRoot, uint128 amount);
+    event HTLCReset();
+
+    constructor( optional(address) _owner ) public checkPubKey {
+        tvm.accept();
+        address owner = _owner.hasValue() ? _owner.get() : msg.sender;
+        setOwnership(owner);
+
+        require(address(this).balance >= 1.5 ever, HTLCErrors.NOT_ENOUGH_BALANCE);
+
+        tvm.rawReserve(1 ever, 0);
+        resetContractState();
+        capacity_ = 0;
+        timelock_ = 0; // debugging reasons
+        ITokenRoot(tokenRoot_).deployWallet{
+                value: 0,
+                bounce: false,
+                flag: 128,
+                callback: onWalletDeployed
+        }(address(this), 0.15 ever);
+    }
+
+    modifier onlyOurWallet() {
+        require(tokenWallet_.value != 0 && msg.sender == tokenWallet_, HTLCErrors.INVALID_TOKEN_WALLET);
+        _;
+    }
+
+    modifier hashlockMatches(uint preimage) {
+        require(hashlock_ == uint
+        (
+            sha256(abi.encode(preimage).toSlice())
+        ), HTLCErrors.WRONG_PREIMAGE
+        );
+        _;
+    }
+
+    modifier ready() {
+        require(hashlock_ == 0x0, HTLCErrors.IN_SETTLEMENT_PHASE);
+        _;
+    }
+
+    modifier locked() {
+        require(hashlock_ != 0x0, HTLCErrors.NOT_SETTLING);
+        _;
+    }
+
+    function route(
+        address counterparty,
+        uint128 amount,
+        uint hashlock,
+        uint64 timelock
+    ) public onlyOwner ready {
+        require(amount > 0, HTLCErrors.ZERO_AMOUNT);
+        require(amount <= capacity_, HTLCErrors.NOT_ENOUGH_CAPACITY);
+        require(timelock > now, HTLCErrors.PAST_TIMELOCK);
+        tvm.accept();
+        //tvm.rawReserve(0.5 ever, 0);
+
+        // this method is only for outgoing transfers
+        incoming_ = false;
+        counterparty_ = counterparty;
+        amount_ = amount;
+        hashlock_ = hashlock;
+        timelock_ = timelock;
+
+        emit HTLCNew(incoming_, counterparty_, tokenRoot_, tokenWallet_, amount_, hashlock_, timelock_);
+    }
+
+    function settle(uint preimage) public hashlockMatches(preimage) locked returns (bool) {
+        tvm.accept();
+        TvmCell empty;
+        if (incoming_) {
+            // funds remain in contract
+            emit HTLCSettle(preimage, tokenRoot_, amount_);
+        } else {
+            ITokenWallet(tokenWallet_).transfer{value: 0, bounce: true, flag: TokenMsgFlag.ALL_NOT_RESERVED}(
+                amount_,
+                counterparty_,
+                0.1 ever,
+                address(this),
+                false,
+                empty
+            );
+            capacity_ -= amount_;
+            emit HTLCSettle(preimage, tokenRoot_, amount_);
+        }
+        resetContractState();
+        return true;
+    }
+
+    function refund() public locked {
+        tvm.accept();
+        tvm.rawReserve(0.5 ever, 0);
+        // <= includes 0 = 0 which not good when the contract is reset
+        require(timelock_ < now, HTLCErrors.TIMELOCKED);
+        TvmCell empty;
+        if (incoming_) {
+            ITokenWallet(tokenWallet_).transfer{
+                    value: 0, bounce: false, flag: TokenMsgFlag.ALL_NOT_RESERVED
+            }(
+                amount_,
+                counterparty_,   // recipient
+                0.1 ever,               // deployWalletValue
+                address(this),   // recipient of remaining gas
+                false,           // notification flag
+                empty            // notification data
+            );
+            capacity_ -= amount_;
+        }
+        emit HTLCRefund(hashlock_, tokenRoot_, amount_);
+        resetContractState();
+    }
+
+    function transfer(address destination, uint128 amount) public onlyOwner ready {
+        // ready is for transfers exclusively when there is no in-flight HTLC
+        tvm.accept();
+        tvm.rawReserve(0.5 ever, 0);
+
+        // Allow to withdraw amount > balance
+        // Because someone can send tokens without notification.
+       if (amount > capacity_) {
+           capacity_ = 0;
+        } else {
+            capacity_ -= amount;
+        }
+
+        TvmCell empty;
+        ITokenWallet(tokenWallet_).transfer{value: 0, bounce: true, flag: TokenMsgFlag.ALL_NOT_RESERVED}(
+            amount,
+            destination,
+            0.1 ever,
+            address(this),
+            false,
+            empty
+        );
+    }
+
+    function resetContractState() internal {
+        tvm.accept(); // https://github.com/mnill/venom-crash-course-snippets/issues/2
+        counterparty_ = address(0);
+        amount_ = 0;
+        timelock_ = 0; // debugging reasons
+        hashlock_ = 0x0;
+        emit HTLCReset();
+    }
+
+    // Taken from Sample contract
+    function getDetails()
+    external
+    view
+    returns (
+        bool incoming,
+        address counterparty,
+        address tokenRoot,
+        address tokenWallet,
+        uint128 amount,
+        uint hashlock,
+        uint64 timelock,
+        uint128 capacity
+    ) {
+        return (incoming_, counterparty_, tokenRoot_, tokenWallet_, amount_, hashlock_, timelock_, capacity_);
+    }
+
+
+
+    function onWalletDeployed(
+        address tokenWallet
+    ) public {
+        // There we got callback from ITokenRoot(tokenRoot_).deployWallet
+        // How it is really work:
+        // In constructor we called responsible function ITokenRoot(tokenRoot_).deployWallet
+        // responsible keyword just adds a hidden function param "answerID"
+        // answerID - just ID of function contract must call in the answer
+        // So return { value: 0, flag: TokenMsgFlag.ALL_NOT_RESERVED, bounce: false } tokenWallet
+        // in the deployWallet function will be compiled to something like
+        // msg.sender.call{value: 0, flag: TokenMsgFlag.ALL_NOT_RESERVED, bounce: false, function:answerId}(tokenWallet)
+
+        // There is no built-in check to make sure this function
+        // is truly being called in answer to your call.
+        // So we need to implement security checks manually
+        require(msg.sender == tokenRoot_, HTLCErrors.INVALID_TOKEN_ROOT);
+        tokenWallet_ = tokenWallet;
+
+        // Fun fact, when we get an answer here, that does not mean
+        // that the wallet is deployed. This means that the Root
+        // contract created an outgoing deploy message.
+        // We can receive this message before the wallet is deployed
+        // (the message is en route).
+        // In principle, the LT (see additional information) guarantees us,
+        // that if we want to call a wallet method from here,
+        // our message will not arrive earlier than the wallet is deployed.
+    }
+
+    function onAcceptTokensTransfer(
+        address tokenRoot,
+        uint128 amount,
+        address sender,
+        address senderWallet,
+        address remainingGasTo,
+        TvmCell payload
+    ) override external onlyOurWallet {
+        require(tokenRoot == tokenRoot_, HTLCErrors.INVALID_TOKEN_ROOT);
+        capacity_ += amount; // count all incoming tokens
+        TvmSlice payloadSlice = payload.toSlice();
+        TvmCell empty;
+
+        if (payloadSlice.bits() == 588) { //588 on tests
+            // just failing in case we get it from unknown tokens
+            tvm.rawReserve(0.5 ever, 0);
+
+            ( bool incoming, address counterparty ) = payloadSlice.decode( bool, address );
+
+            if (hashlock_ == 0x0) { // contract is ready
+                incoming_ = incoming;
+                counterparty_ = counterparty;
+                amount_ = payloadSlice.bits();
+
+                ( uint hashlock, uint64 timelock ) = payloadSlice.decode( uint, uint64 );
+                require(timelock > now, HTLCErrors.PAST_TIMELOCK);
+                amount_ = amount;
+                timelock_ = timelock;
+                hashlock_ = hashlock;
+            } else {
+                // contract is locked. Couldn't use modifier for callback
+                // TODO: return does not work
+                //  CALL ERROR (phase: action, code: 37)
+                ITokenWallet(tokenWallet_).transfer{
+                        value: 0, bounce: true, flag: TokenMsgFlag.ALL_NOT_RESERVED
+                }(
+                    amount,
+                    sender,
+                    0.1 ever,
+                    remainingGasTo,
+                    false,
+                    empty
+                );
+                revert(HTLCErrors.IN_SETTLEMENT_PHASE);
+            }
+        } else {
+            ITokenWallet(tokenWallet_).transfer{
+                    value: 0, bounce: true, flag: TokenMsgFlag.ALL_NOT_RESERVED
+            }(
+                amount,
+                sender,
+                0.1 ever,
+                remainingGasTo,
+                false,
+                empty
+            );
+            revert(HTLCErrors.INCORRECT_PAYLOAD);
+        }
+        remainingGasTo.transfer(0, false, TokenMsgFlag.ALL_NOT_RESERVED);
+    }
+}

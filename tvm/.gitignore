@@ -1,4 +1,24 @@
 abi/
-build/
 node_modules/
+.idea/
+build/Test*
 .env
+.temp
+
+/locklift.config.js
+/locklift-custom.config.js
+/locklift-v2.config.ts
+/locklift-custom.config.ts
+
+migration-log.json
+locklift.migration.json
+
+deployments/
+
+# Ignore Mac files
+.DS_Store
+
+build/*.tvc
+build/*.code
+build/*.base64
+build/*.ts
