@@ -1,35 +1,8 @@
 {
-  "name": "ethereum-htlc",
-  "version": "0.0.8",
-  "description": "Hashed Timelock Contracts for Ethereum",
-  "license": "GPL-3.0",
-  "repository": "chatch/hashed-timelock-contract-ethereum",
-  "bugs": {
-    "url": "https://github.com/chatch/hashed-timelock-contract-ethereum/issues"
-  },
-  "directories": {
-    "doc": "docs",
-    "test": "test"
-  },
-  "scripts": {
-    "test": "truffle test"
-  },
-  "keywords": [
-    "ethereum",
-    "hashed-timelock-contract",
-    "solidity",
-    "smart-contract"
-  ],
-  "homepage": "https://github.com/chatch/hashed-timelock-contract-ethereum#README.md",
-  "dependencies": {
-    "@openzeppelin/contracts": "^4.9.6"
-  },
   "devDependencies": {
-    "@nomicfoundation/hardhat-chai-matchers": "^2.0.6",
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
-    "@nomiclabs/hardhat-truffle5": "^2.0.7",
-    "eslint": "^5.13.0",
-    "hardhat": "^2.22.2",
-    "truffle-assertions": "^0.9.2"
+    "@nomicfoundation/hardhat-ethers": "^3.0.7",
+    "@openzeppelin/contracts": "^5.0.2",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.9"
   }
 }

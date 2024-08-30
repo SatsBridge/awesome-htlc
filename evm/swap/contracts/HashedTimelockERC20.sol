@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: GNU */
-pragma solidity ^0.7.6;
+pragma solidity ^0.8.20;
 
-import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 /**
 * @title Hashed Timelock Contracts (HTLCs) on Ethereum ERC20 tokens.
