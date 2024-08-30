@@ -50,8 +50,6 @@ The `onAcceptTokensTransfer` receives several parameters that provide context ab
  - `remainingGasTo`: The address intended to receive any remaining gas left over from the transaction.
  - `payload`: A TvmCell containing additional data or instructions that may affect the logic executed by the callback.
 
-In the provided HTLCForwarder contract for the TON blockchain, the `onAcceptTokensTransfer` function uses a specific modifier named `onlyOurWallet` to enforce certain security and logical constraints. Here’s an analysis of this modifier and its implications:
-
 The Modifier `onlyOurWallet` ensures that the `onAcceptTokensTransfer` callback function is only executed under secure 
 and expected conditions. Here's how it works:
 
