@@ -1,5 +1,6 @@
 //require('@nomiclabs/hardhat-truffle5');
 //require('@nomicfoundation/hardhat-chai-matchers');
+require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 
 const {
@@ -27,7 +28,27 @@ module.exports = {
         passphrase: "",
       },
     },
-    linea_mainnet: {
+    arbitrum_testnet: {
+      url: `https://arbitrum-sepolia.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: {
+        mnemonic: MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+        passphrase: "",
+      },
+    },
+    arbitrum: {
+      url: `https://arbitrum-mainnet.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: {
+        mnemonic: MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+        passphrase: "",
+      },
+    },
+    linea: {
       url: `https://linea-mainnet.infura.io/v3/${INFURA_API_KEY}`,
       accounts: {
         mnemonic: MNEMONIC,
