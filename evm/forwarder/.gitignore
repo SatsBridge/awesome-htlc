@@ -1,0 +1,7 @@
+abi/
+build/
+node_modules/
+.env
+*.sh
+foundry.toml
+ignition/

@@ -6,37 +6,34 @@ HashedTimelockERC20 contract: sender withdraws refund after timelock expiry
 end legend
 
 box "Ethereum Network" #A9C5E6
-participant Sender as sender << Account >>
-participant Receiver as receiver << Account >>
-participant HashedTimelockERC20 as htlc << Smart Contract >>
-participant ERC20Contract as token << Smart Contract >>
+participant Counterparty as counterparty << Account >>
+participant Router as router << Account >>
+participant ForwardHashedTimelockERC20 as htlc << HTLC >>
+participant ERC20Contract as token << Token >>
 participant Events as events
 end box
 
-activate token
-  sender->token:approve(htlc address, amount)
-  token->sender
-deactivate token
+counterparty->token:approve(htlc address, amount)
+token->counterparty
+counterparty->htlc:RequestRouting(\n\tincoming\n\tcounterparty,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
 
 activate htlc
-  sender->htlc:newContract(\n\treceiver,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
-  activate token
-    htlc->token:transferFrom(sender, htlc address, amount)
-    token->htlc
-  deactivate token
-  htlc->events:LogHTLCERC20New(contractId, locks, values, etc.)
-  htlc->sender:contractId
+  htlc->token:transferFrom(counterparty, htlc address, amount)
+  token->htlc
+  htlc->events:LogHTLCERC20New(locks, values, etc.)
+  htlc->counterparty:hashlock
 deactivate htlc
 
-receiver->receiver:receiver does nothing\nafter timelock seconds:\nCONTRACT EXPIRES
+counterparty->counterparty:receiver does nothing\nafter timelock seconds:\nCONTRACT EXPIRES
+
+counterparty->htlc:refund()
 
 activate htlc
-  sender->htlc:refund(contractId)
-  activate token
-    htlc->token:transfer(sender, amount)
-    token->htlc
-  deactivate token
-  htlc->events:LogHTLCERC20Refund(contractId)
+  htlc->token:transfer(counterparty, amount)
+  token->htlc
+  htlc->events:LogHTLCERC20Refund(contracted)
 deactivate htlc
+
+token->counterparty:receives refunded tokens
 
 @enduml

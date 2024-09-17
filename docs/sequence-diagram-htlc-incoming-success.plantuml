@@ -9,12 +9,12 @@ end legend
 box "Ethereum Network" #A9C5E6
 participant Counterparty as counterparty << Account >>
 participant Router as router << Account >>
-participant ForwardHashedTimelockERC20 as htlc << Smart Contract >>
-participant ERC20Contract as token << Smart Contract >>
+participant ForwardHashedTimelockERC20 as htlc << HTLC >>
+participant ERC20Contract as token << Token >>
 participant Events as events
 end box
 
-note left of htlc
+note right of htlc
 State stored:
   bool incoming;
   address counterparty;
@@ -24,27 +24,26 @@ State stored:
   uint timelock; // UNIX ts
 end note
 
-activate token
-  counterparty->token:approve(htlc address, amount)
-  token->counterparty
-deactivate token
+counterparty->token:approve(htlc address, amount)
+token->counterparty
+
+counterparty->htlc:RequestRouting(\n\tincoming\n\tcounterparty,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
 
 activate htlc
-  counterparty->htlc:RequestRouting(\n\tincoming\n\tcounterparty,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
-  activate token
-    htlc->token:transferFrom(counterparty, htlc address, amount)
-    token->htlc
-  deactivate token
+  htlc->token:transferFrom(counterparty, htlc address, amount)
+  token->htlc
   htlc->events:LogHTLCERC20New(locks, values, etc.)
   htlc->counterparty:hashlock
 deactivate htlc
 
-counterparty->router:reveals contractId
+counterparty->router:submits BOLT11
 router->router:knows/obtains secret preimage\n[sha256(secret preimage) == hashlock]
 
+router->htlc:settle(secret preimage)
+
 activate htlc
-  router->htlc:settle(secret preimage)
   htlc->events:LogHTLCERC20Settle(secret preimage)
+  htlc->htlc:funds stay in contract for Outgoing swap
 deactivate htlc
 
 @enduml

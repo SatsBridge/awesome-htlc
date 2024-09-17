@@ -14,7 +14,7 @@ participant ERC20Contract as token << Smart Contract >>
 participant Events as events
 end box
 
-note left of htlc
+note right of htlc
 State stored:
   bool incoming;
   address counterparty;
@@ -27,24 +27,29 @@ end note
 router->counterparty:sends fee invoice (DDOS protection)
 counterparty->router:pays fee
 
+router->htlc:RequestRouting(\n\tincoming\n\tcounterparty,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
+
 activate htlc
-  router->htlc:RequestRouting(\n\tincoming\n\tcounterparty,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
   htlc->events:LogHTLCERC20New(locks, values, etc.)
   htlc->router:hashlock
 deactivate htlc
 
 router->counterparty:sends BOLT11 with hashlock
-counterparty->counterparty:verifies contract hashlock & timelock
-counterparty->router:pays BOLT11
+
+activate counterparty
+  counterparty->counterparty:verifies contract hashlock & timelock
+  counterparty->router:pays BOLT11
+deactivate counterparty
+
 router->counterparty:reveals preimage\n[sha256(secret preimage) == hashlock]
 
+counterparty->htlc:settle(secret preimage)
 activate htlc
-  counterparty->htlc:settle(secret preimage)
-  activate token
-    htlc->token:transfer(counterparty, amount)
-    token->htlc
-  deactivate token
+  htlc->token:transfer(counterparty, amount)
+  token->htlc
   htlc->events:LogHTLCERC20Withdraw(secret preimage)
 deactivate htlc
+
+token->counterparty:counterparty receives tokens
 
 @enduml

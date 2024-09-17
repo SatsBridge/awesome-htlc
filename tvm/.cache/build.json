@@ -1,0 +1,101 @@
+{
+    "contracts/libs/TokenMsgFlag.tsol": {
+        "modificationTime": 1720130878941
+    },
+    "contracts/libs/Errors.tsol": {
+        "modificationTime": 1722546015142
+    },
+    "node_modules/@broxus/tip3/contracts/TokenRootUpgradeable.tsol": {
+        "modificationTime": 1724942322240
+    },
+    "node_modules/@broxus/tip3/contracts/TokenWallet.tsol": {
+        "modificationTime": 1724942322244
+    },
+    "node_modules/@broxus/tip3/contracts/TokenWalletPlatform.tsol": {
+        "modificationTime": 1724942322264
+    },
+    "node_modules/@broxus/tip3/contracts/TokenWalletUpgradeable.tsol": {
+        "modificationTime": 1724942322265
+    },
+    "node_modules/@broxus/tip3/contracts/TokenRoot.tsol": {
+        "modificationTime": 1724942322225
+    },
+    "contracts/HTLCForwarder.tsol": {
+        "modificationTime": 1724882693279
+    },
+    "node_modules/@broxus/tip3/contracts/abstract/TokenRootTransferableOwnershipBase.tsol": {
+        "modificationTime": 1724942322236
+    },
+    "node_modules/@broxus/tip3/contracts/abstract/TokenRootBurnPausableBase.tsol": {
+        "modificationTime": 1724942322231
+    },
+    "node_modules/@broxus/tip3/contracts/abstract/TokenRootBurnableByRootBase.tsol": {
+        "modificationTime": 1724942322230
+    },
+    "node_modules/@broxus/tip3/contracts/abstract/TokenRootDisableableMintBase.tsol": {
+        "modificationTime": 1724942322232
+    },
+    "node_modules/@broxus/tip3/contracts/interfaces/ITokenRootUpgradeable.tsol": {
+        "modificationTime": 1724942322207
+    },
+    "node_modules/@broxus/tip3/contracts/interfaces/ITokenWalletUpgradeable.tsol": {
+        "modificationTime": 1724942322210
+    },
+    "node_modules/@broxus/tip3/contracts/interfaces/IVersioned.tsol": {
+        "modificationTime": 1724942322215
+    },
+    "node_modules/@broxus/tip3/contracts/libraries/TokenMsgFlag.tsol": {
+        "modificationTime": 1724942322224
+    },
+    "node_modules/@broxus/tip3/contracts/libraries/TokenErrors.tsol": {
+        "modificationTime": 1724942322221
+    },
+    "node_modules/@broxus/tip3/contracts/libraries/TokenGas.tsol": {
+        "modificationTime": 1724942322223
+    },
+    "node_modules/@broxus/tip3/contracts/abstract/TokenWalletBurnableByRootBase.tsol": {
+        "modificationTime": 1724942322255
+    },
+    "node_modules/@broxus/tip3/contracts/abstract/TokenWalletBurnableBase.tsol": {
+        "modificationTime": 1724942322251
+    },
+    "node_modules/@broxus/tip3/contracts/abstract/TokenWalletDestroyableBase.tsol": {
+        "modificationTime": 1724942322262
+    },
+    "/tmp/awesome-htlc/tvm/node_modules/@broxus/contracts/contracts/utils/RandomNonce.tsol": {
+        "modificationTime": 1724942322092
+    },
+    "/tmp/awesome-htlc/tvm/node_modules/@broxus/contracts/contracts/access/InternalOwner.tsol": {
+        "modificationTime": 1724942322059
+    },
+    "/tmp/awesome-htlc/tvm/node_modules/@broxus/contracts/contracts/utils/CheckPubKey.tsol": {
+        "modificationTime": 1724942322042
+    },
+    "/tmp/awesome-htlc/tvm/node_modules/@broxus/contracts/contracts/libraries/MsgFlag.tsol": {
+        "modificationTime": 1724942322068
+    },
+    "/tmp/awesome-htlc/tvm/node_modules/@broxus/tip3/contracts/interfaces/ITokenWallet.tsol": {
+        "modificationTime": 1724942322208
+    },
+    "/tmp/awesome-htlc/tvm/node_modules/@broxus/tip3/contracts/interfaces/ITokenRoot.tsol": {
+        "modificationTime": 1724942322205
+    },
+    "/tmp/awesome-htlc/tvm/node_modules/@broxus/tip3/contracts/interfaces/IAcceptTokensTransferCallback.tsol": {
+        "modificationTime": 1724942322189
+    },
+    "compilerSettings": {
+        "externalContracts": {
+            "node_modules/@broxus/tip3/contracts": [
+                "Account",
+                "TokenRoot",
+                "TokenWallet",
+                "TokenRootUpgradeable",
+                "TokenWalletUpgradeable",
+                "TokenWalletPlatform"
+            ]
+        },
+        "compilerPath": "/root/.cache/locklift-nodejs/compiler/0_62_0/solc_0_62_0_linux",
+        "linkerPath": "/root/.cache/locklift-nodejs/linker/0_15_48/tvm_linker_0_15_48_linux",
+        "linkerLibPath": "/root/.cache/locklift-nodejs/lib/0_62_0/stdlib_sol_0_62_0.tvm"
+    }
+}

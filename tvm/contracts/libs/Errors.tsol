@@ -1,0 +1,17 @@
+pragma ever-solidity >= 0.62.0;
+
+library HTLCErrors {
+    uint16 constant PAST_TIMELOCK         = 1000; //"timelock time must be in the future"
+    uint16 constant NOT_SETTLING          = 1001; //"Not in settlement state"
+    uint16 constant TIMELOCKED            = 1002; //"Timelock not yet passed"
+    uint16 constant WRONG_PREIMAGE        = 1003; //"hashlock hash does not match"
+    uint16 constant IN_SETTLEMENT_PHASE   = 1004; //"Contract in settlement state"
+    uint16 constant ZERO_AMOUNT           = 1005; //"Zero amount provided on routing request"
+    uint16 constant NOT_OWNER             = 1006; //
+    uint16 constant INVALID_TOKEN_ROOT    = 1007; //
+    uint16 constant INVALID_TOKEN_WALLET  = 1008; //
+    uint16 constant NON_ZERO_PUBLIC_KEY   = 1009; //
+    uint16 constant NOT_ENOUGH_BALANCE    = 1010; //
+    uint16 constant NOT_ENOUGH_CAPACITY   = 1011; //
+    uint16 constant INCORRECT_PAYLOAD     = 1012; //
+}
