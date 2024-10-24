@@ -1,7 +1,7 @@
 pragma ever-solidity >= 0.62.0;
 
 library HTLCErrors {
-    uint16 constant PAST_TIMELOCK         = 1000; //"timelock time must be in the future"
+    uint16 constant BAD_TIMELOCK         = 1000; //"timelock time must be in the future AND not too far"
     uint16 constant NOT_SETTLING          = 1001; //"Not in settlement state"
     uint16 constant TIMELOCKED            = 1002; //"Timelock not yet passed"
     uint16 constant WRONG_PREIMAGE        = 1003; //"hashlock hash does not match"

@@ -154,7 +154,7 @@ describe("Test HTLC forwarder contract", async function () {
       console.log(`TIP3 Token: ${tokenRoot.address}`);
       console.log(`Balance: ${tokenBalance}`);
     });
-    it("Token transactpion test", async function () {
+    it("Token transaction test", async function () {
       ownerTip3WalletAddress = (
         await tokenRoot.methods.walletOf({ answerId: 0, walletOwner: ownerWallet.account.address }).call()
       ).value0;
