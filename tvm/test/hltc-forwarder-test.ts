@@ -257,13 +257,14 @@ describe("Test HTLC forwarder contract", async function () {
     });
 
     it("Pushing incorrect payload into HTLC", async function () {
+      const now = Math.floor((Date.now())/1000);
       const htlcPayload = (
         await locklift.provider.packIntoCell({
           data: {
             _incoming: true,
             _counterparty: true,
             _hashlock: bufToStr(TEST_PAYMENT_SHA),
-            _timelock: Date.now() + 24 * 60 * 60 * 100,
+            _timelock: now + 3600,
           },
           structure: [
             { name: "_incoming", type: "bool" },
@@ -391,14 +392,14 @@ describe("Test HTLC forwarder contract", async function () {
       //expect(Number(response.hashlock)).to.be.not(0, "Wrong state");
       //expect(Number(response.timelock)).to.be.not(0, "Wrong state");
       // this should fail
-
+      const now = Math.floor((Date.now())/1000);
       const htlcPayload = (
         await locklift.provider.packIntoCell({
           data: {
             _incoming: true,
             _counterparty: userTip3WalletAddress,
             _hashlock: bufToStr(TEST_PAYMENT_SHA),
-            _timelock: 18732, //Date.now() - 24 * 60 * 60 * 100,
+            _timelock: now + 60 * 60,
           },
           structure: [
             { name: "_incoming", type: "bool" },
@@ -518,13 +519,14 @@ describe("Test HTLC forwarder contract", async function () {
     });
 
     it("Pushing incoming HTLC in contract to test settlement", async function () {
+      const now = Math.floor((Date.now())/1000);
       const htlcPayload = (
         await locklift.provider.packIntoCell({
           data: {
             _incoming: true,
             _counterparty: userTip3WalletAddress,
             _hashlock: bufToStr(TEST_PAYMENT_SHA),
-            _timelock: Date.now() + 24 * 60 * 60 * 100,
+            _timelock: now + 60 * 60,
           },
           structure: [
             { name: "_incoming", type: "bool" },
@@ -603,13 +605,14 @@ describe("Test HTLC forwarder contract", async function () {
     });
 
     it("Request for outgoing transfer", async function () {
+      const now = Math.floor((Date.now())/1000);
       const { traceTree } = await locklift.tracing.trace(
         htlc.methods
           .route({
             counterparty: userTip3WalletAddress,
             amount: toNano(0.10101), // we have to request more
             hashlock: bufToStr(TEST_PAYMENT_SHA),
-            timelock: Date.now() + 4,//24 * 60 * 60 * 100,
+            timelock: now + 60,//24 * 60 * 60 * 100,
           })
           .send({
             from: ownerWallet.account.address,
@@ -631,14 +634,14 @@ describe("Test HTLC forwarder contract", async function () {
         toNano(0.10101).toString(),
         "HTLC wallet amount should be equal to the amount transferred",
       );
-
+      const now = Math.floor((Date.now())/1000);
       const { traceTree } = await locklift.tracing.trace(
         htlc.methods
           .route({
             counterparty: userTip3WalletAddress,
             amount: toNano(0.101),
             hashlock: bufToStr(TEST_PAYMENT_SHA),
-            timelock: Date.now() + 4, // 24 * 60 * 60 * 100,
+            timelock: now + 4, // 24 * 60 * 60 * 100,
           })
           .send({
             from: ownerWallet.account.address,

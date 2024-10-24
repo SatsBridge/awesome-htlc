@@ -91,7 +91,8 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
     ) public onlyOwner ready {
         require(amount > 0, HTLCErrors.ZERO_AMOUNT);
         require(amount <= capacity_, HTLCErrors.NOT_ENOUGH_CAPACITY);
-        require(timelock > now, HTLCErrors.PAST_TIMELOCK);
+        require(timelock > now, HTLCErrors.BAD_TIMELOCK); // future condition
+        require(timelock < now + 86400, HTLCErrors.BAD_TIMELOCK); // less than 24 hours
         tvm.accept();
         //tvm.rawReserve(0.5 ever, 0);
 
