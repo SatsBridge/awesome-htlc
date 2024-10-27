@@ -118,7 +118,7 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
                 counterparty_,
                 0.1 ever,
                 address(this),
-                false,
+                true,
                 empty
             );
             capacity_ -= amount_;
@@ -142,7 +142,7 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
                 counterparty_,   // recipient
                 0.1 ever,               // deployWalletValue
                 address(this),   // recipient of remaining gas
-                false,           // notification flag
+                true,           // notification flag
                 empty            // notification data
             );
             capacity_ -= amount_;
@@ -170,7 +170,7 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
             destination,
             0.1 ever,
             address(this),
-            false,
+            true,
             empty
         );
     }
@@ -272,7 +272,7 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
                     sender,
                     0.1 ever,
                     remainingGasTo,
-                    false,
+                    true,
                     empty
                 );
                 revert(HTLCErrors.IN_SETTLEMENT_PHASE);
@@ -285,7 +285,7 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
                 sender,
                 0.1 ever,
                 remainingGasTo,
-                false,
+                true,
                 empty
             );
             revert(HTLCErrors.INCORRECT_PAYLOAD);
