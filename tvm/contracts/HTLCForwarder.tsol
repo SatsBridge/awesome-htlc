@@ -170,7 +170,7 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
             destination,
             0.1 ever,
             address(this),
-            true,
+            false,
             empty
         );
     }
@@ -238,58 +238,31 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
         address senderWallet,
         address remainingGasTo,
         TvmCell payload
-    ) override external onlyOurWallet {
+    ) override external onlyOurWallet ready {
+        // just failing in case we get it from unknown tokens
         require(tokenRoot == tokenRoot_, HTLCErrors.INVALID_TOKEN_ROOT);
         capacity_ += amount; // count all incoming tokens
         TvmSlice payloadSlice = payload.toSlice();
         TvmCell empty;
 
         if (payloadSlice.bits() == 588) { //588 on tests
-            // just failing in case we get it from unknown tokens
             tvm.rawReserve(0.5 ever, 0);
 
             ( bool incoming, address counterparty ) = payloadSlice.decode( bool, address );
 
-            if (hashlock_ == 0x0) { // contract is ready
-                incoming_ = incoming;
-                counterparty_ = counterparty;
-                amount_ = payloadSlice.bits();
+            incoming_ = incoming;
+            counterparty_ = counterparty;
+            amount_ = payloadSlice.bits();
 
-                ( uint hashlock, uint64 timelock ) = payloadSlice.decode( uint, uint64 );
-                require(timelock > now, HTLCErrors.BAD_TIMELOCK); // future condition
-                require(timelock < now + 86400, HTLCErrors.BAD_TIMELOCK); // less than 24 hours
-                amount_ = amount;
-                timelock_ = timelock;
-                hashlock_ = hashlock;
-            } else {
-                // contract is locked. Couldn't use modifier for callback
-                // TODO: return does not work
-                //  CALL ERROR (phase: action, code: 37)
-                ITokenWallet(tokenWallet_).transfer{
-                        value: 0, bounce: true, flag: TokenMsgFlag.ALL_NOT_RESERVED
-                }(
-                    amount,
-                    sender,
-                    0.1 ever,
-                    remainingGasTo,
-                    true,
-                    empty
-                );
-                revert(HTLCErrors.IN_SETTLEMENT_PHASE);
-            }
-        } else {
-            ITokenWallet(tokenWallet_).transfer{
-                    value: 0, bounce: true, flag: TokenMsgFlag.ALL_NOT_RESERVED
-            }(
-                amount,
-                sender,
-                0.1 ever,
-                remainingGasTo,
-                true,
-                empty
-            );
-            revert(HTLCErrors.INCORRECT_PAYLOAD);
+            ( uint hashlock, uint64 timelock ) = payloadSlice.decode( uint, uint64 );
+            require(timelock > now, HTLCErrors.BAD_TIMELOCK); // future condition
+            require(timelock < now + 86400, HTLCErrors.BAD_TIMELOCK); // less than 24 hours
+            amount_ = amount;
+            timelock_ = timelock;
+            hashlock_ = hashlock;
+
         }
+
         remainingGasTo.transfer(0, false, TokenMsgFlag.ALL_NOT_RESERVED);
     }
 }

@@ -1,247 +1,5 @@
 {
   "map": {
-    "04de0497f9da1799e1d859fd31bba1a1997dc38c9b4a0ec4e786b0548ae70443": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1305
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1306
-      },
-      "24": {
-        "filename": "HTLCForwarder.code",
-        "line": 1307
-      },
-      "40": {
-        "filename": "HTLCForwarder.code",
-        "line": 1308
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1309
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 1310
-      },
-      "80": {
-        "filename": "HTLCForwarder.code",
-        "line": 1313
-      },
-      "96": {
-        "filename": "HTLCForwarder.code",
-        "line": 1314
-      },
-      "104": {
-        "filename": "HTLCForwarder.code",
-        "line": 1315
-      },
-      "120": {
-        "filename": "HTLCForwarder.code",
-        "line": 1318
-      },
-      "136": {
-        "filename": "HTLCForwarder.code",
-        "line": 1319
-      },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 1320
-      },
-      "160": {
-        "filename": "HTLCForwarder.code",
-        "line": 1321
-      },
-      "176": {
-        "filename": "HTLCForwarder.code",
-        "line": 1322
-      },
-      "192": {
-        "filename": "HTLCForwarder.code",
-        "line": 1323
-      },
-      "200": {
-        "filename": "HTLCForwarder.code",
-        "line": 1324
-      },
-      "216": {
-        "filename": "HTLCForwarder.code",
-        "line": 1325
-      },
-      "224": {
-        "filename": "HTLCForwarder.code",
-        "line": 1326
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1327
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1328
-      },
-      "256": {
-        "filename": "HTLCForwarder.code",
-        "line": 1329
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 1330
-      },
-      "280": {
-        "filename": "HTLCForwarder.code",
-        "line": 1331
-      },
-      "288": {
-        "filename": "HTLCForwarder.code",
-        "line": 1333
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1334
-      },
-      "304": {
-        "filename": "HTLCForwarder.code",
-        "line": 1335
-      },
-      "320": {
-        "filename": "HTLCForwarder.code",
-        "line": 1337
-      },
-      "328": {
-        "filename": "HTLCForwarder.code",
-        "line": 1338
-      },
-      "336": {
-        "filename": "HTLCForwarder.code",
-        "line": 1339
-      },
-      "352": {
-        "filename": "HTLCForwarder.code",
-        "line": 1340
-      },
-      "368": {
-        "filename": "HTLCForwarder.code",
-        "line": 1341
-      },
-      "384": {
-        "filename": "HTLCForwarder.code",
-        "line": 1343
-      },
-      "392": {
-        "filename": "HTLCForwarder.code",
-        "line": 1344
-      },
-      "408": {
-        "filename": "HTLCForwarder.code",
-        "line": 1345
-      },
-      "416": {
-        "filename": "HTLCForwarder.code",
-        "line": 1346
-      },
-      "432": {
-        "filename": "HTLCForwarder.code",
-        "line": 1348
-      },
-      "440": {
-        "filename": "HTLCForwarder.code",
-        "line": 1349
-      },
-      "456": {
-        "filename": "HTLCForwarder.code",
-        "line": 1350
-      },
-      "464": {
-        "filename": "stdlib.sol",
-        "line": 61
-      },
-      "480": {
-        "filename": "stdlib.sol",
-        "line": 61
-      },
-      "488": {
-        "filename": "stdlib.sol",
-        "line": 61
-      },
-      "496": {
-        "filename": "stdlib.sol",
-        "line": 61
-      },
-      "512": {
-        "filename": "stdlib.sol",
-        "line": 62
-      },
-      "520": {
-        "filename": "stdlib.sol",
-        "line": 62
-      },
-      "536": {
-        "filename": "stdlib.sol",
-        "line": 62
-      },
-      "560": {
-        "filename": "stdlib.sol",
-        "line": 62
-      },
-      "568": {
-        "filename": "stdlib.sol",
-        "line": 62
-      },
-      "608": {
-        "filename": "stdlib.sol",
-        "line": 62
-      },
-      "616": {
-        "filename": "stdlib.sol",
-        "line": 62
-      },
-      "624": {
-        "filename": "stdlib.sol",
-        "line": 62
-      },
-      "640": {
-        "filename": "stdlib.sol",
-        "line": 63
-      },
-      "656": {
-        "filename": "HTLCForwarder.code",
-        "line": 1352
-      },
-      "672": {
-        "filename": "HTLCForwarder.code",
-        "line": 1353
-      },
-      "680": {
-        "filename": "HTLCForwarder.code",
-        "line": 1354
-      },
-      "696": {
-        "filename": "HTLCForwarder.code",
-        "line": 1355
-      },
-      "704": {
-        "filename": "HTLCForwarder.code",
-        "line": 1356
-      },
-      "720": {
-        "filename": "HTLCForwarder.code",
-        "line": 1357
-      },
-      "736": {
-        "filename": "HTLCForwarder.code",
-        "line": 1358
-      },
-      "744": {
-        "filename": "HTLCForwarder.code",
-        "line": 1359
-      },
-      "760": {
-        "filename": "HTLCForwarder.code",
-        "line": 1362
-      }
-    },
     "0b40cc3100fa22436afc21c3bd9c17f65fff43034e147a5e51c55bba76a7aaf7": {
       "0": {
         "filename": "../contracts/HTLCForwarder.tsol",
@@ -267,187 +25,135 @@
     "1374c1c0099b687806c43feb60d3395ff6a8ee73eeac97d2009e766ce9c5e046": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1425
+        "line": 1346
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1426
+        "line": 1347
       },
       "16": {
         "filename": "HTLCForwarder.code",
-        "line": 1427
+        "line": 1348
       },
       "32": {
         "filename": "HTLCForwarder.code",
-        "line": 1430
+        "line": 1351
       },
       "48": {
         "filename": "HTLCForwarder.code",
-        "line": 1431
+        "line": 1352
       },
       "56": {
         "filename": "HTLCForwarder.code",
-        "line": 1432
+        "line": 1353
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1433
+        "line": 1354
       },
       "232": {
         "filename": "HTLCForwarder.code",
-        "line": 1434
+        "line": 1355
       },
       "240": {
         "filename": "HTLCForwarder.code",
-        "line": 1435
+        "line": 1356
       },
       "248": {
         "filename": "HTLCForwarder.code",
-        "line": 1436
+        "line": 1357
       },
       "256": {
         "filename": "HTLCForwarder.code",
-        "line": 1437
+        "line": 1358
       },
       "264": {
         "filename": "HTLCForwarder.code",
-        "line": 1438
+        "line": 1359
       },
       "272": {
         "filename": "HTLCForwarder.code",
-        "line": 1439
+        "line": 1360
       },
       "288": {
         "filename": "HTLCForwarder.code",
-        "line": 1441
+        "line": 1362
       },
       "296": {
         "filename": "HTLCForwarder.code",
-        "line": 1442
-      }
-    },
-    "1b255cd42b6cc0766d04a4ea72c5e3fb9ac6908e8531a9cc03231d3627e1427d": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1270
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1271
-      },
-      "24": {
-        "filename": "HTLCForwarder.code",
-        "line": 1272
-      },
-      "40": {
-        "filename": "HTLCForwarder.code",
-        "line": 1273
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1274
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 1275
-      },
-      "80": {
-        "filename": "HTLCForwarder.code",
-        "line": 1276
-      },
-      "88": {
-        "filename": "HTLCForwarder.code",
-        "line": 1277
-      },
-      "104": {
-        "filename": "HTLCForwarder.code",
-        "line": 1278
-      },
-      "120": {
-        "filename": "HTLCForwarder.code",
-        "line": 1279
-      },
-      "128": {
-        "filename": "HTLCForwarder.code",
-        "line": 1280
-      },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 1281
-      },
-      "168": {
-        "filename": "HTLCForwarder.code",
-        "line": 1282
-      },
-      "176": {
-        "filename": "HTLCForwarder.code",
-        "line": 1283
-      },
-      "184": {
-        "filename": "HTLCForwarder.code",
-        "line": 1284
-      },
-      "200": {
-        "filename": "HTLCForwarder.code",
-        "line": 1285
-      },
-      "216": {
-        "filename": "HTLCForwarder.code",
-        "line": 1289
-      },
-      "224": {
-        "filename": "HTLCForwarder.code",
-        "line": 1290
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1291
-      },
-      "264": {
-        "filename": "HTLCForwarder.code",
-        "line": 1292
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 1293
-      },
-      "288": {
-        "filename": "HTLCForwarder.code",
-        "line": 1297
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1298
-      },
-      "312": {
-        "filename": "HTLCForwarder.code",
-        "line": 1301
+        "line": 1363
       }
     },
     "1c83fac62a5009f9baeabbb66eaca571a85d8e4f685ce31c47f6ac4814a34752": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1151
+        "line": 1072
       },
       "16": {
         "filename": "HTLCForwarder.code",
-        "line": 1152
+        "line": 1073
       },
       "24": {
         "filename": "HTLCForwarder.code",
-        "line": 1153
+        "line": 1074
       },
       "40": {
         "filename": "HTLCForwarder.code",
-        "line": 1154
+        "line": 1075
       },
       "56": {
         "filename": "HTLCForwarder.code",
-        "line": 1155
+        "line": 1076
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1207
+        "line": 1128
+      }
+    },
+    "1f32a6774b6050b7dd24292bfa7090a689293335de858065c541401f50d8e625": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 392
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 393
+      },
+      "24": {
+        "filename": "HTLCForwarder.code",
+        "line": 394
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 395
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 396
+      },
+      "72": {
+        "filename": "HTLCForwarder.code",
+        "line": 397
+      },
+      "88": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 131
+      },
+      "96": {
+        "filename": "HTLCForwarder.code",
+        "line": 403
+      },
+      "112": {
+        "filename": "HTLCForwarder.code",
+        "line": 406
+      },
+      "120": {
+        "filename": "HTLCForwarder.code",
+        "line": 407
+      },
+      "136": {
+        "filename": "HTLCForwarder.code",
+        "line": 410
       }
     },
     "218a0b31284c5e0a57d3e7adc9448fc83df7734b2756ae028133cf8d59bccf8d": {
@@ -551,305 +257,563 @@
     "21bc1c23802e026d4a577332cce14b3959236a05e2ab9df56bccfaf6db4fc12f": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1108
+        "line": 1029
       },
       "16": {
         "filename": "HTLCForwarder.code",
-        "line": 1109
+        "line": 1030
       },
       "24": {
         "filename": "HTLCForwarder.code",
-        "line": 1110
+        "line": 1031
       },
       "40": {
         "filename": "HTLCForwarder.code",
-        "line": 1111
+        "line": 1032
       },
       "56": {
         "filename": "HTLCForwarder.code",
-        "line": 1112
+        "line": 1033
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1113
+        "line": 1034
       },
       "80": {
         "filename": "HTLCForwarder.code",
-        "line": 1114
+        "line": 1035
       },
       "96": {
         "filename": "HTLCForwarder.code",
-        "line": 1115
+        "line": 1036
       },
       "104": {
         "filename": "HTLCForwarder.code",
-        "line": 1116
+        "line": 1037
       },
       "112": {
         "filename": "HTLCForwarder.code",
-        "line": 1117
+        "line": 1038
       },
       "120": {
         "filename": "HTLCForwarder.code",
-        "line": 1118
+        "line": 1039
       },
       "136": {
         "filename": "HTLCForwarder.code",
-        "line": 1119
+        "line": 1040
       },
       "152": {
         "filename": "HTLCForwarder.code",
-        "line": 1120
+        "line": 1041
       },
       "168": {
         "filename": "HTLCForwarder.code",
-        "line": 1121
+        "line": 1042
       },
       "176": {
         "filename": "HTLCForwarder.code",
-        "line": 1122
+        "line": 1043
       },
       "184": {
         "filename": "HTLCForwarder.code",
-        "line": 1123
+        "line": 1044
       },
       "192": {
         "filename": "HTLCForwarder.code",
-        "line": 1124
+        "line": 1045
       },
       "208": {
         "filename": "HTLCForwarder.code",
-        "line": 1125
+        "line": 1046
       },
       "216": {
         "filename": "HTLCForwarder.code",
-        "line": 1126
+        "line": 1047
       },
       "224": {
         "filename": "HTLCForwarder.code",
-        "line": 1127
+        "line": 1048
       },
       "232": {
         "filename": "HTLCForwarder.code",
-        "line": 1128
+        "line": 1049
       },
       "248": {
         "filename": "HTLCForwarder.code",
-        "line": 1129
+        "line": 1050
       },
       "264": {
         "filename": "HTLCForwarder.code",
-        "line": 1130
+        "line": 1051
       },
       "280": {
         "filename": "HTLCForwarder.code",
-        "line": 1131
+        "line": 1052
       },
       "296": {
         "filename": "HTLCForwarder.code",
-        "line": 1132
+        "line": 1053
       },
       "304": {
         "filename": "HTLCForwarder.code",
-        "line": 1133
+        "line": 1054
       },
       "312": {
         "filename": "HTLCForwarder.code",
-        "line": 1134
+        "line": 1055
       },
       "320": {
         "filename": "HTLCForwarder.code",
-        "line": 1135
+        "line": 1056
       },
       "336": {
         "filename": "HTLCForwarder.code",
-        "line": 1136
+        "line": 1057
       },
       "344": {
         "filename": "HTLCForwarder.code",
-        "line": 1137
+        "line": 1058
       },
       "360": {
         "filename": "HTLCForwarder.code",
-        "line": 1138
+        "line": 1059
       },
       "376": {
         "filename": "HTLCForwarder.code",
-        "line": 1139
+        "line": 1060
       },
       "392": {
         "filename": "HTLCForwarder.code",
-        "line": 1140
+        "line": 1061
       },
       "408": {
         "filename": "HTLCForwarder.code",
-        "line": 1141
+        "line": 1062
       },
       "424": {
         "filename": "HTLCForwarder.code",
-        "line": 1142
+        "line": 1063
       },
       "440": {
         "filename": "HTLCForwarder.code",
-        "line": 1143
+        "line": 1064
       },
       "456": {
         "filename": "HTLCForwarder.code",
-        "line": 1144
+        "line": 1065
       },
       "472": {
         "filename": "HTLCForwarder.code",
-        "line": 1145
+        "line": 1066
       },
       "488": {
         "filename": "HTLCForwarder.code",
-        "line": 1146
+        "line": 1067
       },
       "504": {
         "filename": "HTLCForwarder.code",
-        "line": 1147
+        "line": 1068
       },
       "520": {
         "filename": "HTLCForwarder.code",
-        "line": 1148
+        "line": 1069
       }
     },
-    "22f2e374940058b5eae8f32e767ac85364ce93f3c97850545392596e5b2947d2": {
+    "2d28bce361efbc2c2331d9cdface967ba2f9b3365d6afc40edf3893892bc7cde": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1549
+        "line": 760
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1550
+        "line": 761
       },
-      "56": {
+      "24": {
         "filename": "HTLCForwarder.code",
-        "line": 1551
+        "line": 762
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 763
       },
       "64": {
         "filename": "HTLCForwarder.code",
-        "line": 1552
+        "line": 764
       },
-      "80": {
+      "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1578
+        "line": 765
       },
       "88": {
-        "filename": "HTLCForwarder.code",
-        "line": 1579
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "96": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "104": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "112": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "120": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "128": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
       },
       "136": {
-        "filename": "HTLCForwarder.code",
-        "line": 1580
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
       },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 1581
-      },
-      "160": {
-        "filename": "HTLCForwarder.code",
-        "line": 1607
+      "152": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
       },
       "168": {
-        "filename": "HTLCForwarder.code",
-        "line": 1608
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "176": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "184": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "192": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "208": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
       },
       "216": {
-        "filename": "HTLCForwarder.code",
-        "line": 1609
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
       },
       "224": {
-        "filename": "HTLCForwarder.code",
-        "line": 1610
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
       },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1636
+      "232": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
       },
       "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1637
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "256": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "264": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "272": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
+      },
+      "288": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
       },
       "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1638
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 234
       },
       "304": {
         "filename": "HTLCForwarder.code",
-        "line": 1639
+        "line": 793
+      },
+      "320": {
+        "filename": "HTLCForwarder.code",
+        "line": 796
+      },
+      "328": {
+        "filename": "HTLCForwarder.code",
+        "line": 797
+      },
+      "344": {
+        "filename": "HTLCForwarder.code",
+        "line": 800
       }
     },
-    "3779658ba3d86582686f6727ca84f999c6d745de6e0bb774bc55771f24e88181": {
+    "30c6c5d2b814c6ccd839fa9a3a403ba91ac86967d22be4536dc7d473f7aa2ee1": {
       "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1591
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1592
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1593
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 1594
+      },
+      "80": {
+        "filename": "HTLCForwarder.code",
+        "line": 1597
+      },
+      "88": {
+        "filename": "HTLCForwarder.code",
+        "line": 1598
+      },
+      "136": {
+        "filename": "HTLCForwarder.code",
+        "line": 1599
+      },
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 1600
+      },
+      "160": {
+        "filename": "HTLCForwarder.code",
+        "line": 1603
+      },
+      "168": {
+        "filename": "HTLCForwarder.code",
+        "line": 1604
+      },
+      "216": {
+        "filename": "HTLCForwarder.code",
+        "line": 1605
+      },
+      "224": {
+        "filename": "HTLCForwarder.code",
+        "line": 1606
+      }
+    },
+    "34b9eddb8738ef44f445a1ec99c655856f108f6846dd4e3bfafd2cddb61e76b3": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 248
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 249
+      },
+      "24": {
+        "filename": "HTLCForwarder.code",
+        "line": 250
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 251
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 252
+      },
+      "72": {
+        "filename": "HTLCForwarder.code",
+        "line": 253
+      },
+      "88": {
         "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "96": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "104": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "112": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "120": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "128": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "136": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "152": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "160": {
+        "filename": "HTLCForwarder.code",
+        "line": 267
+      },
+      "176": {
+        "filename": "HTLCForwarder.code",
+        "line": 270
+      },
+      "184": {
+        "filename": "HTLCForwarder.code",
+        "line": 271
+      },
+      "200": {
+        "filename": "HTLCForwarder.code",
+        "line": 272
+      },
+      "208": {
+        "filename": "HTLCForwarder.code",
+        "line": 273
+      },
+      "216": {
+        "filename": "HTLCForwarder.code",
+        "line": 274
+      },
+      "232": {
+        "filename": "HTLCForwarder.code",
+        "line": 275
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 276
+      },
+      "256": {
+        "filename": "HTLCForwarder.code",
+        "line": 277
+      },
+      "264": {
+        "filename": "HTLCForwarder.code",
+        "line": 278
+      },
+      "272": {
+        "filename": "HTLCForwarder.code",
+        "line": 279
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 280
+      },
+      "304": {
+        "filename": "HTLCForwarder.code",
+        "line": 281
+      },
+      "352": {
+        "filename": "HTLCForwarder.code",
+        "line": 282
+      },
+      "376": {
+        "filename": "HTLCForwarder.code",
+        "line": 283
+      },
+      "392": {
+        "filename": "HTLCForwarder.code",
+        "line": 284
+      },
+      "400": {
+        "filename": "HTLCForwarder.code",
+        "line": 285
+      },
+      "408": {
+        "filename": "HTLCForwarder.code",
+        "line": 286
+      },
+      "424": {
+        "filename": "HTLCForwarder.code",
+        "line": 288
+      },
+      "432": {
+        "filename": "HTLCForwarder.code",
+        "line": 289
+      },
+      "440": {
+        "filename": "HTLCForwarder.code",
+        "line": 291
+      },
+      "448": {
+        "filename": "HTLCForwarder.code",
+        "line": 292
+      },
+      "456": {
+        "filename": "HTLCForwarder.code",
         "line": 293
       },
-      "16": {
+      "472": {
         "filename": "HTLCForwarder.code",
-        "line": 972
+        "line": 296
       }
     },
     "38a22f6b110357853d2b756172ab3e28670142e29f24b212eb8aed9cd9591fbb": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1485
+        "line": 1406
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1486
+        "line": 1407
       },
       "16": {
         "filename": "HTLCForwarder.code",
-        "line": 1487
+        "line": 1408
       },
       "32": {
         "filename": "HTLCForwarder.code",
-        "line": 1490
+        "line": 1411
       },
       "48": {
         "filename": "HTLCForwarder.code",
-        "line": 1491
+        "line": 1412
       },
       "56": {
         "filename": "HTLCForwarder.code",
-        "line": 1492
+        "line": 1413
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1493
+        "line": 1414
       },
       "232": {
         "filename": "HTLCForwarder.code",
-        "line": 1494
+        "line": 1415
       },
       "240": {
         "filename": "HTLCForwarder.code",
-        "line": 1495
+        "line": 1416
       },
       "248": {
         "filename": "HTLCForwarder.code",
-        "line": 1496
+        "line": 1417
       },
       "264": {
         "filename": "HTLCForwarder.code",
-        "line": 1497
+        "line": 1418
       },
       "272": {
         "filename": "HTLCForwarder.code",
-        "line": 1498
+        "line": 1419
       },
       "280": {
         "filename": "HTLCForwarder.code",
-        "line": 1499
+        "line": 1420
       },
       "296": {
         "filename": "HTLCForwarder.code",
-        "line": 1501
+        "line": 1422
       },
       "304": {
         "filename": "HTLCForwarder.code",
-        "line": 1502
+        "line": 1423
       }
     },
     "38e76ed559055780a492dc3d2288d1fe09d2f4b8e34c8b34af4babb5f67591a7": {
@@ -962,252 +926,6 @@
       "128": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 151
-      }
-    },
-    "402b0e582de8908c4bdb8604efccafcbfffc5e5a15cfdc10d6a055a51871d32a": {
-      "0": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "16": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "24": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "32": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 68
-      },
-      "48": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 68
-      },
-      "56": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 68
-      },
-      "64": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 68
-      },
-      "80": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 68
-      },
-      "88": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 68
-      },
-      "112": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 82
-      },
-      "128": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 82
-      },
-      "152": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 110
-      },
-      "168": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 111
-      },
-      "176": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 112
-      },
-      "192": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 112
-      },
-      "208": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "216": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "224": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "240": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "288": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "304": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "320": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "336": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "344": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "352": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "376": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "392": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "416": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "424": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "432": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "456": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "472": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "480": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "528": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "544": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "552": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "568": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "584": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "592": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "600": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "616": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "624": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "632": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "640": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "648": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "664": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 116
-      },
-      "680": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 124
-      },
-      "696": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 124
-      },
-      "712": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 124
-      },
-      "720": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 124
-      },
-      "736": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 124
-      },
-      "752": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
-      },
-      "760": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
-      },
-      "776": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
-      },
-      "792": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
-      },
-      "800": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
-      },
-      "920": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
-      },
-      "928": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
-      },
-      "936": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
-      },
-      "952": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
-      },
-      "960": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 125
       }
     },
     "43eec3857cc5dd0c7c03dc4636aa055a87f5d626da614fc2b594cb8ceecd3c4b": {
@@ -1349,27 +1067,27 @@
     "47b8ad1d14904291dd37f51f0c8d661d6e8bb533ce9f2f397fd29e1c2c80cf66": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1003
+        "line": 924
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1004
+        "line": 925
       },
       "24": {
         "filename": "HTLCForwarder.code",
-        "line": 1005
+        "line": 926
       },
       "48": {
         "filename": "HTLCForwarder.code",
-        "line": 1006
+        "line": 927
       },
       "64": {
         "filename": "HTLCForwarder.code",
-        "line": 1007
+        "line": 928
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1008
+        "line": 929
       },
       "88": {
         "filename": "../node_modules/@broxus/contracts/contracts/access/InternalOwner.tsol",
@@ -1405,19 +1123,19 @@
       },
       "160": {
         "filename": "HTLCForwarder.code",
-        "line": 1022
+        "line": 943
       },
       "176": {
         "filename": "HTLCForwarder.code",
-        "line": 1025
+        "line": 946
       },
       "184": {
         "filename": "HTLCForwarder.code",
-        "line": 1026
+        "line": 947
       },
       "200": {
         "filename": "HTLCForwarder.code",
-        "line": 1029
+        "line": 950
       }
     },
     "48515467827a70d101f03499ba04049af0747fdccbf4044319ebe0809321d9b4": {
@@ -1462,134 +1180,344 @@
         "line": 128
       }
     },
-    "4af9991c0b1f05c307dff8437358cdc40f67c5710d592609e18655dd6061ced8": {
+    "4d9af5ccd5389f0d49d3dc543f62b74a45a62f3a4187f857ffc659292ac3db00": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 760
+        "line": 1226
       },
-      "8": {
+      "16": {
         "filename": "HTLCForwarder.code",
-        "line": 761
+        "line": 1227
       },
       "24": {
         "filename": "HTLCForwarder.code",
-        "line": 762
+        "line": 1228
       },
-      "48": {
+      "40": {
         "filename": "HTLCForwarder.code",
-        "line": 763
+        "line": 1229
       },
-      "64": {
+      "56": {
         "filename": "HTLCForwarder.code",
-        "line": 764
+        "line": 1230
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 765
+        "line": 1231
       },
-      "88": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+      "80": {
+        "filename": "HTLCForwarder.code",
+        "line": 1234
       },
       "96": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1235
       },
       "104": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
-      },
-      "112": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1236
       },
       "120": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
-      },
-      "128": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1239
       },
       "136": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1240
       },
-      "152": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 1241
       },
-      "168": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+      "160": {
+        "filename": "HTLCForwarder.code",
+        "line": 1242
       },
       "176": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
-      },
-      "184": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1243
       },
       "192": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1244
       },
-      "208": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+      "200": {
+        "filename": "HTLCForwarder.code",
+        "line": 1245
       },
       "216": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1246
       },
       "224": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1247
       },
-      "232": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1248
       },
       "248": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1249
       },
       "256": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
-      },
-      "264": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1250
       },
       "272": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1251
+      },
+      "280": {
+        "filename": "HTLCForwarder.code",
+        "line": 1252
       },
       "288": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1254
       },
       "296": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 234
+        "filename": "HTLCForwarder.code",
+        "line": 1255
       },
       "304": {
         "filename": "HTLCForwarder.code",
-        "line": 793
+        "line": 1256
       },
       "320": {
         "filename": "HTLCForwarder.code",
-        "line": 796
+        "line": 1258
       },
       "328": {
         "filename": "HTLCForwarder.code",
-        "line": 797
+        "line": 1259
       },
-      "344": {
+      "336": {
         "filename": "HTLCForwarder.code",
-        "line": 800
+        "line": 1260
+      },
+      "352": {
+        "filename": "HTLCForwarder.code",
+        "line": 1261
+      },
+      "368": {
+        "filename": "HTLCForwarder.code",
+        "line": 1262
+      },
+      "384": {
+        "filename": "HTLCForwarder.code",
+        "line": 1264
+      },
+      "392": {
+        "filename": "HTLCForwarder.code",
+        "line": 1265
+      },
+      "408": {
+        "filename": "HTLCForwarder.code",
+        "line": 1266
+      },
+      "416": {
+        "filename": "HTLCForwarder.code",
+        "line": 1267
+      },
+      "432": {
+        "filename": "HTLCForwarder.code",
+        "line": 1269
+      },
+      "440": {
+        "filename": "HTLCForwarder.code",
+        "line": 1270
+      },
+      "456": {
+        "filename": "HTLCForwarder.code",
+        "line": 1271
+      },
+      "464": {
+        "filename": "stdlib.sol",
+        "line": 61
+      },
+      "480": {
+        "filename": "stdlib.sol",
+        "line": 61
+      },
+      "488": {
+        "filename": "stdlib.sol",
+        "line": 61
+      },
+      "496": {
+        "filename": "stdlib.sol",
+        "line": 61
+      },
+      "512": {
+        "filename": "stdlib.sol",
+        "line": 62
+      },
+      "520": {
+        "filename": "stdlib.sol",
+        "line": 62
+      },
+      "536": {
+        "filename": "stdlib.sol",
+        "line": 62
+      },
+      "560": {
+        "filename": "stdlib.sol",
+        "line": 62
+      },
+      "568": {
+        "filename": "stdlib.sol",
+        "line": 62
+      },
+      "608": {
+        "filename": "stdlib.sol",
+        "line": 62
+      },
+      "616": {
+        "filename": "stdlib.sol",
+        "line": 62
+      },
+      "624": {
+        "filename": "stdlib.sol",
+        "line": 62
+      },
+      "640": {
+        "filename": "stdlib.sol",
+        "line": 63
+      },
+      "656": {
+        "filename": "HTLCForwarder.code",
+        "line": 1273
+      },
+      "672": {
+        "filename": "HTLCForwarder.code",
+        "line": 1274
+      },
+      "680": {
+        "filename": "HTLCForwarder.code",
+        "line": 1275
+      },
+      "696": {
+        "filename": "HTLCForwarder.code",
+        "line": 1276
+      },
+      "704": {
+        "filename": "HTLCForwarder.code",
+        "line": 1277
+      },
+      "720": {
+        "filename": "HTLCForwarder.code",
+        "line": 1278
+      },
+      "736": {
+        "filename": "HTLCForwarder.code",
+        "line": 1279
+      },
+      "744": {
+        "filename": "HTLCForwarder.code",
+        "line": 1280
+      },
+      "760": {
+        "filename": "HTLCForwarder.code",
+        "line": 1283
+      }
+    },
+    "5395b8e7f217c6b3041cbc752b446ad2299c264d61c0c496176abd27e75e991d": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1191
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 1192
+      },
+      "24": {
+        "filename": "HTLCForwarder.code",
+        "line": 1193
+      },
+      "40": {
+        "filename": "HTLCForwarder.code",
+        "line": 1194
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1195
+      },
+      "72": {
+        "filename": "HTLCForwarder.code",
+        "line": 1196
+      },
+      "80": {
+        "filename": "HTLCForwarder.code",
+        "line": 1197
+      },
+      "88": {
+        "filename": "HTLCForwarder.code",
+        "line": 1198
+      },
+      "104": {
+        "filename": "HTLCForwarder.code",
+        "line": 1199
+      },
+      "120": {
+        "filename": "HTLCForwarder.code",
+        "line": 1200
+      },
+      "128": {
+        "filename": "HTLCForwarder.code",
+        "line": 1201
+      },
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 1202
+      },
+      "168": {
+        "filename": "HTLCForwarder.code",
+        "line": 1203
+      },
+      "176": {
+        "filename": "HTLCForwarder.code",
+        "line": 1204
+      },
+      "184": {
+        "filename": "HTLCForwarder.code",
+        "line": 1205
+      },
+      "200": {
+        "filename": "HTLCForwarder.code",
+        "line": 1206
+      },
+      "216": {
+        "filename": "HTLCForwarder.code",
+        "line": 1210
+      },
+      "224": {
+        "filename": "HTLCForwarder.code",
+        "line": 1211
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1212
+      },
+      "264": {
+        "filename": "HTLCForwarder.code",
+        "line": 1213
+      },
+      "272": {
+        "filename": "HTLCForwarder.code",
+        "line": 1214
+      },
+      "288": {
+        "filename": "HTLCForwarder.code",
+        "line": 1218
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1219
+      },
+      "312": {
+        "filename": "HTLCForwarder.code",
+        "line": 1222
       }
     },
     "5b8a67731c1cb79b1bdbba949a13e7c6d930792f9d8062cac94172df687ffdb3": {
@@ -1669,63 +1597,63 @@
     "5c7e3b4b5e5d6949c37b65d6667bf037a549268a6c820c78f4dba3cfdccf9b1d": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1445
+        "line": 1366
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1446
+        "line": 1367
       },
       "16": {
         "filename": "HTLCForwarder.code",
-        "line": 1447
+        "line": 1368
       },
       "32": {
         "filename": "HTLCForwarder.code",
-        "line": 1450
+        "line": 1371
       },
       "48": {
         "filename": "HTLCForwarder.code",
-        "line": 1451
+        "line": 1372
       },
       "56": {
         "filename": "HTLCForwarder.code",
-        "line": 1452
+        "line": 1373
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1453
+        "line": 1374
       },
       "232": {
         "filename": "HTLCForwarder.code",
-        "line": 1454
+        "line": 1375
       },
       "240": {
         "filename": "HTLCForwarder.code",
-        "line": 1455
+        "line": 1376
       },
       "248": {
         "filename": "HTLCForwarder.code",
-        "line": 1456
+        "line": 1377
       },
       "256": {
         "filename": "HTLCForwarder.code",
-        "line": 1457
+        "line": 1378
       },
       "264": {
         "filename": "HTLCForwarder.code",
-        "line": 1458
+        "line": 1379
       },
       "272": {
         "filename": "HTLCForwarder.code",
-        "line": 1459
+        "line": 1380
       },
       "288": {
         "filename": "HTLCForwarder.code",
-        "line": 1461
+        "line": 1382
       },
       "296": {
         "filename": "HTLCForwarder.code",
-        "line": 1462
+        "line": 1383
       }
     },
     "5f8fd71d36cdc3f3bf8417c3fb70cd377e49e91bcf7aae58b7da7067ae73af29": {
@@ -1734,655 +1662,7 @@
         "line": 184
       }
     },
-    "61ab4641fa30d9310391025086eec65d200d79268e1b7cd402565e01ba64be3c": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1311
-      }
-    },
-    "629726c55de70e46d30e4b47ada179853548b73402add718fa30bd683dfd28b5": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1212
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1213
-      },
-      "32": {
-        "filename": "HTLCForwarder.code",
-        "line": 1214
-      },
-      "48": {
-        "filename": "HTLCForwarder.code",
-        "line": 1215
-      },
-      "64": {
-        "filename": "HTLCForwarder.code",
-        "line": 1216
-      },
-      "80": {
-        "filename": "HTLCForwarder.code",
-        "line": 1217
-      },
-      "96": {
-        "filename": "HTLCForwarder.code",
-        "line": 1218
-      },
-      "112": {
-        "filename": "HTLCForwarder.code",
-        "line": 1219
-      },
-      "128": {
-        "filename": "HTLCForwarder.code",
-        "line": 1220
-      },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 1221
-      },
-      "160": {
-        "filename": "HTLCForwarder.code",
-        "line": 1222
-      },
-      "176": {
-        "filename": "HTLCForwarder.code",
-        "line": 1223
-      },
-      "192": {
-        "filename": "HTLCForwarder.code",
-        "line": 1224
-      },
-      "200": {
-        "filename": "HTLCForwarder.code",
-        "line": 1225
-      },
-      "216": {
-        "filename": "HTLCForwarder.code",
-        "line": 1226
-      },
-      "232": {
-        "filename": "HTLCForwarder.code",
-        "line": 1227
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1228
-      },
-      "256": {
-        "filename": "HTLCForwarder.code",
-        "line": 1229
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 1230
-      },
-      "280": {
-        "filename": "HTLCForwarder.code",
-        "line": 1231
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1232
-      },
-      "312": {
-        "filename": "HTLCForwarder.code",
-        "line": 1233
-      },
-      "320": {
-        "filename": "HTLCForwarder.code",
-        "line": 1234
-      },
-      "336": {
-        "filename": "HTLCForwarder.code",
-        "line": 1235
-      },
-      "344": {
-        "filename": "HTLCForwarder.code",
-        "line": 1236
-      },
-      "352": {
-        "filename": "HTLCForwarder.code",
-        "line": 1237
-      },
-      "368": {
-        "filename": "HTLCForwarder.code",
-        "line": 1238
-      },
-      "376": {
-        "filename": "HTLCForwarder.code",
-        "line": 1239
-      },
-      "384": {
-        "filename": "HTLCForwarder.code",
-        "line": 1240
-      },
-      "400": {
-        "filename": "HTLCForwarder.code",
-        "line": 1241
-      },
-      "416": {
-        "filename": "HTLCForwarder.code",
-        "line": 1242
-      },
-      "432": {
-        "filename": "HTLCForwarder.code",
-        "line": 1243
-      },
-      "440": {
-        "filename": "HTLCForwarder.code",
-        "line": 1244
-      },
-      "448": {
-        "filename": "HTLCForwarder.code",
-        "line": 1245
-      },
-      "464": {
-        "filename": "HTLCForwarder.code",
-        "line": 1246
-      },
-      "472": {
-        "filename": "HTLCForwarder.code",
-        "line": 1247
-      },
-      "480": {
-        "filename": "HTLCForwarder.code",
-        "line": 1248
-      },
-      "488": {
-        "filename": "HTLCForwarder.code",
-        "line": 1249
-      },
-      "496": {
-        "filename": "HTLCForwarder.code",
-        "line": 1250
-      },
-      "504": {
-        "filename": "HTLCForwarder.code",
-        "line": 1251
-      }
-    },
-    "640b5db548e4a0888f4b1ba8d97ffe6f528645c576ba21fd5996374e2a4f73a3": {
-      "0": {
-        "filename": "<entry-selector>",
-        "line": 1
-      },
-      "8": {
-        "filename": "<entry-selector>",
-        "line": 2
-      },
-      "24": {
-        "filename": "<entry-selector>",
-        "line": 3
-      },
-      "32": {
-        "filename": "<entry-selector>",
-        "line": 4
-      },
-      "48": {
-        "filename": "<entry-selector>",
-        "line": 5
-      },
-      "56": {
-        "filename": "<entry-selector>",
-        "line": 6
-      },
-      "72": {
-        "filename": "<entry-selector>",
-        "line": 7
-      },
-      "88": {
-        "filename": "<entry-selector>",
-        "line": 8
-      },
-      "96": {
-        "filename": "<entry-selector>",
-        "line": 9
-      },
-      "112": {
-        "filename": "<entry-selector>",
-        "line": 10
-      },
-      "128": {
-        "filename": "<entry-selector>",
-        "line": 11
-      }
-    },
-    "64c22c470e147f4769cc687f0b6ad09bd13cea5946621105cc1980482baff765": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 392
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 393
-      },
-      "24": {
-        "filename": "HTLCForwarder.code",
-        "line": 394
-      },
-      "48": {
-        "filename": "HTLCForwarder.code",
-        "line": 395
-      },
-      "64": {
-        "filename": "HTLCForwarder.code",
-        "line": 396
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 397
-      },
-      "88": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 131
-      },
-      "96": {
-        "filename": "HTLCForwarder.code",
-        "line": 403
-      },
-      "112": {
-        "filename": "HTLCForwarder.code",
-        "line": 406
-      },
-      "120": {
-        "filename": "HTLCForwarder.code",
-        "line": 407
-      },
-      "136": {
-        "filename": "HTLCForwarder.code",
-        "line": 410
-      }
-    },
-    "667eae199dc3fb270d709a2bfb79290ebce5b2a1b50054a293f6b2419f51d3ed": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1385
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 1386
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1387
-      },
-      "32": {
-        "filename": "HTLCForwarder.code",
-        "line": 1390
-      },
-      "48": {
-        "filename": "HTLCForwarder.code",
-        "line": 1391
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1392
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 1393
-      },
-      "232": {
-        "filename": "HTLCForwarder.code",
-        "line": 1394
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1395
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1396
-      },
-      "264": {
-        "filename": "HTLCForwarder.code",
-        "line": 1397
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 1398
-      },
-      "280": {
-        "filename": "HTLCForwarder.code",
-        "line": 1399
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1401
-      },
-      "304": {
-        "filename": "HTLCForwarder.code",
-        "line": 1402
-      }
-    },
-    "6743d4ddfe63c6f506550c3b9db75f2b195c25f4c58b38d880fd3b59eacb6d92": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1525
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 1526
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1527
-      },
-      "32": {
-        "filename": "HTLCForwarder.code",
-        "line": 1530
-      },
-      "48": {
-        "filename": "HTLCForwarder.code",
-        "line": 1531
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1532
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 1533
-      },
-      "232": {
-        "filename": "HTLCForwarder.code",
-        "line": 1534
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1535
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1536
-      },
-      "264": {
-        "filename": "HTLCForwarder.code",
-        "line": 1537
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 1538
-      },
-      "280": {
-        "filename": "HTLCForwarder.code",
-        "line": 1539
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1541
-      },
-      "304": {
-        "filename": "HTLCForwarder.code",
-        "line": 1542
-      }
-    },
-    "6779c4f22b6d9eb54178bdf62be682744b68e71c7c8c31f2a6c106c0b611e4e2": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 643
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 644
-      },
-      "24": {
-        "filename": "HTLCForwarder.code",
-        "line": 645
-      },
-      "48": {
-        "filename": "HTLCForwarder.code",
-        "line": 646
-      },
-      "64": {
-        "filename": "HTLCForwarder.code",
-        "line": 647
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 648
-      },
-      "88": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 188
-      },
-      "96": {
-        "filename": "HTLCForwarder.code",
-        "line": 654
-      },
-      "112": {
-        "filename": "HTLCForwarder.code",
-        "line": 657
-      },
-      "120": {
-        "filename": "HTLCForwarder.code",
-        "line": 658
-      },
-      "136": {
-        "filename": "HTLCForwarder.code",
-        "line": 659
-      },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 660
-      },
-      "152": {
-        "filename": "HTLCForwarder.code",
-        "line": 661
-      },
-      "168": {
-        "filename": "HTLCForwarder.code",
-        "line": 662
-      },
-      "184": {
-        "filename": "HTLCForwarder.code",
-        "line": 663
-      },
-      "192": {
-        "filename": "HTLCForwarder.code",
-        "line": 664
-      },
-      "200": {
-        "filename": "HTLCForwarder.code",
-        "line": 665
-      },
-      "208": {
-        "filename": "HTLCForwarder.code",
-        "line": 666
-      },
-      "232": {
-        "filename": "HTLCForwarder.code",
-        "line": 667
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 668
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 669
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 670
-      },
-      "288": {
-        "filename": "HTLCForwarder.code",
-        "line": 671
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 672
-      },
-      "344": {
-        "filename": "HTLCForwarder.code",
-        "line": 673
-      },
-      "360": {
-        "filename": "HTLCForwarder.code",
-        "line": 674
-      },
-      "368": {
-        "filename": "HTLCForwarder.code",
-        "line": 675
-      },
-      "384": {
-        "filename": "HTLCForwarder.code",
-        "line": 676
-      },
-      "392": {
-        "filename": "HTLCForwarder.code",
-        "line": 677
-      },
-      "400": {
-        "filename": "HTLCForwarder.code",
-        "line": 678
-      },
-      "416": {
-        "filename": "HTLCForwarder.code",
-        "line": 679
-      },
-      "424": {
-        "filename": "HTLCForwarder.code",
-        "line": 680
-      },
-      "432": {
-        "filename": "HTLCForwarder.code",
-        "line": 681
-      },
-      "448": {
-        "filename": "HTLCForwarder.code",
-        "line": 682
-      },
-      "464": {
-        "filename": "HTLCForwarder.code",
-        "line": 683
-      },
-      "472": {
-        "filename": "HTLCForwarder.code",
-        "line": 684
-      },
-      "480": {
-        "filename": "HTLCForwarder.code",
-        "line": 685
-      },
-      "496": {
-        "filename": "HTLCForwarder.code",
-        "line": 686
-      },
-      "512": {
-        "filename": "HTLCForwarder.code",
-        "line": 687
-      },
-      "520": {
-        "filename": "HTLCForwarder.code",
-        "line": 688
-      },
-      "528": {
-        "filename": "HTLCForwarder.code",
-        "line": 689
-      },
-      "536": {
-        "filename": "HTLCForwarder.code",
-        "line": 690
-      },
-      "544": {
-        "filename": "HTLCForwarder.code",
-        "line": 691
-      },
-      "552": {
-        "filename": "HTLCForwarder.code",
-        "line": 692
-      },
-      "560": {
-        "filename": "HTLCForwarder.code",
-        "line": 693
-      },
-      "576": {
-        "filename": "HTLCForwarder.code",
-        "line": 695
-      },
-      "584": {
-        "filename": "HTLCForwarder.code",
-        "line": 696
-      },
-      "600": {
-        "filename": "HTLCForwarder.code",
-        "line": 698
-      },
-      "608": {
-        "filename": "HTLCForwarder.code",
-        "line": 699
-      },
-      "624": {
-        "filename": "HTLCForwarder.code",
-        "line": 702
-      }
-    },
-    "6c08c7a11f811b1c0018deff02c9c8246a5a9e086abc8201e6833666b73b7632": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1465
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 1466
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1467
-      },
-      "32": {
-        "filename": "HTLCForwarder.code",
-        "line": 1470
-      },
-      "48": {
-        "filename": "HTLCForwarder.code",
-        "line": 1471
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1472
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 1473
-      },
-      "232": {
-        "filename": "HTLCForwarder.code",
-        "line": 1474
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1475
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1476
-      },
-      "264": {
-        "filename": "HTLCForwarder.code",
-        "line": 1477
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 1478
-      },
-      "280": {
-        "filename": "HTLCForwarder.code",
-        "line": 1479
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1481
-      },
-      "304": {
-        "filename": "HTLCForwarder.code",
-        "line": 1482
-      }
-    },
-    "712d852431c4a3aafadd04ef24111444546b95467dd2ec0b2d394c0f437cf7ba": {
+    "611b766198d23e1e45e662e7b38467020bdda9c4b1044c58878ae406df0c7c25": {
       "0": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 82
@@ -2618,6 +1898,628 @@
       "992": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 150
+      }
+    },
+    "61ab4641fa30d9310391025086eec65d200d79268e1b7cd402565e01ba64be3c": {
+      "0": {
+        "filename": "../node_modules/@broxus/contracts/contracts/access/InternalOwner.tsol",
+        "line": 37
+      }
+    },
+    "61b5cfcc026f10ee020f02d66bb73cd02d0440e0fe8bece00791230674ae8250": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1503
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1504
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1505
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 1506
+      },
+      "80": {
+        "filename": "HTLCForwarder.code",
+        "line": 1509
+      },
+      "88": {
+        "filename": "HTLCForwarder.code",
+        "line": 1510
+      },
+      "136": {
+        "filename": "HTLCForwarder.code",
+        "line": 1511
+      },
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 1512
+      },
+      "160": {
+        "filename": "HTLCForwarder.code",
+        "line": 1515
+      },
+      "168": {
+        "filename": "HTLCForwarder.code",
+        "line": 1516
+      },
+      "216": {
+        "filename": "HTLCForwarder.code",
+        "line": 1517
+      },
+      "224": {
+        "filename": "HTLCForwarder.code",
+        "line": 1518
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1521
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1522
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1523
+      },
+      "304": {
+        "filename": "HTLCForwarder.code",
+        "line": 1524
+      }
+    },
+    "629726c55de70e46d30e4b47ada179853548b73402add718fa30bd683dfd28b5": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1133
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 1134
+      },
+      "32": {
+        "filename": "HTLCForwarder.code",
+        "line": 1135
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 1136
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 1137
+      },
+      "80": {
+        "filename": "HTLCForwarder.code",
+        "line": 1138
+      },
+      "96": {
+        "filename": "HTLCForwarder.code",
+        "line": 1139
+      },
+      "112": {
+        "filename": "HTLCForwarder.code",
+        "line": 1140
+      },
+      "128": {
+        "filename": "HTLCForwarder.code",
+        "line": 1141
+      },
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 1142
+      },
+      "160": {
+        "filename": "HTLCForwarder.code",
+        "line": 1143
+      },
+      "176": {
+        "filename": "HTLCForwarder.code",
+        "line": 1144
+      },
+      "192": {
+        "filename": "HTLCForwarder.code",
+        "line": 1145
+      },
+      "200": {
+        "filename": "HTLCForwarder.code",
+        "line": 1146
+      },
+      "216": {
+        "filename": "HTLCForwarder.code",
+        "line": 1147
+      },
+      "232": {
+        "filename": "HTLCForwarder.code",
+        "line": 1148
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1149
+      },
+      "256": {
+        "filename": "HTLCForwarder.code",
+        "line": 1150
+      },
+      "272": {
+        "filename": "HTLCForwarder.code",
+        "line": 1151
+      },
+      "280": {
+        "filename": "HTLCForwarder.code",
+        "line": 1152
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1153
+      },
+      "312": {
+        "filename": "HTLCForwarder.code",
+        "line": 1154
+      },
+      "320": {
+        "filename": "HTLCForwarder.code",
+        "line": 1155
+      },
+      "336": {
+        "filename": "HTLCForwarder.code",
+        "line": 1156
+      },
+      "344": {
+        "filename": "HTLCForwarder.code",
+        "line": 1157
+      },
+      "352": {
+        "filename": "HTLCForwarder.code",
+        "line": 1158
+      },
+      "368": {
+        "filename": "HTLCForwarder.code",
+        "line": 1159
+      },
+      "376": {
+        "filename": "HTLCForwarder.code",
+        "line": 1160
+      },
+      "384": {
+        "filename": "HTLCForwarder.code",
+        "line": 1161
+      },
+      "400": {
+        "filename": "HTLCForwarder.code",
+        "line": 1162
+      },
+      "416": {
+        "filename": "HTLCForwarder.code",
+        "line": 1163
+      },
+      "432": {
+        "filename": "HTLCForwarder.code",
+        "line": 1164
+      },
+      "440": {
+        "filename": "HTLCForwarder.code",
+        "line": 1165
+      },
+      "448": {
+        "filename": "HTLCForwarder.code",
+        "line": 1166
+      },
+      "464": {
+        "filename": "HTLCForwarder.code",
+        "line": 1167
+      },
+      "472": {
+        "filename": "HTLCForwarder.code",
+        "line": 1168
+      },
+      "480": {
+        "filename": "HTLCForwarder.code",
+        "line": 1169
+      },
+      "488": {
+        "filename": "HTLCForwarder.code",
+        "line": 1170
+      },
+      "496": {
+        "filename": "HTLCForwarder.code",
+        "line": 1171
+      },
+      "504": {
+        "filename": "HTLCForwarder.code",
+        "line": 1172
+      }
+    },
+    "667eae199dc3fb270d709a2bfb79290ebce5b2a1b50054a293f6b2419f51d3ed": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1306
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1307
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 1308
+      },
+      "32": {
+        "filename": "HTLCForwarder.code",
+        "line": 1311
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 1312
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1313
+      },
+      "72": {
+        "filename": "HTLCForwarder.code",
+        "line": 1314
+      },
+      "232": {
+        "filename": "HTLCForwarder.code",
+        "line": 1315
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1316
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1317
+      },
+      "264": {
+        "filename": "HTLCForwarder.code",
+        "line": 1318
+      },
+      "272": {
+        "filename": "HTLCForwarder.code",
+        "line": 1319
+      },
+      "280": {
+        "filename": "HTLCForwarder.code",
+        "line": 1320
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1322
+      },
+      "304": {
+        "filename": "HTLCForwarder.code",
+        "line": 1323
+      }
+    },
+    "6743d4ddfe63c6f506550c3b9db75f2b195c25f4c58b38d880fd3b59eacb6d92": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1446
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1447
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 1448
+      },
+      "32": {
+        "filename": "HTLCForwarder.code",
+        "line": 1451
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 1452
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1453
+      },
+      "72": {
+        "filename": "HTLCForwarder.code",
+        "line": 1454
+      },
+      "232": {
+        "filename": "HTLCForwarder.code",
+        "line": 1455
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1456
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1457
+      },
+      "264": {
+        "filename": "HTLCForwarder.code",
+        "line": 1458
+      },
+      "272": {
+        "filename": "HTLCForwarder.code",
+        "line": 1459
+      },
+      "280": {
+        "filename": "HTLCForwarder.code",
+        "line": 1460
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1462
+      },
+      "304": {
+        "filename": "HTLCForwarder.code",
+        "line": 1463
+      }
+    },
+    "6779c4f22b6d9eb54178bdf62be682744b68e71c7c8c31f2a6c106c0b611e4e2": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 643
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 644
+      },
+      "24": {
+        "filename": "HTLCForwarder.code",
+        "line": 645
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 646
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 647
+      },
+      "72": {
+        "filename": "HTLCForwarder.code",
+        "line": 648
+      },
+      "88": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 188
+      },
+      "96": {
+        "filename": "HTLCForwarder.code",
+        "line": 654
+      },
+      "112": {
+        "filename": "HTLCForwarder.code",
+        "line": 657
+      },
+      "120": {
+        "filename": "HTLCForwarder.code",
+        "line": 658
+      },
+      "136": {
+        "filename": "HTLCForwarder.code",
+        "line": 659
+      },
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 660
+      },
+      "152": {
+        "filename": "HTLCForwarder.code",
+        "line": 661
+      },
+      "168": {
+        "filename": "HTLCForwarder.code",
+        "line": 662
+      },
+      "184": {
+        "filename": "HTLCForwarder.code",
+        "line": 663
+      },
+      "192": {
+        "filename": "HTLCForwarder.code",
+        "line": 664
+      },
+      "200": {
+        "filename": "HTLCForwarder.code",
+        "line": 665
+      },
+      "208": {
+        "filename": "HTLCForwarder.code",
+        "line": 666
+      },
+      "232": {
+        "filename": "HTLCForwarder.code",
+        "line": 667
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 668
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 669
+      },
+      "272": {
+        "filename": "HTLCForwarder.code",
+        "line": 670
+      },
+      "288": {
+        "filename": "HTLCForwarder.code",
+        "line": 671
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 672
+      },
+      "344": {
+        "filename": "HTLCForwarder.code",
+        "line": 673
+      },
+      "360": {
+        "filename": "HTLCForwarder.code",
+        "line": 674
+      },
+      "368": {
+        "filename": "HTLCForwarder.code",
+        "line": 675
+      },
+      "384": {
+        "filename": "HTLCForwarder.code",
+        "line": 676
+      },
+      "392": {
+        "filename": "HTLCForwarder.code",
+        "line": 677
+      },
+      "400": {
+        "filename": "HTLCForwarder.code",
+        "line": 678
+      },
+      "416": {
+        "filename": "HTLCForwarder.code",
+        "line": 679
+      },
+      "424": {
+        "filename": "HTLCForwarder.code",
+        "line": 680
+      },
+      "432": {
+        "filename": "HTLCForwarder.code",
+        "line": 681
+      },
+      "448": {
+        "filename": "HTLCForwarder.code",
+        "line": 682
+      },
+      "464": {
+        "filename": "HTLCForwarder.code",
+        "line": 683
+      },
+      "472": {
+        "filename": "HTLCForwarder.code",
+        "line": 684
+      },
+      "480": {
+        "filename": "HTLCForwarder.code",
+        "line": 685
+      },
+      "496": {
+        "filename": "HTLCForwarder.code",
+        "line": 686
+      },
+      "512": {
+        "filename": "HTLCForwarder.code",
+        "line": 687
+      },
+      "520": {
+        "filename": "HTLCForwarder.code",
+        "line": 688
+      },
+      "528": {
+        "filename": "HTLCForwarder.code",
+        "line": 689
+      },
+      "536": {
+        "filename": "HTLCForwarder.code",
+        "line": 690
+      },
+      "544": {
+        "filename": "HTLCForwarder.code",
+        "line": 691
+      },
+      "552": {
+        "filename": "HTLCForwarder.code",
+        "line": 692
+      },
+      "560": {
+        "filename": "HTLCForwarder.code",
+        "line": 693
+      },
+      "576": {
+        "filename": "HTLCForwarder.code",
+        "line": 695
+      },
+      "584": {
+        "filename": "HTLCForwarder.code",
+        "line": 696
+      },
+      "600": {
+        "filename": "HTLCForwarder.code",
+        "line": 698
+      },
+      "608": {
+        "filename": "HTLCForwarder.code",
+        "line": 699
+      },
+      "624": {
+        "filename": "HTLCForwarder.code",
+        "line": 702
+      }
+    },
+    "6c08c7a11f811b1c0018deff02c9c8246a5a9e086abc8201e6833666b73b7632": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1386
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1387
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 1388
+      },
+      "32": {
+        "filename": "HTLCForwarder.code",
+        "line": 1391
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 1392
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1393
+      },
+      "72": {
+        "filename": "HTLCForwarder.code",
+        "line": 1394
+      },
+      "232": {
+        "filename": "HTLCForwarder.code",
+        "line": 1395
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1396
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1397
+      },
+      "264": {
+        "filename": "HTLCForwarder.code",
+        "line": 1398
+      },
+      "272": {
+        "filename": "HTLCForwarder.code",
+        "line": 1399
+      },
+      "280": {
+        "filename": "HTLCForwarder.code",
+        "line": 1400
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1402
+      },
+      "304": {
+        "filename": "HTLCForwarder.code",
+        "line": 1403
       }
     },
     "73867e37ec1ffb9ecb087a37d71892215b0b805a73c127da219a28729084e2e0": {
@@ -2879,63 +2781,63 @@
     "7862e4c8e9e67dcc29a548622bf583ddc4fedce774aebaf9475dbe9f59c0ec27": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1405
+        "line": 1326
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1406
+        "line": 1327
       },
       "16": {
         "filename": "HTLCForwarder.code",
-        "line": 1407
+        "line": 1328
       },
       "32": {
         "filename": "HTLCForwarder.code",
-        "line": 1410
+        "line": 1331
       },
       "48": {
         "filename": "HTLCForwarder.code",
-        "line": 1411
+        "line": 1332
       },
       "56": {
         "filename": "HTLCForwarder.code",
-        "line": 1412
+        "line": 1333
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1413
+        "line": 1334
       },
       "232": {
         "filename": "HTLCForwarder.code",
-        "line": 1414
+        "line": 1335
       },
       "240": {
         "filename": "HTLCForwarder.code",
-        "line": 1415
+        "line": 1336
       },
       "248": {
         "filename": "HTLCForwarder.code",
-        "line": 1416
+        "line": 1337
       },
       "264": {
         "filename": "HTLCForwarder.code",
-        "line": 1417
+        "line": 1338
       },
       "272": {
         "filename": "HTLCForwarder.code",
-        "line": 1418
+        "line": 1339
       },
       "280": {
         "filename": "HTLCForwarder.code",
-        "line": 1419
+        "line": 1340
       },
       "296": {
         "filename": "HTLCForwarder.code",
-        "line": 1421
+        "line": 1342
       },
       "304": {
         "filename": "HTLCForwarder.code",
-        "line": 1422
+        "line": 1343
       }
     },
     "7a301662f9482845e5b587d54a8344576fa6024016af5e0fee61d36e667973c9": {
@@ -2988,334 +2890,170 @@
         "line": 184
       }
     },
-    "858ea9bfabd940cf7bcca8af3daf003ee8b63a485f83455aaa21ff732f836cc3": {
-      "0": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 263
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 923
-      }
-    },
     "8697b90fea769db77378d4838c2405436d895e92f7e8d73ba2947ff0956aec00": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1156
+        "line": 1077
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1157
+        "line": 1078
       },
       "24": {
         "filename": "HTLCForwarder.code",
-        "line": 1158
+        "line": 1079
       },
       "32": {
         "filename": "HTLCForwarder.code",
-        "line": 1159
+        "line": 1080
       },
       "48": {
         "filename": "HTLCForwarder.code",
-        "line": 1160
+        "line": 1081
       },
       "56": {
         "filename": "HTLCForwarder.code",
-        "line": 1163
+        "line": 1084
       },
       "64": {
         "filename": "HTLCForwarder.code",
-        "line": 1164
+        "line": 1085
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1165
+        "line": 1086
       },
       "88": {
         "filename": "HTLCForwarder.code",
-        "line": 1166
+        "line": 1087
       },
       "104": {
         "filename": "HTLCForwarder.code",
-        "line": 1167
+        "line": 1088
       },
       "120": {
         "filename": "HTLCForwarder.code",
-        "line": 1168
+        "line": 1089
       },
       "128": {
         "filename": "HTLCForwarder.code",
-        "line": 1169
+        "line": 1090
       },
       "152": {
         "filename": "HTLCForwarder.code",
-        "line": 1171
+        "line": 1092
       },
       "160": {
         "filename": "HTLCForwarder.code",
-        "line": 1172
+        "line": 1093
       },
       "168": {
         "filename": "HTLCForwarder.code",
-        "line": 1173
+        "line": 1094
       },
       "176": {
         "filename": "HTLCForwarder.code",
-        "line": 1174
+        "line": 1095
       },
       "184": {
         "filename": "HTLCForwarder.code",
-        "line": 1175
+        "line": 1096
       },
       "200": {
         "filename": "HTLCForwarder.code",
-        "line": 1176
+        "line": 1097
       },
       "216": {
         "filename": "HTLCForwarder.code",
-        "line": 1177
+        "line": 1098
       },
       "232": {
         "filename": "HTLCForwarder.code",
-        "line": 1182
+        "line": 1103
       },
       "240": {
         "filename": "HTLCForwarder.code",
-        "line": 1183
+        "line": 1104
       },
       "248": {
         "filename": "HTLCForwarder.code",
-        "line": 1186
+        "line": 1107
       },
       "256": {
         "filename": "HTLCForwarder.code",
-        "line": 1187
+        "line": 1108
       },
       "264": {
         "filename": "HTLCForwarder.code",
-        "line": 1188
+        "line": 1109
       },
       "280": {
         "filename": "HTLCForwarder.code",
-        "line": 1189
+        "line": 1110
       },
       "296": {
         "filename": "HTLCForwarder.code",
-        "line": 1190
+        "line": 1111
       },
       "312": {
         "filename": "HTLCForwarder.code",
-        "line": 1191
+        "line": 1112
       },
       "328": {
         "filename": "HTLCForwarder.code",
-        "line": 1192
+        "line": 1113
       },
       "344": {
         "filename": "HTLCForwarder.code",
-        "line": 1193
+        "line": 1114
       },
       "360": {
         "filename": "HTLCForwarder.code",
-        "line": 1194
+        "line": 1115
       },
       "376": {
         "filename": "HTLCForwarder.code",
-        "line": 1195
+        "line": 1116
       },
       "392": {
         "filename": "HTLCForwarder.code",
-        "line": 1196
+        "line": 1117
       },
       "408": {
         "filename": "HTLCForwarder.code",
-        "line": 1197
+        "line": 1118
       },
       "424": {
         "filename": "HTLCForwarder.code",
-        "line": 1198
+        "line": 1119
       },
       "440": {
         "filename": "HTLCForwarder.code",
-        "line": 1199
+        "line": 1120
       },
       "456": {
         "filename": "HTLCForwarder.code",
-        "line": 1200
+        "line": 1121
       },
       "472": {
         "filename": "HTLCForwarder.code",
-        "line": 1201
+        "line": 1122
       },
       "488": {
         "filename": "HTLCForwarder.code",
-        "line": 1202
+        "line": 1123
       },
       "512": {
         "filename": "HTLCForwarder.code",
-        "line": 1203
+        "line": 1124
       },
       "528": {
         "filename": "HTLCForwarder.code",
-        "line": 1204
+        "line": 1125
       },
       "536": {
         "filename": "HTLCForwarder.code",
-        "line": 1205
-      }
-    },
-    "8d20409fadf8209cbf2666108e984dcb156cf6e15c8b0fe447663ce349a8f1c1": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 248
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 249
-      },
-      "24": {
-        "filename": "HTLCForwarder.code",
-        "line": 250
-      },
-      "48": {
-        "filename": "HTLCForwarder.code",
-        "line": 251
-      },
-      "64": {
-        "filename": "HTLCForwarder.code",
-        "line": 252
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 253
-      },
-      "88": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "96": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "104": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "112": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "120": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "128": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "136": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "152": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 109
-      },
-      "160": {
-        "filename": "HTLCForwarder.code",
-        "line": 267
-      },
-      "176": {
-        "filename": "HTLCForwarder.code",
-        "line": 270
-      },
-      "184": {
-        "filename": "HTLCForwarder.code",
-        "line": 271
-      },
-      "200": {
-        "filename": "HTLCForwarder.code",
-        "line": 272
-      },
-      "208": {
-        "filename": "HTLCForwarder.code",
-        "line": 273
-      },
-      "216": {
-        "filename": "HTLCForwarder.code",
-        "line": 274
-      },
-      "232": {
-        "filename": "HTLCForwarder.code",
-        "line": 275
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 276
-      },
-      "256": {
-        "filename": "HTLCForwarder.code",
-        "line": 277
-      },
-      "264": {
-        "filename": "HTLCForwarder.code",
-        "line": 278
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 279
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 280
-      },
-      "304": {
-        "filename": "HTLCForwarder.code",
-        "line": 281
-      },
-      "352": {
-        "filename": "HTLCForwarder.code",
-        "line": 282
-      },
-      "376": {
-        "filename": "HTLCForwarder.code",
-        "line": 283
-      },
-      "392": {
-        "filename": "HTLCForwarder.code",
-        "line": 284
-      },
-      "400": {
-        "filename": "HTLCForwarder.code",
-        "line": 285
-      },
-      "408": {
-        "filename": "HTLCForwarder.code",
-        "line": 286
-      },
-      "424": {
-        "filename": "HTLCForwarder.code",
-        "line": 288
-      },
-      "432": {
-        "filename": "HTLCForwarder.code",
-        "line": 289
-      },
-      "440": {
-        "filename": "HTLCForwarder.code",
-        "line": 291
-      },
-      "448": {
-        "filename": "HTLCForwarder.code",
-        "line": 292
-      },
-      "456": {
-        "filename": "HTLCForwarder.code",
-        "line": 293
-      },
-      "472": {
-        "filename": "HTLCForwarder.code",
-        "line": 296
+        "line": 1126
       }
     },
     "8e9130a3a06d56fcbdd81ac92348346dfb13263273110fbe6aa5460f33558f33": {
@@ -3368,133 +3106,67 @@
     "99d3cc6ea0f701b30ec363b039df037dc27fa1cd1176b418f4fb2a44e53fc96e": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1553
+        "line": 1474
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1554
+        "line": 1475
       },
       "56": {
         "filename": "HTLCForwarder.code",
-        "line": 1555
+        "line": 1476
       },
       "64": {
         "filename": "HTLCForwarder.code",
-        "line": 1556
+        "line": 1477
       },
       "80": {
         "filename": "HTLCForwarder.code",
-        "line": 1559
+        "line": 1480
       },
       "88": {
         "filename": "HTLCForwarder.code",
-        "line": 1560
+        "line": 1481
       },
       "136": {
         "filename": "HTLCForwarder.code",
-        "line": 1561
+        "line": 1482
       },
       "144": {
         "filename": "HTLCForwarder.code",
-        "line": 1562
+        "line": 1483
       },
       "160": {
         "filename": "HTLCForwarder.code",
-        "line": 1565
+        "line": 1486
       },
       "168": {
         "filename": "HTLCForwarder.code",
-        "line": 1566
+        "line": 1487
       },
       "216": {
         "filename": "HTLCForwarder.code",
-        "line": 1567
+        "line": 1488
       },
       "224": {
         "filename": "HTLCForwarder.code",
-        "line": 1568
+        "line": 1489
       },
       "240": {
         "filename": "HTLCForwarder.code",
-        "line": 1571
+        "line": 1492
       },
       "248": {
         "filename": "HTLCForwarder.code",
-        "line": 1572
+        "line": 1493
       },
       "296": {
         "filename": "HTLCForwarder.code",
-        "line": 1573
+        "line": 1494
       },
       "304": {
         "filename": "HTLCForwarder.code",
-        "line": 1574
-      }
-    },
-    "9fff89f526138919a8f8fb17820d9dd1ce5fd68b92de63cc10637f2955ffa79c": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1582
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 1583
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1584
-      },
-      "64": {
-        "filename": "HTLCForwarder.code",
-        "line": 1585
-      },
-      "80": {
-        "filename": "HTLCForwarder.code",
-        "line": 1588
-      },
-      "88": {
-        "filename": "HTLCForwarder.code",
-        "line": 1589
-      },
-      "136": {
-        "filename": "HTLCForwarder.code",
-        "line": 1590
-      },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 1591
-      },
-      "160": {
-        "filename": "HTLCForwarder.code",
-        "line": 1594
-      },
-      "168": {
-        "filename": "HTLCForwarder.code",
-        "line": 1595
-      },
-      "216": {
-        "filename": "HTLCForwarder.code",
-        "line": 1596
-      },
-      "224": {
-        "filename": "HTLCForwarder.code",
-        "line": 1597
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1600
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1601
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1602
-      },
-      "304": {
-        "filename": "HTLCForwarder.code",
-        "line": 1603
+        "line": 1495
       }
     },
     "a0db2ab89bf38329475078c53a094fcd268bdb2b344e7dfe56ab0fefe445f24a": {
@@ -3791,72 +3463,6 @@
         "line": 54
       }
     },
-    "a764c963b116853f00c6613f255311ff7fa677ba3323a5a7001e443e282f1e65": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1640
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 1641
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1642
-      },
-      "64": {
-        "filename": "HTLCForwarder.code",
-        "line": 1643
-      },
-      "80": {
-        "filename": "HTLCForwarder.code",
-        "line": 1646
-      },
-      "88": {
-        "filename": "HTLCForwarder.code",
-        "line": 1647
-      },
-      "136": {
-        "filename": "HTLCForwarder.code",
-        "line": 1648
-      },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 1649
-      },
-      "160": {
-        "filename": "HTLCForwarder.code",
-        "line": 1652
-      },
-      "168": {
-        "filename": "HTLCForwarder.code",
-        "line": 1653
-      },
-      "216": {
-        "filename": "HTLCForwarder.code",
-        "line": 1654
-      },
-      "224": {
-        "filename": "HTLCForwarder.code",
-        "line": 1655
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1658
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1659
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1660
-      },
-      "304": {
-        "filename": "HTLCForwarder.code",
-        "line": 1661
-      }
-    },
     "b287910556d76273b2a9563e55345e92bf37919c132a0311efc35f2e5db978a6": {
       "0": {
         "filename": "HTLCForwarder.code",
@@ -3938,27 +3544,27 @@
     "b57f952df41ebb240a73276123fca2fa9d403aeb75f9e3316c939ded4eb9cd86": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1061
+        "line": 982
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1062
+        "line": 983
       },
       "24": {
         "filename": "HTLCForwarder.code",
-        "line": 1063
+        "line": 984
       },
       "48": {
         "filename": "HTLCForwarder.code",
-        "line": 1064
+        "line": 985
       },
       "64": {
         "filename": "HTLCForwarder.code",
-        "line": 1065
+        "line": 986
       },
       "72": {
         "filename": "HTLCForwarder.code",
-        "line": 1066
+        "line": 987
       },
       "88": {
         "filename": "../node_modules/@broxus/contracts/contracts/access/InternalOwner.tsol",
@@ -3966,19 +3572,19 @@
       },
       "96": {
         "filename": "HTLCForwarder.code",
-        "line": 1072
+        "line": 993
       },
       "112": {
         "filename": "HTLCForwarder.code",
-        "line": 1075
+        "line": 996
       },
       "120": {
         "filename": "HTLCForwarder.code",
-        "line": 1076
+        "line": 997
       },
       "136": {
         "filename": "HTLCForwarder.code",
-        "line": 1079
+        "line": 1000
       }
     },
     "bd258df66c4bef176475012e7b6c363cba3e412de8bf859ce2875f4c04a17f64": {
@@ -4227,341 +3833,7 @@
         "line": 106
       }
     },
-    "c113d15dee262f00591998c5994ab396253de77ba8068f3bb1210494408f3f72": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1670
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 1671
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1672
-      },
-      "64": {
-        "filename": "HTLCForwarder.code",
-        "line": 1673
-      },
-      "80": {
-        "filename": "HTLCForwarder.code",
-        "line": 1676
-      },
-      "88": {
-        "filename": "HTLCForwarder.code",
-        "line": 1677
-      },
-      "136": {
-        "filename": "HTLCForwarder.code",
-        "line": 1678
-      },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 1679
-      },
-      "160": {
-        "filename": "HTLCForwarder.code",
-        "line": 1682
-      },
-      "168": {
-        "filename": "HTLCForwarder.code",
-        "line": 1683
-      },
-      "216": {
-        "filename": "HTLCForwarder.code",
-        "line": 1684
-      },
-      "224": {
-        "filename": "HTLCForwarder.code",
-        "line": 1685
-      }
-    },
-    "c53541eef4cec5b82a2e391c030454b5f5d56a2e44b4fe35deb301a81f9f6dbb": {
-      "0": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 201
-      },
-      "16": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 201
-      },
-      "32": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 201
-      },
-      "48": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 201
-      },
-      "64": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 201
-      },
-      "80": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 201
-      },
-      "96": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 201
-      },
-      "112": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 201
-      }
-    },
-    "cf18f7819db097aa7d45f8be3d5b9fc478938a5c4c4706279e6b3bf952c58603": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1611
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 1612
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1613
-      },
-      "64": {
-        "filename": "HTLCForwarder.code",
-        "line": 1614
-      },
-      "80": {
-        "filename": "HTLCForwarder.code",
-        "line": 1617
-      },
-      "88": {
-        "filename": "HTLCForwarder.code",
-        "line": 1618
-      },
-      "136": {
-        "filename": "HTLCForwarder.code",
-        "line": 1619
-      },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 1620
-      },
-      "160": {
-        "filename": "HTLCForwarder.code",
-        "line": 1623
-      },
-      "168": {
-        "filename": "HTLCForwarder.code",
-        "line": 1624
-      },
-      "216": {
-        "filename": "HTLCForwarder.code",
-        "line": 1625
-      },
-      "224": {
-        "filename": "HTLCForwarder.code",
-        "line": 1626
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1629
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1630
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1631
-      },
-      "304": {
-        "filename": "HTLCForwarder.code",
-        "line": 1632
-      }
-    },
-    "d40173aaca1cd027cb477d485712c438038df04f76c16f3850f05b318b1e6a11": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1505
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 1506
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1507
-      },
-      "32": {
-        "filename": "HTLCForwarder.code",
-        "line": 1510
-      },
-      "48": {
-        "filename": "HTLCForwarder.code",
-        "line": 1511
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1512
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 1513
-      },
-      "232": {
-        "filename": "HTLCForwarder.code",
-        "line": 1514
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1515
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1516
-      },
-      "264": {
-        "filename": "HTLCForwarder.code",
-        "line": 1517
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 1518
-      },
-      "280": {
-        "filename": "HTLCForwarder.code",
-        "line": 1519
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1521
-      },
-      "304": {
-        "filename": "HTLCForwarder.code",
-        "line": 1522
-      }
-    },
-    "d558e53bf690afc8a76b8887a99a49a52db1bd24bec5da84780ea0e7bc0aad3f": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1178
-      }
-    },
-    "e57747d446518b3c203058afc7c3d8eda3da9ddc541c6125b27d814d292a86d0": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1365
-      },
-      "8": {
-        "filename": "HTLCForwarder.code",
-        "line": 1366
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1367
-      },
-      "32": {
-        "filename": "HTLCForwarder.code",
-        "line": 1370
-      },
-      "48": {
-        "filename": "HTLCForwarder.code",
-        "line": 1371
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1372
-      },
-      "72": {
-        "filename": "HTLCForwarder.code",
-        "line": 1373
-      },
-      "232": {
-        "filename": "HTLCForwarder.code",
-        "line": 1374
-      },
-      "240": {
-        "filename": "HTLCForwarder.code",
-        "line": 1375
-      },
-      "248": {
-        "filename": "HTLCForwarder.code",
-        "line": 1376
-      },
-      "256": {
-        "filename": "HTLCForwarder.code",
-        "line": 1377
-      },
-      "264": {
-        "filename": "HTLCForwarder.code",
-        "line": 1378
-      },
-      "272": {
-        "filename": "HTLCForwarder.code",
-        "line": 1379
-      },
-      "288": {
-        "filename": "HTLCForwarder.code",
-        "line": 1381
-      },
-      "296": {
-        "filename": "HTLCForwarder.code",
-        "line": 1382
-      }
-    },
-    "e6936e8f0e7b8fe98c2ca66eee9d4e9dafcfc747defef9cb795288fabb1b7ef3": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1254
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1255
-      },
-      "24": {
-        "filename": "HTLCForwarder.code",
-        "line": 1256
-      },
-      "40": {
-        "filename": "HTLCForwarder.code",
-        "line": 1257
-      },
-      "56": {
-        "filename": "HTLCForwarder.code",
-        "line": 1258
-      },
-      "64": {
-        "filename": "HTLCForwarder.code",
-        "line": 1259
-      },
-      "80": {
-        "filename": "HTLCForwarder.code",
-        "line": 1260
-      },
-      "88": {
-        "filename": "HTLCForwarder.code",
-        "line": 1261
-      },
-      "96": {
-        "filename": "HTLCForwarder.code",
-        "line": 1262
-      },
-      "112": {
-        "filename": "HTLCForwarder.code",
-        "line": 1263
-      },
-      "128": {
-        "filename": "HTLCForwarder.code",
-        "line": 1264
-      },
-      "136": {
-        "filename": "HTLCForwarder.code",
-        "line": 1265
-      },
-      "144": {
-        "filename": "HTLCForwarder.code",
-        "line": 1266
-      }
-    },
-    "ebae6d63c2257de5f00380720e9a4e280ee469b51ea90f63b1875cfdf4983a0e": {
+    "bdebc1142d6a5b3979ce083a057a1f07f19fe835a9054c8551f00299815fdf52": {
       "0": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 63
@@ -4604,25 +3876,21 @@
       },
       "168": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 242
+        "line": 77
       },
-      "176": {
+      "184": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 242
-      },
-      "192": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 242
+        "line": 77
       },
       "208": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 242
+        "line": 243
       },
-      "232": {
+      "224": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 243
       },
-      "248": {
+      "240": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 243
       },
@@ -4630,13 +3898,9 @@
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 243
       },
-      "264": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 243
-      },
       "280": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 243
+        "line": 244
       },
       "296": {
         "filename": "../contracts/HTLCForwarder.tsol",
@@ -4648,421 +3912,141 @@
       },
       "312": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 245
-      },
-      "320": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 247
+        "line": 244
       },
       "328": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 247
+        "line": 244
       },
       "344": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 247
-      },
-      "368": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 247
-      },
-      "376": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 247
-      },
-      "392": {
-        "filename": "HTLCForwarder.code",
-        "line": 925
-      },
-      "408": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "416": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "432": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "480": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "496": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "504": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "520": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "528": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "536": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "560": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "576": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "600": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "608": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "616": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "640": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "656": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "664": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "712": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "728": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "736": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "752": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "768": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "776": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "784": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "800": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "808": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "816": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "824": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "832": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "848": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 281
-      },
-      "864": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 291
-      },
-      "888": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 291
-      },
-      "896": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 293
-      },
-      "912": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 293
-      },
-      "920": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 293
-      },
-      "944": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 293
-      },
-      "952": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 293
-      },
-      "968": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 293
-      },
-      "984": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 293
-      },
-      "992": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 293
-      }
-    },
-    "f24e1e7aa04d89aad2945816b6e9b921f2b3892da9ba53e2383c148351b96d0c": {
-      "0": {
-        "filename": "HTLCForwarder.code",
-        "line": 1286
-      },
-      "16": {
-        "filename": "HTLCForwarder.code",
-        "line": 1287
-      }
-    },
-    "f48d27a5bb7dc171d5c78f0fea946c56edee944817c77c3cbec936d6767aa0c2": {
-      "0": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 249
-      },
-      "48": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 249
-      },
-      "56": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 249
-      },
-      "72": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 251
-      },
-      "80": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 251
-      },
-      "96": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 251
-      },
-      "112": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 251
-      },
-      "120": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 253
-      },
-      "136": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 253
-      },
-      "152": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "160": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "168": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "184": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "232": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "248": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "256": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "272": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "280": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "288": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "312": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "328": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 245
       },
       "352": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 248
       },
       "360": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 248
       },
-      "368": {
+      "376": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 248
       },
-      "392": {
+      "400": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 248
       },
       "408": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 248
       },
-      "416": {
+      "424": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 249
       },
-      "464": {
+      "472": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 249
       },
       "480": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 249
       },
-      "488": {
+      "496": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 251
       },
       "504": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 251
       },
       "520": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "528": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 251
       },
       "536": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 251
+      },
+      "544": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 253
       },
       "552": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "560": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 253
       },
       "568": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
-      },
-      "576": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 254
       },
       "584": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 255
       },
-      "600": {
+      "592": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 268
+        "line": 255
       },
-      "616": {
+      "608": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 278
+        "line": 255
       },
-      "640": {
+      "624": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 278
+        "line": 257
       },
-      "656": {
+      "632": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 254
+        "line": 257
+      },
+      "648": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 257
       },
       "664": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 254
+        "line": 257
+      },
+      "672": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 258
       },
       "680": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 255
+        "line": 258
       },
-      "688": {
+      "696": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 255
+        "line": 258
       },
       "704": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 256
-      },
-      "712": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 256
+        "line": 258
       },
       "728": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 256
+        "line": 259
       },
-      "744": {
+      "736": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 258
+        "line": 259
       },
       "752": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 258
-      },
-      "768": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 258
+        "line": 259
       },
       "784": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 258
+        "line": 259
       },
       "792": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 259
       },
-      "800": {
+      "808": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 259
       },
@@ -5070,87 +4054,819 @@
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 259
       },
-      "824": {
+      "840": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 259
+        "line": 260
       },
       "848": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 260
       },
-      "856": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 260
-      },
-      "872": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 260
-      },
-      "904": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 260
-      },
-      "912": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 260
-      },
-      "928": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 260
-      },
-      "936": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 260
-      },
-      "960": {
+      "864": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 261
       },
-      "968": {
-        "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 261
-      },
-      "984": {
+      "880": {
         "filename": "../contracts/HTLCForwarder.tsol",
         "line": 262
       },
-      "1000": {
+      "896": {
+        "filename": "HTLCForwarder.code",
+        "line": 881
+      },
+      "904": {
         "filename": "../contracts/HTLCForwarder.tsol",
-        "line": 263
+        "line": 266
+      },
+      "912": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 266
+      },
+      "920": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 266
+      },
+      "944": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 266
+      },
+      "952": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 266
+      },
+      "968": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 266
+      },
+      "984": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 266
+      },
+      "992": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 266
       }
     },
-    "f49752b4223ac49cc406e098ed9f83c2311b1822cc2c9b5ff8d68dc74c31963d": {
+    "c0940eb28efe2bf23929cfc13b83178b95bb7b0e60b03418cca4b10d299725a6": {
       "0": {
         "filename": "HTLCForwarder.code",
-        "line": 1545
+        "line": 1466
       },
       "8": {
         "filename": "HTLCForwarder.code",
-        "line": 1546
+        "line": 1467
       },
       "56": {
         "filename": "HTLCForwarder.code",
-        "line": 1547
+        "line": 1468
       },
       "64": {
         "filename": "HTLCForwarder.code",
-        "line": 1548
+        "line": 1469
       },
       "80": {
         "filename": "HTLCForwarder.code",
-        "line": 1666
+        "line": 1587
       },
       "88": {
         "filename": "HTLCForwarder.code",
-        "line": 1667
+        "line": 1588
       },
       "136": {
         "filename": "HTLCForwarder.code",
-        "line": 1668
+        "line": 1589
       },
       "144": {
         "filename": "HTLCForwarder.code",
-        "line": 1669
+        "line": 1590
+      }
+    },
+    "c53541eef4cec5b82a2e391c030454b5f5d56a2e44b4fe35deb301a81f9f6dbb": {
+      "0": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 201
+      },
+      "16": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 201
+      },
+      "32": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 201
+      },
+      "48": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 201
+      },
+      "64": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 201
+      },
+      "80": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 201
+      },
+      "96": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 201
+      },
+      "112": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 201
+      }
+    },
+    "cf18f7819db097aa7d45f8be3d5b9fc478938a5c4c4706279e6b3bf952c58603": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1532
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1533
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1534
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 1535
+      },
+      "80": {
+        "filename": "HTLCForwarder.code",
+        "line": 1538
+      },
+      "88": {
+        "filename": "HTLCForwarder.code",
+        "line": 1539
+      },
+      "136": {
+        "filename": "HTLCForwarder.code",
+        "line": 1540
+      },
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 1541
+      },
+      "160": {
+        "filename": "HTLCForwarder.code",
+        "line": 1544
+      },
+      "168": {
+        "filename": "HTLCForwarder.code",
+        "line": 1545
+      },
+      "216": {
+        "filename": "HTLCForwarder.code",
+        "line": 1546
+      },
+      "224": {
+        "filename": "HTLCForwarder.code",
+        "line": 1547
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1550
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1551
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1552
+      },
+      "304": {
+        "filename": "HTLCForwarder.code",
+        "line": 1553
+      }
+    },
+    "d40173aaca1cd027cb477d485712c438038df04f76c16f3850f05b318b1e6a11": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1426
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1427
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 1428
+      },
+      "32": {
+        "filename": "HTLCForwarder.code",
+        "line": 1431
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 1432
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1433
+      },
+      "72": {
+        "filename": "HTLCForwarder.code",
+        "line": 1434
+      },
+      "232": {
+        "filename": "HTLCForwarder.code",
+        "line": 1435
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1436
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1437
+      },
+      "264": {
+        "filename": "HTLCForwarder.code",
+        "line": 1438
+      },
+      "272": {
+        "filename": "HTLCForwarder.code",
+        "line": 1439
+      },
+      "280": {
+        "filename": "HTLCForwarder.code",
+        "line": 1440
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1442
+      },
+      "304": {
+        "filename": "HTLCForwarder.code",
+        "line": 1443
+      }
+    },
+    "d558e53bf690afc8a76b8887a99a49a52db1bd24bec5da84780ea0e7bc0aad3f": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1099
+      }
+    },
+    "dba89138aa42d980dd50654499164379310c5cbf77e5b2841cecf9a47dd576fa": {
+      "0": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 266
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 893
+      }
+    },
+    "e21da1c502001e0767539b3bccc50044f869cdc5afd84cc9940c2f4aebe0cae9": {
+      "0": {
+        "filename": "<entry-selector>",
+        "line": 1
+      },
+      "8": {
+        "filename": "<entry-selector>",
+        "line": 2
+      },
+      "24": {
+        "filename": "<entry-selector>",
+        "line": 3
+      },
+      "32": {
+        "filename": "<entry-selector>",
+        "line": 4
+      },
+      "48": {
+        "filename": "<entry-selector>",
+        "line": 5
+      },
+      "56": {
+        "filename": "<entry-selector>",
+        "line": 6
+      },
+      "72": {
+        "filename": "<entry-selector>",
+        "line": 7
+      },
+      "88": {
+        "filename": "<entry-selector>",
+        "line": 8
+      },
+      "96": {
+        "filename": "<entry-selector>",
+        "line": 9
+      },
+      "112": {
+        "filename": "<entry-selector>",
+        "line": 10
+      },
+      "128": {
+        "filename": "<entry-selector>",
+        "line": 11
+      }
+    },
+    "e57747d446518b3c203058afc7c3d8eda3da9ddc541c6125b27d814d292a86d0": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1286
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1287
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 1288
+      },
+      "32": {
+        "filename": "HTLCForwarder.code",
+        "line": 1291
+      },
+      "48": {
+        "filename": "HTLCForwarder.code",
+        "line": 1292
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1293
+      },
+      "72": {
+        "filename": "HTLCForwarder.code",
+        "line": 1294
+      },
+      "232": {
+        "filename": "HTLCForwarder.code",
+        "line": 1295
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1296
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1297
+      },
+      "256": {
+        "filename": "HTLCForwarder.code",
+        "line": 1298
+      },
+      "264": {
+        "filename": "HTLCForwarder.code",
+        "line": 1299
+      },
+      "272": {
+        "filename": "HTLCForwarder.code",
+        "line": 1300
+      },
+      "288": {
+        "filename": "HTLCForwarder.code",
+        "line": 1302
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1303
+      }
+    },
+    "e6936e8f0e7b8fe98c2ca66eee9d4e9dafcfc747defef9cb795288fabb1b7ef3": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1175
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 1176
+      },
+      "24": {
+        "filename": "HTLCForwarder.code",
+        "line": 1177
+      },
+      "40": {
+        "filename": "HTLCForwarder.code",
+        "line": 1178
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1179
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 1180
+      },
+      "80": {
+        "filename": "HTLCForwarder.code",
+        "line": 1181
+      },
+      "88": {
+        "filename": "HTLCForwarder.code",
+        "line": 1182
+      },
+      "96": {
+        "filename": "HTLCForwarder.code",
+        "line": 1183
+      },
+      "112": {
+        "filename": "HTLCForwarder.code",
+        "line": 1184
+      },
+      "128": {
+        "filename": "HTLCForwarder.code",
+        "line": 1185
+      },
+      "136": {
+        "filename": "HTLCForwarder.code",
+        "line": 1186
+      },
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 1187
+      }
+    },
+    "eb646d3657335cf509003226058a780cdf054c2398eb71c8ad753197b71ddb1b": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1470
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1471
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1472
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 1473
+      },
+      "80": {
+        "filename": "HTLCForwarder.code",
+        "line": 1499
+      },
+      "88": {
+        "filename": "HTLCForwarder.code",
+        "line": 1500
+      },
+      "136": {
+        "filename": "HTLCForwarder.code",
+        "line": 1501
+      },
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 1502
+      },
+      "160": {
+        "filename": "HTLCForwarder.code",
+        "line": 1528
+      },
+      "168": {
+        "filename": "HTLCForwarder.code",
+        "line": 1529
+      },
+      "216": {
+        "filename": "HTLCForwarder.code",
+        "line": 1530
+      },
+      "224": {
+        "filename": "HTLCForwarder.code",
+        "line": 1531
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1557
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1558
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1559
+      },
+      "304": {
+        "filename": "HTLCForwarder.code",
+        "line": 1560
+      }
+    },
+    "efde890affef2f15cf1bdc2cfe23cc1973c887cf80037b6db9c9a58374893b17": {
+      "0": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "16": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "24": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 109
+      },
+      "32": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 68
+      },
+      "48": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 68
+      },
+      "56": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 68
+      },
+      "64": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 68
+      },
+      "80": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 68
+      },
+      "88": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 68
+      },
+      "112": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 82
+      },
+      "128": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 82
+      },
+      "152": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 110
+      },
+      "168": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 111
+      },
+      "176": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 112
+      },
+      "192": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 112
+      },
+      "208": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "216": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "224": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "240": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "288": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "304": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "320": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "336": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "344": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "352": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "376": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "392": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "416": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "424": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "432": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "456": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "472": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "480": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "528": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "544": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "552": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "568": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "584": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "592": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "600": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "616": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "624": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "632": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "640": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "648": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "664": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 116
+      },
+      "680": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 124
+      },
+      "696": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 124
+      },
+      "712": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 124
+      },
+      "720": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 124
+      },
+      "736": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 124
+      },
+      "752": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      },
+      "760": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      },
+      "776": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      },
+      "792": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      },
+      "800": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      },
+      "920": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      },
+      "928": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      },
+      "936": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      },
+      "952": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      },
+      "960": {
+        "filename": "../contracts/HTLCForwarder.tsol",
+        "line": 125
+      }
+    },
+    "f24e1e7aa04d89aad2945816b6e9b921f2b3892da9ba53e2383c148351b96d0c": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1207
+      },
+      "16": {
+        "filename": "HTLCForwarder.code",
+        "line": 1208
+      }
+    },
+    "f58671142b656f91da0425885a951b2a4b5e9ca854d08b5223e15fb9b440d3ef": {
+      "0": {
+        "filename": "HTLCForwarder.code",
+        "line": 1561
+      },
+      "8": {
+        "filename": "HTLCForwarder.code",
+        "line": 1562
+      },
+      "56": {
+        "filename": "HTLCForwarder.code",
+        "line": 1563
+      },
+      "64": {
+        "filename": "HTLCForwarder.code",
+        "line": 1564
+      },
+      "80": {
+        "filename": "HTLCForwarder.code",
+        "line": 1567
+      },
+      "88": {
+        "filename": "HTLCForwarder.code",
+        "line": 1568
+      },
+      "136": {
+        "filename": "HTLCForwarder.code",
+        "line": 1569
+      },
+      "144": {
+        "filename": "HTLCForwarder.code",
+        "line": 1570
+      },
+      "160": {
+        "filename": "HTLCForwarder.code",
+        "line": 1573
+      },
+      "168": {
+        "filename": "HTLCForwarder.code",
+        "line": 1574
+      },
+      "216": {
+        "filename": "HTLCForwarder.code",
+        "line": 1575
+      },
+      "224": {
+        "filename": "HTLCForwarder.code",
+        "line": 1576
+      },
+      "240": {
+        "filename": "HTLCForwarder.code",
+        "line": 1579
+      },
+      "248": {
+        "filename": "HTLCForwarder.code",
+        "line": 1580
+      },
+      "296": {
+        "filename": "HTLCForwarder.code",
+        "line": 1581
+      },
+      "304": {
+        "filename": "HTLCForwarder.code",
+        "line": 1582
       }
     },
     "f9cf078b1ee9bb5f8428c5cac6a83ef09103184df306b169e8f3e88359b5ef45": {

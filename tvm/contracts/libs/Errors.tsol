@@ -13,5 +13,4 @@ library HTLCErrors {
     uint16 constant NON_ZERO_PUBLIC_KEY   = 1009; //
     uint16 constant NOT_ENOUGH_BALANCE    = 1010; //
     uint16 constant NOT_ENOUGH_CAPACITY   = 1011; //
-    uint16 constant INCORRECT_PAYLOAD     = 1012; //
 }
