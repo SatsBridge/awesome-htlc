@@ -58,8 +58,7 @@
 				{"name":"tokenWallet","type":"address"},
 				{"name":"amount","type":"uint128"},
 				{"name":"hashlock","type":"uint256"},
-				{"name":"timelock","type":"uint64"},
-				{"name":"capacity","type":"uint128"}
+				{"name":"timelock","type":"uint64"}
 			]
 		},
 		{
@@ -155,14 +154,6 @@
 			]
 		},
 		{
-			"name": "capacity_",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"capacity_","type":"uint128"}
-			]
-		},
-		{
 			"name": "hashlock_",
 			"inputs": [
 			],
@@ -239,7 +230,6 @@
 		{"name":"counterparty_","type":"address"},
 		{"name":"timelock_","type":"uint64"},
 		{"name":"amount_","type":"uint128"},
-		{"name":"capacity_","type":"uint128"},
 		{"name":"hashlock_","type":"uint256"}
 	]
 }

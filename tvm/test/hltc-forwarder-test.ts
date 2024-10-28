@@ -285,8 +285,6 @@ describe("Test HTLC forwarder contract", async function () {
       expect(Number(response.amount)).to.be.equal(0, "Wrong state");
       expect(Number(response.hashlock)).to.be.equal(0, "Wrong state");
       expect(Number(response.timelock)).to.be.equal(0, "Wrong state");
-      expect(Number(response.capacity)).to.be.equal(Number(toNano(0.1)), "Wrong state");
-      console.log(`Zero State checked. HTLC Capacity ${response.capacity}`)
 
         htlcTip3Wallet = locklift.factory.getDeployedContract("TokenWalletUpgradeable", htlcTip3WalletAddress);
         const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
@@ -346,8 +344,6 @@ describe("Test HTLC forwarder contract", async function () {
       expect(Number(response.amount)).to.be.equal(0, "Wrong state");
       expect(Number(response.hashlock)).to.be.equal(0, "Wrong state");
       expect(Number(response.timelock)).to.be.equal(0, "Wrong state");
-      expect(Number(response.capacity)).to.be.equal(Number(toNano(0.2)), "Wrong state");
-      console.log(`Zero State checked. HTLC Capacity ${response.capacity}`)
 
         htlcTip3Wallet = locklift.factory.getDeployedContract("TokenWalletUpgradeable", htlcTip3WalletAddress);
         const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
@@ -359,7 +355,7 @@ describe("Test HTLC forwarder contract", async function () {
       const { traceTree: traceSuccess } = await locklift.tracing.trace(
             htlc.methods.transfer({
             destination: userTip3WalletAddress,
-            amount: toNano(0.1),
+            amount: toNano(0.2),
           })
           .send({
             from: ownerWallet.account.address,
@@ -383,7 +379,7 @@ describe("Test HTLC forwarder contract", async function () {
         await locklift.provider.packIntoCell({
           data: {
             _incoming: true,
-            _counterparty: userTip3WalletAddress,
+            _counterparty: userWallet.account.address,
             _hashlock: bufToStr(TEST_PAYMENT_SHA),
             _timelock: now + delta,
           },
@@ -517,21 +513,48 @@ describe("Test HTLC forwarder contract", async function () {
         expect(htlcTokenBalance).to.be.equals(toNano(1.01).toString(), "HTLC wallet amount should be equal to the amount transferred");
     });
     */
-    it("Refund", async function () {
-      await delay(10000);
-      const { traceTree } = await locklift.tracing.trace(
-        htlc.methods.refund({}).sendExternal({
-          publicKey: owner?.publicKey as string,
-        }),
-        { raise: true },
+
+    it("Refund incoming", async function () {
+      const { value0: userTokenBalanceBefore } = await userTip3Wallet.methods.balance({ answerId: 0 }).call();
+      expect(userTokenBalanceBefore).to.be.equals(
+        toNano(1.1111).toString(),
+        "user wallet amount should be equal to the amount of initial supply minus transferred amount",
       );
-      // await traceTree?.beautyPrint();
+
+      await delay(10000);
+      // external for demo purpose
+      //const { traceTree: traceSuccess } = await locklift.tracing.trace(
+      //  htlc.methods.refund({}).sendExternal({
+      //    publicKey: owner?.publicKey as string,
+      //  }),
+      //  { raise: true },
+      //);
+
+        const { traceTree: traceSuccess } = await locklift.tracing.trace(
+          htlc.methods
+            .refund({})
+            .send({
+              from: userWallet.account.address,
+              amount: locklift.utils.toNano(0.1),
+            }),
+            { raise: false },
+        );
+
+      await traceSuccess?.beautyPrint();
+
+      const { value0: userTokenBalanceAfter } = await userTip3Wallet.methods.balance({ answerId: 0 }).call();
+      expect(userTokenBalanceAfter).to.be.equals(
+        toNano(1.21211).toString(),
+        "user wallet amount should be equal to the amount of initial supply minus transferred amount",
+      );
+
       const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
       expect(htlcTokenBalance).to.be.equals(
         toNano(0.10101).toString(),
         "HTLC wallet amount should be equal to the amount transferred",
       );
     });
+
 
     it("Test withdrawals", async function () {
       const { traceTree: traceFail } = await locklift.tracing.trace(
