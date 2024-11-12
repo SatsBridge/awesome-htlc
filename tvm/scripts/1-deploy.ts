@@ -30,7 +30,7 @@ async function main() {
       tokenRoot_: tokenRootAddress,
     },
     constructorParams: {
-       _owner: ownerWallet.account.address,
+      _owner: ownerWallet.account.address,
     },
     value: locklift.utils.toNano(3),
   });

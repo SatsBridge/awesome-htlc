@@ -147,7 +147,7 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
         resetContractState();
     }
 
-    function transfer(address destination, uint128 amount) public onlyOwner ready {
+    function transfer(address destination, uint128 amount) public view onlyOwner ready {
         // ready is for transfers exclusively when there is no in-flight HTLC
         tvm.accept();
         tvm.rawReserve(0.5 ever, 0);
@@ -227,8 +227,10 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
     ) override external onlyOurWallet ready {
         // just failing in case we get it from unknown tokens
         require(tokenRoot == tokenRoot_, HTLCErrors.INVALID_TOKEN_ROOT);
+        require(msg.sender == tokenWallet_, HTLCErrors.WRONG_TOKEN_WALLET);
+
         TvmSlice payloadSlice = payload.toSlice();
-        TvmCell empty;
+
         // Lock HTLC
         if (payloadSlice.bits() == 588) { //588 on tests
             tvm.rawReserve(0.5 ever, 0);
@@ -246,6 +248,14 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
             timelock_ = timelock;
             hashlock_ = hashlock;
 
+        } else {
+            ITokenWallet(msg.sender).transferToWallet{ value: 0, flag: MsgFlag.ALL_NOT_RESERVED }(
+                amount,
+                senderWallet,
+                remainingGasTo,
+                true,
+                payload
+            );
         }
     }
 }

@@ -12,4 +12,5 @@ library HTLCErrors {
     uint16 constant INVALID_TOKEN_WALLET  = 1008; //
     uint16 constant NON_ZERO_PUBLIC_KEY   = 1009; //
     uint16 constant NOT_ENOUGH_BALANCE    = 1010; //
+    uint16 constant WRONG_TOKEN_WALLET    = 1011; //
 }

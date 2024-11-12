@@ -1,235 +1,184 @@
 {
-	"ABI version": 2,
-	"version": "2.2",
-	"header": ["pubkey", "time", "expire"],
-	"functions": [
-		{
-			"name": "constructor",
-			"inputs": [
-				{"name":"_owner","type":"optional(address)"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "route",
-			"inputs": [
-				{"name":"counterparty","type":"address"},
-				{"name":"amount","type":"uint128"},
-				{"name":"hashlock","type":"uint256"},
-				{"name":"timelock","type":"uint64"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "settle",
-			"inputs": [
-				{"name":"preimage","type":"uint256"}
-			],
-			"outputs": [
-				{"name":"value0","type":"bool"}
-			]
-		},
-		{
-			"name": "refund",
-			"inputs": [
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "transfer",
-			"inputs": [
-				{"name":"destination","type":"address"},
-				{"name":"amount","type":"uint128"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "getDetails",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"incoming","type":"bool"},
-				{"name":"counterparty","type":"address"},
-				{"name":"tokenRoot","type":"address"},
-				{"name":"tokenWallet","type":"address"},
-				{"name":"amount","type":"uint128"},
-				{"name":"hashlock","type":"uint256"},
-				{"name":"timelock","type":"uint64"}
-			]
-		},
-		{
-			"name": "onWalletDeployed",
-			"inputs": [
-				{"name":"tokenWallet","type":"address"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "onAcceptTokensTransfer",
-			"inputs": [
-				{"name":"tokenRoot","type":"address"},
-				{"name":"amount","type":"uint128"},
-				{"name":"sender","type":"address"},
-				{"name":"senderWallet","type":"address"},
-				{"name":"remainingGasTo","type":"address"},
-				{"name":"payload","type":"cell"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "transferOwnership",
-			"inputs": [
-				{"name":"newOwner","type":"address"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "renounceOwnership",
-			"inputs": [
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "owner",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"owner","type":"address"}
-			]
-		},
-		{
-			"name": "_randomNonce",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"_randomNonce","type":"uint256"}
-			]
-		},
-		{
-			"name": "incoming_",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"incoming_","type":"bool"}
-			]
-		},
-		{
-			"name": "tokenWallet_",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"tokenWallet_","type":"address"}
-			]
-		},
-		{
-			"name": "counterparty_",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"counterparty_","type":"address"}
-			]
-		},
-		{
-			"name": "timelock_",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"timelock_","type":"uint64"}
-			]
-		},
-		{
-			"name": "amount_",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"amount_","type":"uint128"}
-			]
-		},
-		{
-			"name": "hashlock_",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"hashlock_","type":"uint256"}
-			]
-		}
-	],
-	"data": [
-		{"key":1,"name":"_randomNonce","type":"uint256"},
-		{"key":2,"name":"tokenRoot_","type":"address"}
-	],
-	"events": [
-		{
-			"name": "HTLCNew",
-			"inputs": [
-				{"name":"incoming","type":"bool"},
-				{"name":"counterparty","type":"address"},
-				{"name":"tokenWallet","type":"address"},
-				{"name":"tokenRoot","type":"address"},
-				{"name":"amount","type":"uint128"},
-				{"name":"hashlock","type":"uint256"},
-				{"name":"timelock","type":"uint64"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "HTLCSettle",
-			"inputs": [
-				{"name":"preimage","type":"uint256"},
-				{"name":"tokenRoot","type":"address"},
-				{"name":"amount","type":"uint128"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "HTLCRefund",
-			"inputs": [
-				{"name":"hashlock","type":"uint256"},
-				{"name":"tokenRoot","type":"address"},
-				{"name":"amount","type":"uint128"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "HTLCReset",
-			"inputs": [
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "OwnershipTransferred",
-			"inputs": [
-				{"name":"previousOwner","type":"address"},
-				{"name":"newOwner","type":"address"}
-			],
-			"outputs": [
-			]
-		}
-	],
-	"fields": [
-		{"name":"_pubkey","type":"uint256"},
-		{"name":"_timestamp","type":"uint64"},
-		{"name":"_constructorFlag","type":"bool"},
-		{"name":"owner","type":"address"},
-		{"name":"_randomNonce","type":"uint256"},
-		{"name":"incoming_","type":"bool"},
-		{"name":"tokenRoot_","type":"address"},
-		{"name":"tokenWallet_","type":"address"},
-		{"name":"counterparty_","type":"address"},
-		{"name":"timelock_","type":"uint64"},
-		{"name":"amount_","type":"uint128"},
-		{"name":"hashlock_","type":"uint256"}
-	]
+  "ABI version": 2,
+  "version": "2.2",
+  "header": ["pubkey", "time", "expire"],
+  "functions": [
+    {
+      "name": "constructor",
+      "inputs": [{ "name": "_owner", "type": "optional(address)" }],
+      "outputs": []
+    },
+    {
+      "name": "route",
+      "inputs": [
+        { "name": "counterparty", "type": "address" },
+        { "name": "amount", "type": "uint128" },
+        { "name": "hashlock", "type": "uint256" },
+        { "name": "timelock", "type": "uint64" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "settle",
+      "inputs": [{ "name": "preimage", "type": "uint256" }],
+      "outputs": [{ "name": "value0", "type": "bool" }]
+    },
+    {
+      "name": "refund",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "transfer",
+      "inputs": [
+        { "name": "destination", "type": "address" },
+        { "name": "amount", "type": "uint128" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "getDetails",
+      "inputs": [],
+      "outputs": [
+        { "name": "incoming", "type": "bool" },
+        { "name": "counterparty", "type": "address" },
+        { "name": "tokenRoot", "type": "address" },
+        { "name": "tokenWallet", "type": "address" },
+        { "name": "amount", "type": "uint128" },
+        { "name": "hashlock", "type": "uint256" },
+        { "name": "timelock", "type": "uint64" }
+      ]
+    },
+    {
+      "name": "onWalletDeployed",
+      "inputs": [{ "name": "tokenWallet", "type": "address" }],
+      "outputs": []
+    },
+    {
+      "name": "onAcceptTokensTransfer",
+      "inputs": [
+        { "name": "tokenRoot", "type": "address" },
+        { "name": "amount", "type": "uint128" },
+        { "name": "sender", "type": "address" },
+        { "name": "senderWallet", "type": "address" },
+        { "name": "remainingGasTo", "type": "address" },
+        { "name": "payload", "type": "cell" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "transferOwnership",
+      "inputs": [{ "name": "newOwner", "type": "address" }],
+      "outputs": []
+    },
+    {
+      "name": "renounceOwnership",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "owner",
+      "inputs": [],
+      "outputs": [{ "name": "owner", "type": "address" }]
+    },
+    {
+      "name": "_randomNonce",
+      "inputs": [],
+      "outputs": [{ "name": "_randomNonce", "type": "uint256" }]
+    },
+    {
+      "name": "incoming_",
+      "inputs": [],
+      "outputs": [{ "name": "incoming_", "type": "bool" }]
+    },
+    {
+      "name": "tokenWallet_",
+      "inputs": [],
+      "outputs": [{ "name": "tokenWallet_", "type": "address" }]
+    },
+    {
+      "name": "counterparty_",
+      "inputs": [],
+      "outputs": [{ "name": "counterparty_", "type": "address" }]
+    },
+    {
+      "name": "timelock_",
+      "inputs": [],
+      "outputs": [{ "name": "timelock_", "type": "uint64" }]
+    },
+    {
+      "name": "amount_",
+      "inputs": [],
+      "outputs": [{ "name": "amount_", "type": "uint128" }]
+    },
+    {
+      "name": "hashlock_",
+      "inputs": [],
+      "outputs": [{ "name": "hashlock_", "type": "uint256" }]
+    }
+  ],
+  "data": [
+    { "key": 1, "name": "_randomNonce", "type": "uint256" },
+    { "key": 2, "name": "tokenRoot_", "type": "address" }
+  ],
+  "events": [
+    {
+      "name": "HTLCNew",
+      "inputs": [
+        { "name": "incoming", "type": "bool" },
+        { "name": "counterparty", "type": "address" },
+        { "name": "tokenWallet", "type": "address" },
+        { "name": "tokenRoot", "type": "address" },
+        { "name": "amount", "type": "uint128" },
+        { "name": "hashlock", "type": "uint256" },
+        { "name": "timelock", "type": "uint64" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "HTLCSettle",
+      "inputs": [
+        { "name": "preimage", "type": "uint256" },
+        { "name": "tokenRoot", "type": "address" },
+        { "name": "amount", "type": "uint128" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "HTLCRefund",
+      "inputs": [
+        { "name": "hashlock", "type": "uint256" },
+        { "name": "tokenRoot", "type": "address" },
+        { "name": "amount", "type": "uint128" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "HTLCReset",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "OwnershipTransferred",
+      "inputs": [
+        { "name": "previousOwner", "type": "address" },
+        { "name": "newOwner", "type": "address" }
+      ],
+      "outputs": []
+    }
+  ],
+  "fields": [
+    { "name": "_pubkey", "type": "uint256" },
+    { "name": "_timestamp", "type": "uint64" },
+    { "name": "_constructorFlag", "type": "bool" },
+    { "name": "owner", "type": "address" },
+    { "name": "_randomNonce", "type": "uint256" },
+    { "name": "incoming_", "type": "bool" },
+    { "name": "tokenRoot_", "type": "address" },
+    { "name": "tokenWallet_", "type": "address" },
+    { "name": "counterparty_", "type": "address" },
+    { "name": "timelock_", "type": "uint64" },
+    { "name": "amount_", "type": "uint128" },
+    { "name": "hashlock_", "type": "uint256" }
+  ]
 }

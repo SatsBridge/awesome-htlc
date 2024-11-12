@@ -27,8 +27,8 @@ const PAYMENT_PREIMAGE = randomBytes(32);
 const TEST_PAYMENT_SHA = createHash("sha256").update(PAYMENT_PREIMAGE).digest();
 const TEST_PAYMENT_RIPE = createHash("ripemd160").update(TEST_PAYMENT_SHA).digest();
 
-console.log(`Hash - Preimage pair
-${bufToStr(TEST_PAYMENT_SHA)} / ${bufToStr(TEST_PAYMENT_RIPE)} / ${bufToStr(PAYMENT_PREIMAGE)}`)
+console.log(`Inputs: Hash & Preimage pair
+${bufToStr(TEST_PAYMENT_SHA)} / ${bufToStr(TEST_PAYMENT_RIPE)} / ${bufToStr(PAYMENT_PREIMAGE)}`);
 
 type DeployRootParams = { signer: Signer; owner: Address };
 
@@ -40,8 +40,8 @@ export const deployTokenRoot = async ({
   signer,
   owner,
 }: DeployRootParams): Promise<Contract<TokenRootUpgradeableAbi>> => {
-  const TOKEN_ROOT_NAME = "StEver";
-  const TOKEN_ROOT_SYMBOL = "STE";
+  const TOKEN_ROOT_NAME = "TestToken";
+  const TOKEN_ROOT_SYMBOL = "TT";
   const ZERO_ADDRESS = new Address("0:0000000000000000000000000000000000000000000000000000000000000000");
   const tokenWalletCode = locklift.factory.getContractArtifacts("TokenWalletUpgradeable");
   const platformCode = locklift.factory.getContractArtifacts("TokenWalletPlatform");
@@ -73,7 +73,7 @@ export const deployTokenRoot = async ({
   return contract;
 };
 
-describe("Test HTLC forwarder contract", async function () {
+describe("HTLC Channel Contract test cycle", async function () {
   const zeroAddress = new Address("0:0000000000000000000000000000000000000000000000000000000000000000");
   before(async () => {
     owner = (await locklift.keystore.getSigner("0"))!;
@@ -120,8 +120,8 @@ describe("Test HTLC forwarder contract", async function () {
     //console.log(`TIP3 Token: ${tokenRoot.address}`);
   });
 
-  describe("Wallets", async function () {
-    it("Test EverWallets", async function () {
+  describe("Creating wallets", async function () {
+    it("Sending from User's EverWallet to HTLC Owner EverWallet", async function () {
       await locklift.provider.sendMessage({
         sender: userWallet.account.address,
         recipient: ownerWallet.account.address,
@@ -130,7 +130,7 @@ describe("Test HTLC forwarder contract", async function () {
       });
       // console.log(`ownerWallet: ${ await locklift.provider.getBalance(ownerWallet.account.address)}`);
     });
-    it("Deploy User's TokenWallet ", async function () {
+    it("Deploy User's TokenWallet using User's EverWallet", async function () {
       const deployTokenWalletForUserTX = await locklift.transactions.waitFinalized(
         tokenRoot.methods
           .deployWallet({
@@ -143,18 +143,18 @@ describe("Test HTLC forwarder contract", async function () {
             amount: toNano(0.2), // 1 ever
           }),
       );
-      //console.log(`Deploy wallet: ${deployTokenWalletForUserTX}`);
+      // console.log(`Deploy wallet: ${deployTokenWalletForUserTX}`);
     });
   });
 
-  describe("TIP3 contract", async function () {
-    it("Test deploy", async function () {
+  describe("Testing TIP3 contract", async function () {
+    it("Testing earlier TIP3 deployment", async function () {
       const tokenBalance = await locklift.provider.getBalance(tokenRoot.address).then(Number);
       expect(tokenBalance).to.be.above(0);
-      console.log(`TIP3 Token: ${tokenRoot.address}`);
-      console.log(`Balance: ${tokenBalance}`);
+      // console.log(`TIP3 Token: ${tokenRoot.address}`);
+      // console.log(`Balance: ${tokenBalance}`);
     });
-    it("Token transaction test", async function () {
+    it("Testing token transaction from HTLC Owner towards User's EverWallet", async function () {
       ownerTip3WalletAddress = (
         await tokenRoot.methods.walletOf({ answerId: 0, walletOwner: ownerWallet.account.address }).call()
       ).value0;
@@ -176,29 +176,31 @@ describe("Test HTLC forwarder contract", async function () {
           }),
       );
     });
-    it("TokenWallet balances check (and deploy test)", async function () {
+
+    it("Token balances sanity check for both User's and Owner's TokenWallets", async function () {
       userTip3WalletAddress = (
         await tokenRoot.methods.walletOf({ answerId: 0, walletOwner: userWallet.account.address }).call()
       ).value0;
-      userTip3Wallet = locklift.factory.getDeployedContract("TokenWalletUpgradeable", userTip3WalletAddress);
 
-      const { value0: ownerTokenBalance } = await ownerTip3Wallet.methods.balance({ answerId: 0 }).call();
-      expect(ownerTokenBalance).to.be.equals(
-        toNano(121.8889).toString(),
-        "Owner wallet amount should be equal to the amount of initial supply minus transferred amount",
-      );
+      userTip3Wallet = locklift.factory.getDeployedContract("TokenWalletUpgradeable", userTip3WalletAddress);
 
       const { value0: userTokenBalance } = await userTip3Wallet.methods.balance({ answerId: 0 }).call();
       expect(userTokenBalance).to.be.equals(
         toNano(1.1111).toString(),
         "User wallet amount should be equal to the amount transferred",
       );
-      //console.log(`OwnerTip3Wallet Address: ${ownerTip3WalletAddress}`);
-      //console.log(`OwnerTip3Wallet Balance: ${ownerTokenBalance}`);
+
+      const { value0: ownerTokenBalance } = await ownerTip3Wallet.methods.balance({ answerId: 0 }).call();
+      expect(ownerTokenBalance).to.be.equals(
+        toNano(121.8889).toString(),
+        "Owner wallet amount should be equal to the amount of initial supply minus transferred amount",
+      );
+      // console.log(`OwnerTip3Wallet Address: ${ownerTip3WalletAddress}`);
+      // console.log(`OwnerTip3Wallet Balance: ${ownerTokenBalance}`);
     });
   });
 
-  describe("Test HTLC Forwarder contract", async function () {
+  describe("Testing HTLC Forwarder/Channel contract", async function () {
     it("Load HTLC contract factory", async function () {
       const contractData = await locklift.factory.getContractArtifacts("HTLCForwarder");
       expect(contractData.code).not.to.equal(undefined, "Code should be available");
@@ -206,7 +208,7 @@ describe("Test HTLC forwarder contract", async function () {
       expect(contractData.tvc).not.to.equal(undefined, "tvc should be available");
     });
 
-    it("Deploy HTLC contract", async function () {
+    it("Deploy HTLC Forwarder contract with Owner's EverWallet", async function () {
       const { contract } = await locklift.tracing.trace(
         locklift.factory.deployContract({
           contract: "HTLCForwarder",
@@ -224,8 +226,8 @@ describe("Test HTLC forwarder contract", async function () {
       htlc = contract;
       const tokenBalance = await locklift.provider.getBalance(htlc.address).then(Number);
       expect(tokenBalance).to.be.above(0);
-      console.log(`HTLC: ${htlc.address}`);
-      console.log(`Balance: ${tokenBalance}`);
+      // console.log(`HTLC: ${htlc.address}`);
+      // console.log(`Balance: ${tokenBalance}`);
 
       await locklift.provider.sendMessage({
         sender: userWallet.account.address,
@@ -236,15 +238,17 @@ describe("Test HTLC forwarder contract", async function () {
 
       const everBalanceAfter = await locklift.provider.getBalance(htlc.address).then(Number);
       expect(everBalanceAfter).to.be.above(0);
-      console.log(`HTLC: ${htlc.address}`);
-      console.log(`Balance EVERS: ${everBalanceAfter}`);
+      // console.log(`HTLC: ${htlc.address}`);
+      // console.log(`Balance EVERS: ${everBalanceAfter}`);
     });
-    it("Check deploy of TokenWallet for TIP3", async function () {
+
+    it("Check deploy of HTLC Forwarder TokenWallet in TIP3 contract", async function () {
       htlcTip3WalletAddress = (await tokenRoot.methods.walletOf({ answerId: 0, walletOwner: htlc.address }).call())
         .value0;
-      console.log(`Deployed TIP3 Token Wallet address ${htlcTip3WalletAddress}`);
+      // console.log(`Deployed TIP3 Token Wallet address ${htlcTip3WalletAddress}`);
     });
-    it("Check deployment: get HTLC contract state (zeroes)", async function () {
+
+    it("Sanity check against zero HTLC contract state", async function () {
       const response = await htlc.methods.getDetails({}).call();
       // Check for corect HTLC contract TIP3 address
       expect(response.tokenWallet.equals(htlcTip3WalletAddress), "Wrong state");
@@ -256,7 +260,8 @@ describe("Test HTLC forwarder contract", async function () {
       expect(Number(response.timelock)).to.be.equal(0, "Wrong state");
     });
 
-    it("Adding capacity to HTLC", async function () {
+    it("Adding capacity to HTLC via transfer with zero payload", async function () {
+      // Note it may not work in certain onAcceptTokensTransfer implementations
       const { traceTree } = await locklift.tracing.trace(
         ownerTip3Wallet.methods
           .transfer({
@@ -278,7 +283,6 @@ describe("Test HTLC forwarder contract", async function () {
           },
         },
       );
-
       // Check for zeroes because contract state shouldn't change
       const response = await htlc.methods.getDetails({}).call();
       expect(response.counterparty.equals(zeroAddress), "Wrong state");
@@ -286,18 +290,71 @@ describe("Test HTLC forwarder contract", async function () {
       expect(Number(response.hashlock)).to.be.equal(0, "Wrong state");
       expect(Number(response.timelock)).to.be.equal(0, "Wrong state");
 
-        htlcTip3Wallet = locklift.factory.getDeployedContract("TokenWalletUpgradeable", htlcTip3WalletAddress);
-        const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
-        expect(Number(htlcTokenBalance)).to.be.equals(
-          Number(toNano(0.1)),
-          "HTLC wallet amount should be equal to the amount transferred",
-        );
+      htlcTip3Wallet = locklift.factory.getDeployedContract("TokenWalletUpgradeable", htlcTip3WalletAddress);
+      const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
+      expect(Number(htlcTokenBalance)).to.be.equals(
+        Number(toNano(0)),
+        "HTLC wallet amount should be equal to the amount transferred",
+      );
+      // console.log(`HTLC contract balance after token transfer: ${htlcTokenBalance}`);
+    });
 
-      console.log(`HTLC contract balance ${htlcTokenBalance}`)
+    it("Adding capacity to HTLC via two stage locking-settlement process", async function () {
+      const now = Math.floor(Date.now() / 1000);
+      const htlcPayload = (
+        await locklift.provider.packIntoCell({
+          data: {
+            _incoming: true,
+            _counterparty: userTip3WalletAddress,
+            _hashlock: bufToStr(TEST_PAYMENT_SHA),
+            _timelock: now + 60 * 60,
+          },
+          structure: [
+            { name: "_incoming", type: "bool" },
+            { name: "_counterparty", type: "address" },
+            { name: "_hashlock", type: "uint256" },
+            { name: "_timelock", type: "uint64" },
+          ] as const,
+          abiVersion: "2.3",
+        })
+      ).boc;
+      const { traceTree1 } = await locklift.tracing.trace(
+        ownerTip3Wallet.methods
+          .transfer({
+            amount: toNano(0.2),
+            recipient: htlc.address,
+            deployWalletValue: 0,
+            remainingGasTo: ownerWallet.account.address,
+            notify: true,
+            payload: htlcPayload,
+          })
+          .send({
+            from: ownerWallet.account.address,
+            amount: locklift.utils.toNano(1),
+          }),
+      );
+
+      const { traceTree2 } = await locklift.tracing.trace(
+        htlc.methods
+          .settle({
+            preimage: bufToStr(PAYMENT_PREIMAGE),
+          })
+          .send({
+            from: userWallet.account.address,
+            amount: locklift.utils.toNano(0.1),
+          }),
+        { raise: true },
+      );
+
+      const { value0: addedLiquidity } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
+      expect(Number(addedLiquidity)).to.be.equals(
+        Number(toNano(0.2)),
+        "HTLC wallet amount should be equal to the amount transferred",
+      );
     });
 
     it("Pushing incorrect payload into HTLC", async function () {
-      const now = Math.floor((Date.now())/1000);
+      const now = Math.floor(Date.now() / 1000);
       const htlcPayload = (
         await locklift.provider.packIntoCell({
           data: {
@@ -315,7 +372,7 @@ describe("Test HTLC forwarder contract", async function () {
           abiVersion: "2.3",
         })
       ).boc;
-      console.log(htlcPayload)
+      // console.log(htlcPayload);
       const { traceTree } = await locklift.tracing.trace(
         ownerTip3Wallet.methods
           .transfer({
@@ -345,36 +402,45 @@ describe("Test HTLC forwarder contract", async function () {
       expect(Number(response.hashlock)).to.be.equal(0, "Wrong state");
       expect(Number(response.timelock)).to.be.equal(0, "Wrong state");
 
-        htlcTip3Wallet = locklift.factory.getDeployedContract("TokenWalletUpgradeable", htlcTip3WalletAddress);
-        const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
-        expect(Number(htlcTokenBalance)).to.be.equals(
-          Number(toNano(0.2)),
-          "HTLC wallet amount should be equal to the amount transferred",
-        );
-      console.log(`HTLC contract balance ${htlcTokenBalance}`)
+      htlcTip3Wallet = locklift.factory.getDeployedContract("TokenWalletUpgradeable", htlcTip3WalletAddress);
+      const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
+      expect(Number(htlcTokenBalance)).to.be.equals(
+        Number(toNano(0.2)),
+        "HTLC wallet amount should be equal to the amount transferred",
+      );
+      // console.log(`HTLC contract balance ${htlcTokenBalance}`);
+    });
+
+    it("Test TIP3 token withdrawals #1", async function () {
       const { traceTree: traceSuccess } = await locklift.tracing.trace(
-            htlc.methods.transfer({
+        htlc.methods
+          .transfer({
             destination: userTip3WalletAddress,
             amount: toNano(0.2),
           })
           .send({
             from: ownerWallet.account.address,
-            amount: locklift.utils.toNano(0.1),
+            amount: locklift.utils.toNano(1),
           }),
       );
-      await traceSuccess?.beautyPrint();
+      // await traceSuccess?.beautyPrint();
+      const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
+      expect(htlcTokenBalance).to.be.equals(
+        toNano(0).toString(),
+        "HTLC wallet amount should be equal to the amount transferred",
+      );
     });
 
     it("Pushing incoming HTLC in contract to test refund", async function () {
-      const now = Math.floor((Date.now())/1000);
+      const now = Math.floor(Date.now() / 1000);
       const delta = 11;
-      console.log(`Timestamp now ${now} + delta ${(now + delta)}`)
-      console.log(`Timestamp getCurrentTime ${locklift.testing.getCurrentTime()}`)
+      // console.log(`Timestamp now ${now} + delta ${now + delta}`);
+      // console.log(`Timestamp getCurrentTime ${locklift.testing.getCurrentTime()}`);
       // increase time by 10 seconds
       await locklift.testing.increaseTime(10);
       // get current offset in seconds
       const currentOffsetInSeconds = locklift.testing.getTimeOffset();
-      console.log(`Timestamp getTimeOffset ${currentOffsetInSeconds}`)
+      // console.log(`Timestamp getTimeOffset ${currentOffsetInSeconds}`);
       const htlcPayload = (
         await locklift.provider.packIntoCell({
           data: {
@@ -392,7 +458,7 @@ describe("Test HTLC forwarder contract", async function () {
           abiVersion: "2.3",
         })
       ).boc;
-      console.log(htlcPayload)
+      // console.log(htlcPayload);
       const { traceTree } = await locklift.tracing.trace(
         ownerTip3Wallet.methods
           .transfer({
@@ -416,7 +482,7 @@ describe("Test HTLC forwarder contract", async function () {
         toNano(0.10101).toString(),
         "HTLC wallet amount should be equal to the amount transferred",
       );
-      //console.log(`tokens ${htlcTokenBalance}`);
+      // console.log(`tokens ${htlcTokenBalance}`);
     });
 
     it("Check contract LOCK for incoming HTLC", async function () {
@@ -427,17 +493,17 @@ describe("Test HTLC forwarder contract", async function () {
       // Check for hashlock conditions
       expect(response.incoming).to.be.equal(true, "Wrong state");
       expect(response.counterparty.equals(userTip3WalletAddress), "Wrong state");
-      //console.log(`${response.counterparty}`);
+      // console.log(`${response.counterparty}`);
       expect(response.amount).to.be.equals(
         toNano(0.10101).toString(),
         "HTLC wallet amount should be equal to the amount transferred",
       );
       //TODO: full hash check
-      console.log(`Contract timestamp ${Number(response.timelock)}`)
+      // console.log(`Contract timestamp ${Number(response.timelock)}`);
       //expect(Number(response.hashlock)).to.be.not(0, "Wrong state");
       //expect(Number(response.timelock)).to.be.not(0, "Wrong state");
       // this should fail
-      const now = Math.floor((Date.now())/1000);
+      const now = Math.floor(Date.now() / 1000);
       const htlcPayload = (
         await locklift.provider.packIntoCell({
           data: {
@@ -479,40 +545,7 @@ describe("Test HTLC forwarder contract", async function () {
       );
       expect(traceTree).to.have.error(1004); // Does not accept new contract setup anymore
       //// await traceTree?.beautyPrint();
-      //const tokenBalanceChange = traceTree?.tokens.getTokenBalanceChange(tokenRoot.address);
-      //console.log(`token balance change ${tokenBalanceChange}`);
-      // -1859458715 measurements depends of token decimals
-      const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
-      console.log(`tokens ${htlcTokenBalance}`);
-      //expect(htlcTokenBalance).to.be.equals(
-      //toNano(0.10101).toString(),
-      //"HTLC wallet amount should be equal to the amount transferred",
-      //);
     });
-    /*
-    it("Request routing from TVM", async function () {
-        const ts = Math.trunc(locklift.testing.getCurrentTime()/1000 + 2);
-        //console.log(`Timelock: ${ts}`);
-        //console.log(`Preimage: ${bufToStr(PAYMENT_PREIMAGE)}, hash ${bufToStr(TEST_PAYMENT_SHA)}`);
-              const { traceTree } = await locklift.tracing.trace(htlc.methods.route(
-                                                                                         {
-                                                                                             counterparty: userTip3WalletAddress,
-                                                                                             amount: toNano(1.01),
-                                                                                             hashlock: bufToStr(TEST_PAYMENT_SHA),
-                                                                                             timelock: Date.now() + 24*60*60*100
-                  })
-                  .send({
-                    from: ownerWallet.account.address,
-                    amount: locklift.utils.toNano(0.1),
-                  }),
-              );
-
-        // await traceTree?.beautyPrint();
-        const htlcTip3Wallet = locklift.factory.getDeployedContract('TokenWalletUpgradeable', htlcTip3WalletAddress);
-        const {value0: htlcTokenBalance} = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
-        expect(htlcTokenBalance).to.be.equals(toNano(1.01).toString(), "HTLC wallet amount should be equal to the amount transferred");
-    });
-    */
 
     it("Refund incoming", async function () {
       const { value0: userTokenBalanceBefore } = await userTip3Wallet.methods.balance({ answerId: 0 }).call();
@@ -530,17 +563,15 @@ describe("Test HTLC forwarder contract", async function () {
       //  { raise: true },
       //);
 
-        const { traceTree: traceSuccess } = await locklift.tracing.trace(
-          htlc.methods
-            .refund({})
-            .send({
-              from: userWallet.account.address,
-              amount: locklift.utils.toNano(0.1),
-            }),
-            { raise: false },
-        );
+      const { traceTree: traceSuccess } = await locklift.tracing.trace(
+        htlc.methods.refund({}).send({
+          from: userWallet.account.address,
+          amount: locklift.utils.toNano(0.1),
+        }),
+        { raise: false },
+      );
 
-      await traceSuccess?.beautyPrint();
+      // await traceSuccess?.beautyPrint();
 
       const { value0: userTokenBalanceAfter } = await userTip3Wallet.methods.balance({ answerId: 0 }).call();
       expect(userTokenBalanceAfter).to.be.equals(
@@ -555,10 +586,10 @@ describe("Test HTLC forwarder contract", async function () {
       );
     });
 
-
-    it("Test withdrawals", async function () {
+    it("Test withdrawals #2", async function () {
       const { traceTree: traceFail } = await locklift.tracing.trace(
-            htlc.methods.transfer({
+        htlc.methods
+          .transfer({
             destination: userTip3WalletAddress,
             amount: toNano(0.10101),
           })
@@ -566,13 +597,15 @@ describe("Test HTLC forwarder contract", async function () {
             from: userWallet.account.address,
             amount: locklift.utils.toNano(0.1),
           }),
-          { raise: false },
+        { raise: false },
       );
+
       expect(traceFail).to.have.error(1101);
-      await traceFail?.beautyPrint();
+      // await traceFail?.beautyPrint();
 
       const { traceTree: traceSuccess } = await locklift.tracing.trace(
-            htlc.methods.transfer({
+        htlc.methods
+          .transfer({
             destination: ownerTip3WalletAddress,
             amount: toNano(0.10101),
           })
@@ -581,7 +614,7 @@ describe("Test HTLC forwarder contract", async function () {
             amount: locklift.utils.toNano(0.1),
           }),
       );
-      await traceSuccess?.beautyPrint();
+      // await traceSuccess?.beautyPrint();
 
       const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
       expect(htlcTokenBalance).to.be.equals(
@@ -591,7 +624,7 @@ describe("Test HTLC forwarder contract", async function () {
     });
 
     it("Pushing incoming HTLC in contract to test settlement", async function () {
-      const now = Math.floor((Date.now())/1000);
+      const now = Math.floor(Date.now() / 1000);
       const htlcPayload = (
         await locklift.provider.packIntoCell({
           data: {
@@ -635,7 +668,7 @@ describe("Test HTLC forwarder contract", async function () {
       );
     });
 
-    it("Try wrong preimage", async function () {
+    it("Try wrong preimage and fail", async function () {
       const { traceTree } = await locklift.tracing.trace(
         htlc.methods
           .settle({
@@ -645,15 +678,10 @@ describe("Test HTLC forwarder contract", async function () {
             from: userWallet.account.address,
             amount: locklift.utils.toNano(0.1),
           }),
-          { raise: false },
+        { raise: false },
       );
       // await traceTree?.beautyPrint();
       expect(traceTree).to.have.error(1003); // Does not accept new contract setup anymore
-      const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
-      expect(htlcTokenBalance).to.be.equals(
-        toNano(0.10101).toString(),
-        "HTLC wallet amount should be equal to the amount transferred",
-      );
     });
 
     it("Settlement of incoming HTLC", async function () {
@@ -666,7 +694,7 @@ describe("Test HTLC forwarder contract", async function () {
             from: userWallet.account.address,
             amount: locklift.utils.toNano(0.1),
           }),
-          { raise: true },
+        { raise: true },
       );
       // await traceTree?.beautyPrint();
       const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
@@ -677,20 +705,20 @@ describe("Test HTLC forwarder contract", async function () {
     });
 
     it("Request for outgoing transfer", async function () {
-      const now = Math.floor((Date.now())/1000);
+      const now = Math.floor(Date.now() / 1000);
       const { traceTree } = await locklift.tracing.trace(
         htlc.methods
           .route({
             counterparty: userTip3WalletAddress,
             amount: toNano(0.10101), // we have to request more
             hashlock: bufToStr(TEST_PAYMENT_SHA),
-            timelock: now + 60,//24 * 60 * 60 * 100,
+            timelock: now + 60, //24 * 60 * 60 * 100,
           })
           .send({
             from: ownerWallet.account.address,
             amount: locklift.utils.toNano(0.1),
           }),
-          { raise: true },
+        { raise: true },
       );
       // await traceTree?.beautyPrint();
     });
@@ -706,7 +734,7 @@ describe("Test HTLC forwarder contract", async function () {
         toNano(0.10101).toString(),
         "HTLC wallet amount should be equal to the amount transferred",
       );
-      const now = Math.floor((Date.now())/1000);
+      const now = Math.floor(Date.now() / 1000);
       const { traceTree } = await locklift.tracing.trace(
         htlc.methods
           .route({
@@ -719,12 +747,12 @@ describe("Test HTLC forwarder contract", async function () {
             from: ownerWallet.account.address,
             amount: locklift.utils.toNano(0.1),
           }),
-          { raise: false },
+        { raise: false },
       );
       expect(traceTree).to.have.error(1004); // Does not accept new contract setup anymore
     });
 
-    it("Settlement of outgoing HTLC", async function () {
+    it("Settlement of outgoing HTLC and check for zero Forwarder balance", async function () {
       const { traceTree } = await locklift.tracing.trace(
         htlc.methods
           .settle({
@@ -734,15 +762,14 @@ describe("Test HTLC forwarder contract", async function () {
             from: ownerWallet.account.address,
             amount: locklift.utils.toNano(0.1),
           }),
-          { raise: true },
+        { raise: true },
       );
-      await traceTree?.beautyPrint();
+      // await traceTree?.beautyPrint();
       const { value0: htlcTokenBalance } = await htlcTip3Wallet.methods.balance({ answerId: 0 }).call();
       expect(htlcTokenBalance).to.be.equals(
         toNano(0).toString(),
         "HTLC wallet amount should be equal to the amount transferred",
       );
     });
-
   });
 });
