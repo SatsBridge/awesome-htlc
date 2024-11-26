@@ -13,6 +13,13 @@ import "@broxus/tip3/contracts/interfaces/IAcceptTokensTransferCallback.tsol";
 import "./libs/TokenMsgFlag.tsol";
 import "./libs/Errors.tsol";
 
+library HtlcAccountGas {
+    uint128 constant CONTRACT_MIN_BALANCE = 0.1 ever;
+    function _reserve() internal pure returns (uint128) {
+        return
+        math.max(address(this).balance - msg.value, HtlcAccountGas.CONTRACT_MIN_BALANCE);
+    }
+}
 
 contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokensTransferCallback {
     bool public incoming_;
@@ -90,6 +97,7 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
         require(amount > 0, HTLCErrors.ZERO_AMOUNT);
         require(timelock > now, HTLCErrors.BAD_TIMELOCK); // future condition
         require(timelock < now + 86400, HTLCErrors.BAD_TIMELOCK); // less than 24 hours
+        //tvm.rawReserve(_reserve(), 0);
         tvm.accept();
         tvm.rawReserve(0.5 ever, 0);
 
@@ -126,10 +134,10 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
     }
 
     function refund() public locked {
-        tvm.accept();
-        tvm.rawReserve(0.5 ever, 0);
         // <= includes 0 = 0 which not good when the contract is reset
         require(timelock_ < now, HTLCErrors.TIMELOCKED);
+        tvm.accept();
+        tvm.rawReserve(0.5 ever, 0);
         TvmCell empty;
         if (incoming_) {
             ITokenWallet(tokenWallet_).transfer{
@@ -229,12 +237,13 @@ contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokens
         require(tokenRoot == tokenRoot_, HTLCErrors.INVALID_TOKEN_ROOT);
         require(msg.sender == tokenWallet_, HTLCErrors.WRONG_TOKEN_WALLET);
 
+        tvm.accept();
+        tvm.rawReserve(0.5 ever, 0);
+
         TvmSlice payloadSlice = payload.toSlice();
 
         // Lock HTLC
         if (payloadSlice.bits() == 588) { //588 on tests
-            tvm.rawReserve(0.5 ever, 0);
-
             ( bool incoming, address counterparty ) = payloadSlice.decode( bool, address );
 
             incoming_ = incoming;
