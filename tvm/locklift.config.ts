@@ -3,6 +3,8 @@ import { FactorySource } from "./build/factorySource";
 import * as dotenv from "dotenv";
 import chai from "chai";
 
+//import "locklift-verifier";
+
 dotenv.config();
 const {
   LOCAL_NETWORK_ENDPOINT,
@@ -46,6 +48,12 @@ const config: LockliftConfig = {
   },
   linker: {
     version: "0.15.48",
+  },
+  verifier: {
+    verifierVersion: "latest", // contract verifier binary, see https://github.com/broxus/everscan-verify/releases
+    apiKey: "uwJlTyvauW",
+    secretKey: "IEx2jg4hqE3V1YUqcVOY",
+    // license: "AGPL-3.0-or-later", <- this is default value and can be overrided
   },
   networks: {
     locklift: {
