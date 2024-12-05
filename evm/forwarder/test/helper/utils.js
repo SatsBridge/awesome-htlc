@@ -1,11 +1,11 @@
-const crypto = require('crypto');
+const crypto = require("crypto");
 
 // Format required for sending bytes through eth client:
 //  - hex string representation
 //  - prefixed with 0x
-const bufToStr = (b) => '0x' + b.toString('hex');
+const bufToStr = (b) => "0x" + b.toString("hex");
 
-const sha256 = (x) => crypto.createHash('sha256').update(x).digest();
+const sha256 = (x) => crypto.createHash("sha256").update(x).digest();
 
 const random32 = () => crypto.randomBytes(32);
 
@@ -21,7 +21,8 @@ const newSecretHashPair = () => {
 };
 
 const defaultGasPrice = 100000000000; // truffle fixed gas price
-const txGas = (txReceipt, gasPrice = defaultGasPrice) => web3.utils.toBN(txReceipt.receipt.gasUsed * gasPrice);
+const txGas = (txReceipt, gasPrice = defaultGasPrice) =>
+  web3.utils.toBN(txReceipt.receipt.gasUsed * gasPrice);
 const txLoggedArgs = (txReceipt) => txReceipt.logs[0].args;
 const txContractId = (txReceipt) => txLoggedArgs(txReceipt).contractId;
 
@@ -52,7 +53,8 @@ const htlcERC20ArrayToObj = (c) => {
   };
 };
 
-const getBalance = async (address) => web3.utils.toBN(await web3.eth.getBalance(address));
+const getBalance = async (address) =>
+  web3.utils.toBN(await web3.eth.getBalance(address));
 
 module.exports = {
   bufToStr,

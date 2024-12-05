@@ -1,10 +1,13 @@
 const { ethers } = require("hardhat");
 
 async function deploy(deployer) {
-    const Htlc = await ethers.getContractFactory("ForwarderHashedTimelockERC20", deployer);
-    const htlc = await Htlc.deploy();
+  const Htlc = await ethers.getContractFactory(
+    "ForwarderHashedTimelockERC20",
+    deployer,
+  );
+  const htlc = await Htlc.deploy();
 
-    return [htlc];
+  return [htlc];
 }
 
 async function main() {

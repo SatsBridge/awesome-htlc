@@ -20,7 +20,8 @@ npx hardhat node & npx hardhat run --network localhost scripts/deploy.js
 ```
 
 ## Run Tests
-* This fork is updated to work [with Hardhat](https://hardhat.org/)
+
+- This fork is updated to work [with Hardhat](https://hardhat.org/)
 
 ```
 $ npm i
@@ -130,5 +131,3 @@ See [test/htlcERC20.js](evm/test/htlcERC20.js) for examples of interacting with 
 1.  `newContract(receiverAddress, hashlock, timelock, tokenContract, tokenId)` create new HTLC with given receiver, hashlock, expiry, ERC20 token contract address and the token to transfer
 2.  `withdraw(contractId, preimage)` claim funds revealing the preimage
 3.  `refund(contractId)` if withdraw was not called the contract creator can get a refund by calling this some time after the time lock has expired.
-
-

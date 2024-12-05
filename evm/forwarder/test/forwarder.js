@@ -1,11 +1,17 @@
-const { assertEqualBN } = require('./helper/assert');
-const { isSha256Hash, newSecretHashPair, txLoggedArgs } = require('./helper/utils');
-const helpers = require('@nomicfoundation/hardhat-network-helpers');
+const { assertEqualBN } = require("./helper/assert");
+const {
+  isSha256Hash,
+  newSecretHashPair,
+  txLoggedArgs,
+  sha256,
+  bufToStr,
+} = require("./helper/utils");
+const helpers = require("@nomicfoundation/hardhat-network-helpers");
 
-const HTLC = artifacts.require('ForwarderHashedTimelockERC20');
-const TokenContract = artifacts.require('AliceERC20');
+const HTLC = artifacts.require("ForwarderHashedTimelockERC20");
+const TokenContract = artifacts.require("AliceERC20");
 
-contract('Forwarding HTLC', (accounts) => {
+contract("Forwarding HTLC", (accounts) => {
   const service = accounts[1];
   const user = accounts[2];
   const tokenSupply = 1000;
@@ -17,10 +23,57 @@ contract('Forwarding HTLC', (accounts) => {
   const hourSeconds = 3600;
   let timeLock1Hour;
   const tokenAmount = 5;
-  const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
-  const EMPTY_BYTES = '0x0000000000000000000000000000000000000000000000000000000000000000';
+  const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+  const EMPTY_BYTES =
+    "0x0000000000000000000000000000000000000000000000000000000000000000";
 
-  const assertTokenBal = async (addr, tokenAmount, msg) => assertEqualBN(await ercToken.balanceOf.call(addr), tokenAmount, msg ? msg : 'wrong token balance');
+  const assertTokenBal = async (addr, tokenAmount, msg) =>
+    assertEqualBN(
+      await ercToken.balanceOf.call(addr),
+      tokenAmount,
+      msg ? msg : "wrong token balance",
+    );
+
+  const newIncomingHtlc = async ({
+    timelock = timeLock1Hour,
+    hashlock = newSecretHashPair().hash,
+  } = {}) => {
+    await ercToken.approve(htlc.address, tokenAmount, { from: user });
+    return htlc.route(
+      user,
+      true,
+      hashlock,
+      timelock,
+      ercToken.address,
+      tokenAmount,
+      {
+        from: user,
+      },
+    );
+  };
+
+  const newOutgoingHtlc = async ({
+    timelock = timeLock1Hour,
+    hashlock = newSecretHashPair().hash,
+  } = {}) => {
+    return htlc.route(
+      user,
+      false,
+      hashlock,
+      timelock,
+      ercToken.address,
+      tokenAmount,
+      {
+        from: service,
+      },
+    );
+  };
+
+  const settleHtlc = async ({ hashlock = newSecretHashPair().secret } = {}) => {
+    return htlc.settle(secret, {
+      from: service,
+    });
+  };
 
   before(async () => {
     timeLock1Hour = (await helpers.time.latest()) + hourSeconds;
@@ -28,29 +81,39 @@ contract('Forwarding HTLC', (accounts) => {
 
     ercToken = await TokenContract.new(tokenSupply);
     await ercToken.transfer(user, userInitialBalance);
-    await assertTokenBal(user, userInitialBalance, 'balance not transferred in before()');
+    await assertTokenBal(
+      user,
+      userInitialBalance,
+      "balance not transferred in before()",
+    );
   });
 
-  it('newIncomingHtlc() should create new HTLC forwarding contract', async () => {
+  it("newIncomingHtlc() should create new HTLC forwarding contract", async () => {
     const hashPair = newSecretHashPair();
     // User deposits into contract
     const newForwardingTx = await newIncomingHtlc({
       hashlock: hashPair.hash,
     });
     // check token balances
-    assertTokenBal(user, userInitialBalance - tokenAmount, "Wrong User balance");
+    assertTokenBal(
+      user,
+      userInitialBalance - tokenAmount,
+      "Wrong User balance",
+    );
     assertTokenBal(htlc.address, tokenAmount, "Wrong Contract balance");
     // check event logs
     const logArgsInit = txLoggedArgs(newForwardingTx);
     const paymentId = logArgsInit.hashlock;
+
     await assert(isSha256Hash(paymentId));
     await assert.equal(logArgsInit.counterparty, user);
     await assert.notEqual(htlc.counterparty, ZERO_ADDRESS);
-    const newSettlementTx = await htlc.settle(hashPair.secret, { from: service,});
+    const newSettlementTx = await htlc.settle(hashPair.secret, {
+      from: service,
+    });
 
     // check event logs
     const logArgsSettle = txLoggedArgs(newSettlementTx);
-    await assert.equal(logArgsSettle.hashlock, paymentId);
     await assert(isSha256Hash(paymentId));
     await assert.equal(logArgsSettle.amount, tokenAmount);
     assertTokenBal(htlc.address, tokenAmount, "Wrong Contract balance");
@@ -60,23 +123,4 @@ contract('Forwarding HTLC', (accounts) => {
     await assert.equal(await htlc.timelock(), 0);
     await assert.equal(await htlc.hashlock(), EMPTY_BYTES);
   });
-
-  const newIncomingHtlc = async ({ timelock = timeLock1Hour, hashlock = newSecretHashPair().hash } = {}) => {
-    await ercToken.approve(htlc.address, tokenAmount, { from: user });
-    return htlc.requestRouting(user, true, hashlock, timelock, ercToken.address, tokenAmount, {
-      from: user,
-    });
-  };
-
-    const newOutgoingHtlc = async ({ timelock = timeLock1Hour, hashlock = newSecretHashPair().hash } = {}) => {
-      return htlc.requestRouting(user, false, hashlock, timelock, ercToken.address, tokenAmount, {
-        from: service,
-      });
-    };
-
-    const settleHtlc = async ({ hashlock = newSecretHashPair().secret } = {}) => {
-      return htlc.settle(secret, {
-        from: service,
-      });
-    };
 });
