@@ -33,7 +33,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     constructor(address initialOwner) Ownable(initialOwner) { resetContractState(); }
 
     modifier futureTimelock(uint256 _time) {
-        require(_time > block.timestamp, "timelock time must be in the future");
+        require(_time > block.timestamp, "Timelock time must be in the future");
         _;
     }
 
@@ -43,7 +43,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     }
 
     modifier hashlockMatches(bytes32 _hashlock, bytes32 _x) {
-        require(_hashlock == sha256(abi.encodePacked(_x)), "hashlock hash does not match");
+        require(_hashlock == sha256(abi.encodePacked(_x)), "Hashlock hash does not match");
         _;
     }
 
@@ -101,8 +101,8 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         return true;
     }
 
-    function transfer(address _tokenContract, uint256 _amount) external onlyOwner locked returns (bool) {
-        IERC20(_tokenContract).transfer(counterparty, _amount);
+    function transfer(address _tokenContract, address _counterparty, uint256 _amount) external onlyOwner transferable returns (bool) {
+        IERC20(_tokenContract).transfer(_counterparty, _amount);
         return true;
     }
 
