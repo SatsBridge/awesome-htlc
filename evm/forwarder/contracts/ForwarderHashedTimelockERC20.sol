@@ -114,4 +114,18 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         hashlock = 0x0;
         emit HTLCReset();
     }
+
+    function getDetails()
+    external
+    view
+    returns (
+        bool _incoming,
+        address _counterparty,
+        address _tokenContract,
+        uint256 _amount,
+        bytes32 _hashlock,
+        uint256 _timelock
+    ) {
+        return (incoming, counterparty, tokenContract, amount, hashlock, timelock);
+    }
 }

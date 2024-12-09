@@ -1,26 +1,19 @@
 const { ethers } = require("hardhat");
 
 async function deploy(deployer) {
-  const Htlc = await ethers.getContractFactory(
-    "ForwarderHashedTimelockERC20",
-    deployer,
-  );
-  const htlc = await Htlc.deploy();
-
-  return [htlc];
+    const Htlc = await ethers.getContractFactory("ForwarderHashedTimelockERC20");
+    const htlc = await Htlc.connect(deployer).deploy(deployer.address);
+    await htlc.waitForDeployment(); // Ethers v6 equivalent to deployed()
+    return htlc;
 }
 
 async function main() {
-  const [deployer] = await ethers.getSigners();
-
-  //console.log("Deploying contracts with the account: ", await deployer.address);
-  const balance = await ethers.provider.getBalance(deployer.address);
-  //console.log("Account balance: ", await ethers.utils.formatEther(balance), "ETH");
-
-  let [htlc] = await deploy(deployer);
-  await htlc.deployed;
-
-  //console.log("HashedTimelockERC20 deployed to ", await htlc.address);
+    const [deployer] = await ethers.getSigners();
+    console.log("Deploying contracts with the account:", deployer.address);
+    const balance = await ethers.provider.getBalance(deployer.address);
+    //console.log("Account balance:", ethers.utils.formatEther(balance));
+    const htlc = await deploy(deployer);
+    console.log(`HashedTimelockERC20 deployed to ${htlc.target}`);
 }
 
 main()

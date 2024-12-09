@@ -36,6 +36,26 @@ module.exports = {
         passphrase: "",
       },
     },
+    arbitrum_testnet: {
+      url: `https://arbitrum-sepolia.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: {
+        mnemonic: MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+        passphrase: "",
+      },
+    },
+    arbitrum: {
+      url: `https://arbitrum-mainnet.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: {
+        mnemonic: MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+        passphrase: "",
+      },
+    },
     sepolia: {
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
       accounts: {
