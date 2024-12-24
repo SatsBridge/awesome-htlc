@@ -65,6 +65,8 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         address _tokenContract,
         uint256 _amount
     ) external futureTimelock(_timelock) transferable returns (bool) {
+        require(_counterparty != address(0), "Counterparty can't be zero address");
+
         if (_incoming) {
             require(_amount > 0, "Token amount must be > 0");
             require(IERC20(_tokenContract).allowance(_counterparty, address(this)) >= _amount, "Token allowance must be >= amount");
