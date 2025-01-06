@@ -162,7 +162,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     /// @dev Can only be called after timelock has expired
     /// @return bool Indicating success of the refund
     function refund() external nonReentrant locked pastTimelock returns (bool) {
-        if (!incoming) IERC20(tokenContract).transfer(counterparty, amount);
+        if (incoming) IERC20(tokenContract).transfer(counterparty, amount);
         emit HTLCERC20Refund(hashlock, tokenContract, amount);
         resetContractState();
         return true;
