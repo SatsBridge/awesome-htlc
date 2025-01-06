@@ -90,7 +90,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         return true;
     }
 
-    function settle(bytes32 _preimage) external nonReentrant hashlockMatches(hashlock, _preimage) locked returns (bool) {
+    function settle(bytes32 _preimage) external nonReentrant hashlockMatches(hashlock, _preimage) returns (bool) {
         if (incoming) {
             emit HTLCERC20Settle(_preimage, tokenContract, amount);
         } else {
