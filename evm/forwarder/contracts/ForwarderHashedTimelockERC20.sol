@@ -129,7 +129,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         if (_incoming) {
             // leaving redundant check for better safety
             require(IERC20(_tokenContract).allowance(_counterparty, address(this)) == _amount, "Token allowance must be equal to amount");
-            IERC20(_tokenContract).transferFrom(_counterparty, address(this), _amount);
+            IERC20(_tokenContract).safeTransferFrom(_counterparty, address(this), _amount);
         } else {
             require(msg.sender == owner(), "Only owner can set outgoing transfers");
         }
@@ -151,7 +151,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     /// @return bool Indicating success of the settlement
     function settle(bytes32 _preimage) external nonReentrant hashlockMatches(hashlock, _preimage) returns (bool) {
         if (!incoming) {
-            IERC20(tokenContract).transfer(counterparty, amount);
+            IERC20(tokenContract).safeTransfer(counterparty, amount);
         }
         emit HTLCERC20Settle(_preimage, tokenContract, amount);
         resetContractState();
@@ -162,7 +162,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     /// @dev Can only be called after timelock has expired
     /// @return bool Indicating success of the refund
     function refund() external nonReentrant locked pastTimelock returns (bool) {
-        if (incoming) IERC20(tokenContract).transfer(counterparty, amount);
+        if (incoming) IERC20(tokenContract).safeTransfer(counterparty, amount);
         emit HTLCERC20Refund(hashlock, tokenContract, amount);
         resetContractState();
         return true;
@@ -190,7 +190,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     /// @param _amount Number of tokens to transfer
     /// @return bool Indicating success of the transfer
     function transfer(address _tokenContract, address _counterparty, uint256 _amount) external onlyOwner transferable returns (bool) {
-        IERC20(_tokenContract).transfer(_counterparty, _amount);
+        IERC20(_tokenContract).safeTransfer(_counterparty, _amount);
         return true;
     }
 
