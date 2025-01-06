@@ -122,8 +122,8 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         require(_counterparty != address(0), "Counterparty can't be zero address");
         require(_amount > 0, "Token amount must be > 0");
         require(_hashlock != bytes32(0),  "Hashlock can't be zero");
-        require(_time > block.timestamp, "Timelock time must be in the future");
-        require(_time < block.timestamp + 1209600, "Timelock time must be not too far in the future");
+        require(_timelock > block.timestamp, "Timelock time must be in the future");
+        require(_timelock < block.timestamp + 1209600, "Timelock time must be not too far in the future");
 
         if (_incoming) {
             require(IERC20(_tokenContract).allowance(_counterparty, address(this)) >= _amount, "Token allowance must be >= amount");
