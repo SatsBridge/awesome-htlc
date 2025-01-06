@@ -79,9 +79,10 @@ contract("Forwarding HTLC", (accounts) => {
 
   before(async () => {
     timeLock1Hour = (await helpers.time.latest()) + hourSeconds;
-    htlc = await HTLC.new(service);
 
     ercToken = await TokenContract.new(tokenSupply);
+    htlc = await HTLC.new(service, ercToken.address);
+
     await ercToken.transfer(user, userInitialBalance);
     await assertTokenBalance(
       user,
@@ -221,7 +222,23 @@ contract("Forwarding HTLC", (accounts) => {
       "Timelock time must be in the future",
     );
   });
-
+  it("Should fail if ERC20 token wasn't provided in constructor", async () => {
+    const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
+    await expectRevert(
+      htlc.route(
+        user,
+        false,
+        hashPair.secret,
+        updatedTimeLock,
+        ZERO_ADDRESS,
+        tokenAmount,
+        {
+          from: service,
+        },
+      ),
+      "Token is not allowed",
+    );
+  });
   it("Null counterparty address", async () => {
     const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
     await expectRevert(

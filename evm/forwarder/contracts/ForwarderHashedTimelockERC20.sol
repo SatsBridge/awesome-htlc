@@ -30,7 +30,10 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     event HTLCERC20Refund(bytes32 indexed hashlock, address tokenContract, uint256 amount);
     event HTLCReset();
 
-    constructor(address initialOwner) Ownable(initialOwner) { resetContractState(); }
+    constructor(address _initialOwner, address _tokenContract) Ownable(_initialOwner) {
+        tokenContract = _tokenContract;
+        resetContractState();
+    }
 
     modifier futureTimelock(uint256 _time) {
         require(_time > block.timestamp, "Timelock time must be in the future");
@@ -65,17 +68,19 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         address _tokenContract,
         uint256 _amount
     ) external futureTimelock(_timelock) transferable returns (bool) {
+        require(_tokenContract == tokenContract, "Token is not allowed");
         require(_counterparty != address(0), "Counterparty can't be zero address");
+        require(_amount > 0, "Token amount must be > 0");
 
         if (_incoming) {
-            require(_amount > 0, "Token amount must be > 0");
             require(IERC20(_tokenContract).allowance(_counterparty, address(this)) >= _amount, "Token allowance must be >= amount");
             IERC20(_tokenContract).transferFrom(_counterparty, address(this), _amount);
+        } else {
+            require(msg.sender == owner(), "Only owner can set outgoing transfers");
         }
 
         incoming = _incoming;
         counterparty = _counterparty;
-        tokenContract = _tokenContract;
         amount = _amount;
         timelock = _timelock;
         hashlock = _hashlock;
@@ -110,7 +115,6 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
 
     function resetContractState() internal {
         counterparty = address(0);
-        tokenContract = address(0);
         amount = 0;
         timelock = 0;
         hashlock = 0x0;
