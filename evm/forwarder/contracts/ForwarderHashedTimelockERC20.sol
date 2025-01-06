@@ -126,7 +126,6 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         require(_timelock < block.timestamp + 1209600, "Timelock time must be not too far in the future");
 
         if (_incoming) {
-            require(IERC20(_tokenContract).allowance(_counterparty, address(this)) >= _amount, "Token allowance must be >= amount");
             IERC20(_tokenContract).transferFrom(_counterparty, address(this), _amount);
         } else {
             require(msg.sender == owner(), "Only owner can set outgoing transfers");
