@@ -103,6 +103,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
 
     /// @notice Initiates a new HTLC transfer
     /// @dev Sets up a new transfer with hashlock and timelock conditions
+    /// @dev Excess allowances for ERC20 transfer should not be granted otherwise funds may be drained by an attacker
     /// @param _counterparty Address of the counterparty
     /// @param _incoming Direction of transfer
     /// @param _hashlock Hash of the secret preimage
@@ -126,6 +127,8 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         require(_timelock < block.timestamp + 1209600, "Timelock time must be not too far in the future");
 
         if (_incoming) {
+            // leaving redundant check for better safety
+            require(IERC20(_tokenContract).allowance(_counterparty, address(this)) == _amount, "Token allowance must be equal to amount");
             IERC20(_tokenContract).transferFrom(_counterparty, address(this), _amount);
         } else {
             require(msg.sender == owner(), "Only owner can set outgoing transfers");
@@ -147,12 +150,10 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     /// @param _preimage The secret preimage that matches the hashlock
     /// @return bool Indicating success of the settlement
     function settle(bytes32 _preimage) external nonReentrant hashlockMatches(hashlock, _preimage) returns (bool) {
-        if (incoming) {
-            emit HTLCERC20Settle(_preimage, tokenContract, amount);
-        } else {
+        if (!incoming) {
             IERC20(tokenContract).transfer(counterparty, amount);
-            emit HTLCERC20Settle(_preimage, tokenContract, amount);
         }
+        emit HTLCERC20Settle(_preimage, tokenContract, amount);
         resetContractState();
         return true;
     }

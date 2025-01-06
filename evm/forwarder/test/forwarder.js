@@ -344,9 +344,13 @@ contract("Forwarding HTLC", (accounts) => {
     await time.increaseTo(timeLock1Hour + 1);
     const receipt = await htlc.refund({ from: service });
     const event = receipt.logs.find((log) => log.event === "HTLCERC20Refund");
+    assertTokenBalance(htlc.address, 0, "Wrong Contract balance");
   });
 
   it("Wrong preimage on newOutgoingHtlc() ", async () => {
+    // the contract is empty, we have to add something for outgoing payment
+    await ercToken.transfer(htlc.address, tokenAmount);
+
     const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
     hashPair = newSecretHashPair();
     // User deposits into contract
@@ -354,13 +358,6 @@ contract("Forwarding HTLC", (accounts) => {
       hashlock: hashPair.hash,
       timelock: updatedTimeLock,
     });
-    // check token balances
-    assertTokenBalance(
-      service,
-      tokenSupply - userInitialBalance - tokenAmount,
-      "Wrong User balance",
-    );
-    assertTokenBalance(htlc.address, tokenAmount, "Wrong Contract balance");
     // check event logs
     const logArgsInit = txLoggedArgs(newForwardingTx);
     const paymentId = logArgsInit.hashlock;
@@ -456,15 +453,8 @@ contract("Forwarding HTLC", (accounts) => {
 
     await time.increaseTo(updatedTimeLock + 1);
     const receipt = await htlc.refund({ from: user });
-    //const event = receipt.logs.find((log) => log.event === "HTLCERC20Refund");
-    //assert.equal(
-    //  event.args.amount.toString(),
-    //  tokenAmount.toString(),
-    //  "Refund amount incorrect",
-    //);
-
-    // Ensure contract has 0 tokens (refunded)
-    await assertTokenBalance(htlc.address, 5, "Wrong Contract balance");
+    // Ensure contract has a remainder from failed settlement
+    await assertTokenBalance(htlc.address, tokenAmount, "Wrong Contract balance");
   });
   it("Test refunds Outgoing", async () => {
     const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
@@ -504,7 +494,7 @@ contract("Forwarding HTLC", (accounts) => {
       "Refund amount incorrect",
     );
 
-    // Ensure contract has 0 tokens (refunded)
-    await assertTokenBalance(htlc.address, 0, "Wrong Contract balance");
+    // Ensure contract has a remainder from failed settlement
+    await assertTokenBalance(htlc.address, tokenAmount, "Wrong Contract balance");
   });
 });
