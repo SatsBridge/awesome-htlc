@@ -152,7 +152,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
             emit HTLCERC20Settle(_preimage, tokenContract, amount);
         } else {
             IERC20(tokenContract).transfer(counterparty, amount);
-            emit HTLCERC20Settle(hashlock, tokenContract, amount);
+            emit HTLCERC20Settle(_preimage, tokenContract, amount);
         }
         resetContractState();
         return true;
