@@ -79,9 +79,10 @@ contract("Forwarding HTLC", (accounts) => {
 
   before(async () => {
     timeLock1Hour = (await helpers.time.latest()) + hourSeconds;
-    htlc = await HTLC.new(service);
 
     ercToken = await TokenContract.new(tokenSupply);
+    htlc = await HTLC.new(service, ercToken.address);
+
     await ercToken.transfer(user, userInitialBalance);
     await assertTokenBalance(
       user,
@@ -118,6 +119,7 @@ contract("Forwarding HTLC", (accounts) => {
     await assertTokenBalance(htlc.address, 0, "Wrong Contract balance");
     await assertTokenBalance(service, tokenAmount, "Wrong Contract balance");
   });
+
   it("Create newIncomingHtlc()", async () => {
     hashPair = newSecretHashPair();
     // User deposits into contract
@@ -203,6 +205,102 @@ contract("Forwarding HTLC", (accounts) => {
     await assert.equal(await htlc.hashlock(), EMPTY_BYTES);
   });
 
+  it("Past timelock", async () => {
+    const pastTimelock = (await helpers.time.latest()) - hourSeconds;
+    await expectRevert(
+      htlc.route(
+        user,
+        false,
+        hashPair.secret,
+        pastTimelock,
+        ercToken.address,
+        tokenAmount,
+        {
+          from: service,
+        },
+      ),
+      "Timelock time must be in the future",
+    );
+  });
+  it("Should fail if ERC20 token wasn't provided in constructor", async () => {
+    const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
+    await expectRevert(
+      htlc.route(
+        user,
+        false,
+        hashPair.secret,
+        updatedTimeLock,
+        ZERO_ADDRESS,
+        tokenAmount,
+        {
+          from: service,
+        },
+      ),
+      "Token is not allowed",
+    );
+  });
+  it("Null counterparty address", async () => {
+    const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
+    await expectRevert(
+      htlc.route(
+        ZERO_ADDRESS,
+        false,
+        hashPair.secret,
+        updatedTimeLock,
+        ercToken.address,
+        tokenAmount,
+        {
+          from: service,
+        },
+      ),
+      "Counterparty can't be zero address",
+    );
+  });
+
+  it("Zero amount", async () => {
+    const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
+    await expectRevert(
+      htlc.route(
+        user,
+        true,
+        hashPair.secret,
+        updatedTimeLock,
+        ercToken.address,
+        0,
+        {
+          from: service,
+        },
+      ),
+      "Token amount must be > 0",
+    );
+  });
+
+  it("Insufficient balance", async () => {
+    const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
+    await ercToken.approve(htlc.address, tokenSupply, {from: service});
+    await expectRevert(
+      htlc.route(
+        service,
+        true,
+        hashPair.secret,
+        updatedTimeLock,
+        ercToken.address,
+        tokenSupply,
+        {
+          from: service,
+        },
+      ),
+      "ERC20InsufficientBalance"
+    );
+  });
+
+  it("Cannot refund if not in settlement state", async () => {
+    await expectRevert(
+      htlc.refund({from: service}),
+      "Not in settlement state"
+    );
+  });
+
   it("Wrong preimage on newIncomingHtlc()", async () => {
     hashPair = newSecretHashPair();
     // User deposits into contract
@@ -246,9 +344,13 @@ contract("Forwarding HTLC", (accounts) => {
     await time.increaseTo(timeLock1Hour + 1);
     const receipt = await htlc.refund({ from: service });
     const event = receipt.logs.find((log) => log.event === "HTLCERC20Refund");
+    assertTokenBalance(htlc.address, 0, "Wrong Contract balance");
   });
 
   it("Wrong preimage on newOutgoingHtlc() ", async () => {
+    // the contract is empty, we have to add something for outgoing payment
+    await ercToken.transfer(htlc.address, tokenAmount);
+
     const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
     hashPair = newSecretHashPair();
     // User deposits into contract
@@ -256,13 +358,6 @@ contract("Forwarding HTLC", (accounts) => {
       hashlock: hashPair.hash,
       timelock: updatedTimeLock,
     });
-    // check token balances
-    assertTokenBalance(
-      service,
-      tokenSupply - userInitialBalance - tokenAmount,
-      "Wrong User balance",
-    );
-    assertTokenBalance(htlc.address, tokenAmount, "Wrong Contract balance");
     // check event logs
     const logArgsInit = txLoggedArgs(newForwardingTx);
     const paymentId = logArgsInit.hashlock;
@@ -289,6 +384,20 @@ contract("Forwarding HTLC", (accounts) => {
       "Wrong Contract balance",
     );
   });
+
+  it("Should prevent owner from transferring tokens if contract is in settlement", async () => {
+    await expectRevert(
+      htlc.transfer(
+        ercToken.address,
+        service,
+        tokenAmount,
+        {
+          from: service,
+        },
+      ),
+      "Contract is in settlement state",
+    );
+  });
   it("Test settlement lock ", async () => {
     const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
     await expectRevert(
@@ -309,6 +418,7 @@ contract("Forwarding HTLC", (accounts) => {
     const receipt = await htlc.refund({ from: service });
     const event = receipt.logs.find((log) => log.event === "HTLCERC20Refund");
   });
+
   it("Test refunds Incoming", async () => {
     const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
     hashPair = newSecretHashPair();
@@ -343,15 +453,8 @@ contract("Forwarding HTLC", (accounts) => {
 
     await time.increaseTo(updatedTimeLock + 1);
     const receipt = await htlc.refund({ from: user });
-    //const event = receipt.logs.find((log) => log.event === "HTLCERC20Refund");
-    //assert.equal(
-    //  event.args.amount.toString(),
-    //  tokenAmount.toString(),
-    //  "Refund amount incorrect",
-    //);
-
-    // Ensure contract has 0 tokens (refunded)
-    await assertTokenBalance(htlc.address, 5, "Wrong Contract balance");
+    // Ensure contract has a remainder from failed settlement
+    await assertTokenBalance(htlc.address, tokenAmount, "Wrong Contract balance");
   });
   it("Test refunds Outgoing", async () => {
     const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
@@ -391,7 +494,7 @@ contract("Forwarding HTLC", (accounts) => {
       "Refund amount incorrect",
     );
 
-    // Ensure contract has 0 tokens (refunded)
-    await assertTokenBalance(htlc.address, 0, "Wrong Contract balance");
+    // Ensure contract has a remainder from failed settlement
+    await assertTokenBalance(htlc.address, tokenAmount, "Wrong Contract balance");
   });
 });
