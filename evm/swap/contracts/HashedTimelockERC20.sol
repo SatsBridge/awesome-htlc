@@ -76,6 +76,8 @@ contract HashedTimelockERC20 {
     modifier withdrawable(bytes32 _hashlock) {
         require(contracts[_hashlock].receiver == msg.sender, "withdrawable: not receiver");
         require(contracts[_hashlock].withdrawn == false, "withdrawable: already withdrawn");
+        // This check needs to be added if claims are allowed after timeout. That is, if the following timelock check is commented out
+        require(contracts[_contractId].refunded == false, "withdrawable: already refunded");
         // if we want to disallow claim to be made after the timeout, uncomment the following line
         // require(contracts[_hashlock].timelock > now, "withdrawable: timelock time must be in the future");
         _;

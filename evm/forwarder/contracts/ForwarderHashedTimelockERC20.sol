@@ -2,6 +2,7 @@
 pragma solidity ^0.8.24;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Wrapper.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -22,6 +23,9 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     /// @dev To avoid DOS type of attacks with created ERC20 token the forwarder locks to certain ERC20 address
     address public tokenContract;
 
+    /// @notice Decimals order of the ERC20 token contract being used
+    uint8 public tokenDecimals;
+
     /// @notice Amount of tokens being transferred in swap
     uint256 public amount;
 
@@ -30,6 +34,9 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
 
     /// @notice Timestamp after which the transfer can be refunded
     uint256 public timelock;
+
+    /// @notice A minimum amount of tokens being transferred
+    uint256 public minRoutingAmount;
 
     /// @notice Emitted when a new HTLC transfer is initiated
     /// @param incoming Direction of the transfer
@@ -71,6 +78,9 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     /// @param _initialOwner Address of the contract owner
     /// @param _tokenContract Address of the ERC20 token contract
     constructor(address _initialOwner, address _tokenContract) Ownable(_initialOwner) {
+        tokenDecimals = IERC20Metadata(_tokenContract).decimals();
+        require(tokenDecimals >= 8, "Token contract precision must be at least equal or greater than 8");
+        minRoutingAmount = 10_000; //10K satoshis by default
         tokenContract = _tokenContract;
         resetContractState();
     }
@@ -121,7 +131,7 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
     ) external transferable returns (bool) {
         require(_tokenContract == tokenContract, "Token is not allowed");
         require(_counterparty != address(0), "Counterparty can't be zero address");
-        require(_amount > 0, "Token amount must be > 0");
+        require(_amount > minRoutingAmount, "Token amount must be > minRoutingAmount");
         require(_hashlock != bytes32(0),  "Hashlock can't be zero");
         require(_timelock > block.timestamp, "Timelock time must be in the future");
         require(_timelock < block.timestamp + 1209600, "Timelock time must be not too far in the future");
@@ -177,9 +187,19 @@ contract ForwarderHashedTimelockERC20 is ReentrancyGuard, Ownable {
         require(_newTokenContract != tokenContract, "New token address must be different");
 
         address oldTokenContract = tokenContract;
-        tokenContract = _newTokenContract;
+        tokenDecimals = IERC20Metadata(_newTokenContract).decimals();
+        require(tokenDecimals >= 8, "Token contract precision must be at least equal or greater than 8");
 
         emit TokenContractChanged(oldTokenContract, _newTokenContract);
+        return true;
+    }
+
+    /// @notice Allows the owner to change the minimum amount allowed for routing
+    /// @dev Can only be called by owner and when not in settlement state
+    /// @param _amount Amount to be set for an ERC20 token contract
+    /// @return bool Indicating success of the operation
+    function setMinimalAmount(uint256 _amount) external onlyOwner transferable returns (bool) {
+        minRoutingAmount = _amount * 10**(tokenDecimals - 8); // checked upon setting
         return true;
     }
 
