@@ -15,8 +15,8 @@ const TokenContract = artifacts.require("AliceERC20");
 contract("Forwarding HTLC", (accounts) => {
   const service = accounts[1];
   const user = accounts[2];
-  const tokenSupply = 1000;
-  const userInitialBalance = 99;
+  const tokenSupply = 1000_000_000_000_000;
+  const userInitialBalance = 99_000_000_000_000;
 
   let htlc, ercToken, hashPair;
 
@@ -24,7 +24,7 @@ contract("Forwarding HTLC", (accounts) => {
   const hourSeconds = 3600;
   let timeLock1Hour;
 
-  const tokenAmount = 5;
+  const tokenAmount = 5_000_000_000_000;
   const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
   const EMPTY_BYTES =
     "0x0000000000000000000000000000000000000000000000000000000000000000";
@@ -257,8 +257,9 @@ contract("Forwarding HTLC", (accounts) => {
     );
   });
 
-  it("Zero amount", async () => {
+  it("The amount below minimum", async () => {
     const updatedTimeLock = (await helpers.time.latest()) + hourSeconds;
+    await ercToken.approve(htlc.address, 1000, {from: user});
     await expectRevert(
       htlc.route(
         user,
@@ -266,12 +267,12 @@ contract("Forwarding HTLC", (accounts) => {
         hashPair.secret,
         updatedTimeLock,
         ercToken.address,
-        0,
+        9999,
         {
           from: service,
         },
       ),
-      "Token amount must be > 0",
+      "Token amount must be > minRoutingAmount",
     );
   });
 
