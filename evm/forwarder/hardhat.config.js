@@ -4,9 +4,11 @@ require("@nomicfoundation/hardhat-chai-matchers");
 // legacy
 require("@nomicfoundation/hardhat-ethers");
 require("@nomicfoundation/hardhat-verify");
+// verification
+require("@nomicfoundation/hardhat-verify");
 
 require("dotenv").config();
-const { MNEMONIC, INFURA_API_KEY, LINEASCAN_API_KEY, ALCHEMY_API_KEY } =
+const { MNEMONIC, INFURA_API_KEY, LINEASCAN_API_KEY, ALCHEMY_API_KEY, ARBISCAN_API_KEY } =
   process.env;
 
 module.exports = {
@@ -17,7 +19,7 @@ module.exports = {
       url: "http://0.0.0.0:8545",
     },
     linea_testnet: {
-      url: `https://linea-goerli.infura.io/v3/${INFURA_API_KEY}`,
+      url: `https://linea-sepolia.infura.io/v3/${INFURA_API_KEY}`,
       accounts: {
         mnemonic: MNEMONIC,
         path: "m/44'/60'/0'/0",
@@ -88,6 +90,8 @@ module.exports = {
   etherscan: {
     apiKey: {
       linea_mainnet: LINEASCAN_API_KEY,
+      arbitrum: ARBISCAN_API_KEY,
+      arbitrum_testnet: ARBISCAN_API_KEY,
     },
     customChains: [
       {
@@ -98,6 +102,14 @@ module.exports = {
           browserURL: "https://lineascan.build/",
         },
       },
+        {
+          network: "arbitrum_testnet",
+          chainId: 421614,
+          urls: {
+            apiURL: "https://api-sepolia.arbiscan.io/api",
+            browserURL: "https://sepolia.arbiscan.io"
+          }
+        },
     ],
   },
   sourcify: {
