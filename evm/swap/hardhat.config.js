@@ -6,12 +6,15 @@ require("dotenv").config();
 const {
 MNEMONIC,
 INFURA_API_KEY,
-LINEASCAN_API_KEY,
+ETHERSCAN_API_KEY,
 ALCHEMY_API_KEY
 } = process.env;
 
 module.exports = {
   defaultNetwork: "localhost",
+  etherscan: {
+    apiKey: ETHERSCAN_API_KEY
+  },
   networks: {
     localhost: {
       url: "http://0.0.0.0:8545"

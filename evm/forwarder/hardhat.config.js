@@ -8,7 +8,7 @@ require("@nomicfoundation/hardhat-verify");
 require("@nomicfoundation/hardhat-verify");
 
 require("dotenv").config();
-const { MNEMONIC, INFURA_API_KEY, LINEASCAN_API_KEY, ALCHEMY_API_KEY, ARBISCAN_API_KEY } =
+const { MNEMONIC, INFURA_API_KEY, LINEASCAN_API_KEY, ALCHEMY_API_KEY, ETHERSCAN_API_KEY } =
   process.env;
 
 module.exports = {
@@ -88,29 +88,7 @@ module.exports = {
     timeout: 20000,
   },
   etherscan: {
-    apiKey: {
-      linea_mainnet: LINEASCAN_API_KEY,
-      arbitrum: ARBISCAN_API_KEY,
-      arbitrum_testnet: ARBISCAN_API_KEY,
-    },
-    customChains: [
-      {
-        network: "linea_mainnet",
-        chainId: 59144,
-        urls: {
-          apiURL: "https://api.lineascan.build/api",
-          browserURL: "https://lineascan.build/",
-        },
-      },
-        {
-          network: "arbitrum_testnet",
-          chainId: 421614,
-          urls: {
-            apiURL: "https://api-sepolia.arbiscan.io/api",
-            browserURL: "https://sepolia.arbiscan.io"
-          }
-        },
-    ],
+    apiKey: ETHERSCAN_API_KEY
   },
   sourcify: {
     // Disabled by default
