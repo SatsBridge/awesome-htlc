@@ -4,9 +4,11 @@ require("@nomicfoundation/hardhat-chai-matchers");
 // legacy
 require("@nomicfoundation/hardhat-ethers");
 require("@nomicfoundation/hardhat-verify");
+// verification
+require("@nomicfoundation/hardhat-verify");
 
 require("dotenv").config();
-const { MNEMONIC, INFURA_API_KEY, LINEASCAN_API_KEY, ALCHEMY_API_KEY } =
+const { MNEMONIC, INFURA_API_KEY, LINEASCAN_API_KEY, ALCHEMY_API_KEY, ETHERSCAN_API_KEY } =
   process.env;
 
 module.exports = {
@@ -17,7 +19,7 @@ module.exports = {
       url: "http://0.0.0.0:8545",
     },
     linea_testnet: {
-      url: `https://linea-goerli.infura.io/v3/${INFURA_API_KEY}`,
+      url: `https://linea-sepolia.infura.io/v3/${INFURA_API_KEY}`,
       accounts: {
         mnemonic: MNEMONIC,
         path: "m/44'/60'/0'/0",
@@ -86,19 +88,7 @@ module.exports = {
     timeout: 20000,
   },
   etherscan: {
-    apiKey: {
-      linea_mainnet: LINEASCAN_API_KEY,
-    },
-    customChains: [
-      {
-        network: "linea_mainnet",
-        chainId: 59144,
-        urls: {
-          apiURL: "https://api.lineascan.build/api",
-          browserURL: "https://lineascan.build/",
-        },
-      },
-    ],
+    apiKey: ETHERSCAN_API_KEY
   },
   sourcify: {
     // Disabled by default
