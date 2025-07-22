@@ -2,18 +2,18 @@
 ' FSM for simple forwarder contract
 
 state Exit {
- [*] --> Refunding
- [*] --> Withdrawing
+ [*] --> Refund
+ [*] --> Withdrawal
 
- Refunding --> Refunding: ERC20.Transfer
- Withdrawing --> Withdrawing: ERC20.Transfer
+ Refund --> Refund: ERC20.Transfer
+ Withdrawal --> Withdrawal: ERC20.Transfer
 }
 
-[*] --> Ready : CreateContract(owner)
+[*] --> Ready : constructor(initialOwner, tokenContract)
 Ready --> Forwarding: TxIn
 Forwarding --> Forwarding: ERC20.Transfer
 Forwarding --> Exit: TxOut
 
-Refunding --> [*]: Event\nRefund(sender, amount)
-Withdrawing --> [*]: Event\nWithdrawal(receiver, amount)
+Refund --> [*]: Event\nRefund(hashlock)
+Withdrawal --> [*]: Event\nWithdraw(hashlock);
 @enduml

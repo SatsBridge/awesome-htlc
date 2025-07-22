@@ -14,36 +14,44 @@ participant ERC20Contract as token << Token >>
 participant Events as events
 end box
 
+note left of htlc
+Constructor:
+  address tokenContract;
+  uint tokenDecimals;
+  uint minRoutingAmount;
+end note
+
+counterparty->counterparty:generates BOLT11, takes hashlock
+
+counterparty->token:approve(htlc address, amount)
+token->counterparty
+
+counterparty->htlc:route(\n\tincoming\n\tcounterparty,\n\tamount,\n\ttimelock,\n\thashlock\n)
+
 note right of htlc
 State stored:
   bool incoming;
   address counterparty;
-  address tokenContract;
   uint amount;
   bytes32 hashlock;
   uint timelock; // UNIX ts
 end note
 
-counterparty->token:approve(htlc address, amount)
-token->counterparty
-
-counterparty->htlc:RequestRouting(\n\tincoming\n\tcounterparty,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
-
 activate htlc
   htlc->token:transferFrom(counterparty, htlc address, amount)
   token->htlc
-  htlc->events:LogHTLCERC20New(locks, values, etc.)
-  htlc->counterparty:hashlock
+  htlc->events:HTLCERC20New(locks, values, etc.)
+  htlc->router:hashlock
 deactivate htlc
 
 counterparty->router:submits BOLT11
-router->router:knows/obtains secret preimage\n[sha256(secret preimage) == hashlock]
+router->router:checks hashlock vs BOLT11 payment_hash
+router->counterparty:pays and obtains secret preimage\n[sha256(secret preimage) == hashlock]
 
 router->htlc:settle(secret preimage)
 
 activate htlc
-  htlc->events:LogHTLCERC20Settle(secret preimage)
+  htlc->events:HTLCERC20Settle(secret preimage)
   htlc->htlc:funds stay in contract for Outgoing swap
 deactivate htlc
-
 @enduml

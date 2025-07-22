@@ -13,14 +13,21 @@ participant ERC20Contract as token << Token >>
 participant Events as events
 end box
 
+note left of htlc
+Constructor:
+  address tokenContract;
+  uint tokenDecimals;
+  uint minRoutingAmount;
+end note
+
 counterparty->token:approve(htlc address, amount)
 token->counterparty
-counterparty->htlc:RequestRouting(\n\tincoming\n\tcounterparty,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
+counterparty->htlc:route(\n\tincoming\n\tcounterparty,\n\thashlock,\n\ttimelock,\n\ttokenContract,\n\tamount\n)
 
 activate htlc
   htlc->token:transferFrom(counterparty, htlc address, amount)
   token->htlc
-  htlc->events:LogHTLCERC20New(locks, values, etc.)
+  htlc->events:HTLCERC20New(locks, values, etc.)
   htlc->counterparty:hashlock
 deactivate htlc
 
@@ -31,9 +38,8 @@ counterparty->htlc:refund()
 activate htlc
   htlc->token:transfer(counterparty, amount)
   token->htlc
-  htlc->events:LogHTLCERC20Refund(contracted)
+  htlc->events:HTLCERC20Refund(contracted)
 deactivate htlc
 
 token->counterparty:receives refunded tokens
-
 @enduml
