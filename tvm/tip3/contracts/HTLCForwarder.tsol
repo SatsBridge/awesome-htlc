@@ -1,0 +1,242 @@
+pragma ever-solidity >= 0.62.0;
+pragma AbiHeader expire;
+pragma AbiHeader pubkey;
+
+import '@broxus/contracts/contracts/utils/RandomNonce.tsol';
+import "@broxus/contracts/contracts/utils/CheckPubKey.tsol";
+import '@broxus/contracts/contracts/access/InternalOwner.tsol';
+import "@broxus/contracts/contracts/libraries/MsgFlag.tsol";
+
+import "@broxus/tip3/contracts/interfaces/ITokenWallet.tsol";
+import "@broxus/tip3/contracts/interfaces/ITokenRoot.tsol";
+import "@broxus/tip3/contracts/interfaces/IAcceptTokensTransferCallback.tsol";
+import "./libs/TokenMsgFlag.tsol";
+import "./libs/Errors.tsol";
+
+library HtlcAccountGas {
+    uint128 constant CONTRACT_MIN_BALANCE = 0.1 ever;
+
+    function _reserve() internal pure returns (uint128) {
+        return math.max(address(this).balance - msg.value, HtlcAccountGas.CONTRACT_MIN_BALANCE);
+    }
+}
+
+contract HTLCForwarder is CheckPubKey, InternalOwner, RandomNonce, IAcceptTokensTransferCallback {
+    /// @notice Direction of token transfer (true for incoming) related to swap direction on the other side
+    bool public incoming_;
+
+    address static tokenRoot_;
+    address public tokenWallet_;
+    address public counterparty_;
+    uint64 public timelock_;
+    uint128 public amount_;
+    uint public hashlock_;
+
+    event HTLCNew(
+        bool incoming,
+        address indexed counterparty,
+        address indexed tokenWallet,
+        address indexed tokenRoot,
+        uint128 amount,
+        uint hashlock,
+        uint64 timelock
+    );
+
+    event HTLCSettle(uint indexed preimage, address tokenRoot, uint128 amount);
+    event HTLCRefund(uint indexed hashlock, address tokenRoot, uint128 amount);
+    event HTLCReset();
+
+    constructor(optional(address) _owner) public checkPubKey {
+        tvm.accept();
+        address owner = _owner.hasValue() ? _owner.get() : msg.sender;
+        setOwnership(owner);
+
+        require(address(this).balance >= 1.5 ever, HTLCErrors.NOT_ENOUGH_BALANCE);
+
+        tvm.rawReserve(1 ever, 0);
+        ITokenRoot(tokenRoot_).deployWallet{
+            value: 0,
+            bounce: false,
+            flag: 128,
+            callback: onWalletDeployed
+        }(address(this), 0.15 ever);
+    }
+
+    /// @notice Ensures caller is the contract's token wallet
+    modifier onlyOurWallet() {
+        require(tokenWallet_.value != 0 && msg.sender == tokenWallet_, HTLCErrors.INVALID_TOKEN_WALLET);
+        _;
+    }
+
+    /// @notice Validates preimage against stored hashlock
+    /// @param preimage The secret to validate
+    modifier hashlockMatches(uint preimage) {
+        require(hashlock_ == uint(sha256(abi.encode(preimage).toSlice())), HTLCErrors.WRONG_PREIMAGE);
+        _;
+    }
+
+    /// @notice Ensures contract is not in settlement phase
+    modifier ready() {
+        require(hashlock_ == 0x0, HTLCErrors.IN_SETTLEMENT_PHASE);
+        _;
+    }
+
+    /// @notice Ensures contract is in settlement phase
+    modifier locked() {
+        require(hashlock_ != 0x0, HTLCErrors.NOT_SETTLING);
+        _;
+    }
+
+    /// @notice Initiates an outgoing HTLC transfer
+    /// @dev Can only be called by owner when contract is not in settlement
+    function route(
+        address counterparty,
+        uint128 amount,
+        uint hashlock,
+        uint64 timelock
+    ) public onlyOwner ready {
+        require(amount > 0, HTLCErrors.ZERO_AMOUNT);
+        require(timelock > now, HTLCErrors.BAD_TIMELOCK);
+        require(timelock < now + 86400, HTLCErrors.BAD_TIMELOCK);
+        tvm.rawReserve(0.5 ever, 0);
+
+        incoming_ = false;
+        counterparty_ = counterparty;
+        amount_ = amount;
+        hashlock_ = hashlock;
+        timelock_ = timelock;
+
+        emit HTLCNew(incoming_, counterparty_, tokenWallet_, tokenRoot_, amount_, hashlock_, timelock_);
+    }
+
+    /// @notice Settles the HTLC transfer using the correct preimage
+    /// @dev Validates preimage and executes transfer if conditions are met
+    function settle(uint preimage) public hashlockMatches(preimage) locked returns (bool) {
+        tvm.rawReserve(0.5 ever, 0);
+        TvmCell empty;
+        if (incoming_) {
+            emit HTLCSettle(preimage, tokenRoot_, amount_);
+        } else {
+            ITokenWallet(tokenWallet_).transfer{value: 0, bounce: true, flag: TokenMsgFlag.ALL_NOT_RESERVED}(
+                amount_,
+                counterparty_,
+                0.1 ever,
+                address(this),
+                false,
+                empty
+            );
+            emit HTLCSettle(preimage, tokenRoot_, amount_);
+        }
+        resetContractState();
+        return true;
+    }
+
+    /// @notice Refunds the transfer after timelock expiration
+    /// @dev Can only be called after timelock has expired
+    function refund() public locked {
+        require(timelock_ < now, HTLCErrors.TIMELOCKED);
+        tvm.rawReserve(0.5 ever, 0);
+        TvmCell empty;
+        if (incoming_) {
+            ITokenWallet(tokenWallet_).transfer{
+                value: 0, bounce: true, flag: TokenMsgFlag.ALL_NOT_RESERVED
+            }(
+                amount_,
+                counterparty_,
+                0 ever,
+                address(this),
+                false,
+                empty
+            );
+        }
+        emit HTLCRefund(hashlock_, tokenRoot_, amount_);
+        resetContractState();
+    }
+
+    /// @notice Transfers tokens when not in settlement phase
+    /// @dev Can only be called by owner
+    function transfer(address destination, uint128 amount) public view onlyOwner ready {
+        tvm.rawReserve(0.5 ever, 0);
+        TvmCell empty;
+        ITokenWallet(tokenWallet_).transfer{value: 0, bounce: true, flag: TokenMsgFlag.ALL_NOT_RESERVED}(
+            amount,
+            destination,
+            0.1 ever,
+            address(this),
+            false,
+            empty
+        );
+    }
+
+    /// @notice Resets the contract state variables
+    /// @dev Internal function called after settlement or refund
+    function resetContractState() internal {
+        counterparty_ = address(0);
+        amount_ = 0;
+        timelock_ = 0;
+        hashlock_ = 0x0;
+        emit HTLCReset();
+    }
+
+    /// @notice Returns the current state of the contract
+    function getDetails()
+    external
+    view
+    returns (
+        bool incoming,
+        address counterparty,
+        address tokenRoot,
+        address tokenWallet,
+        uint128 amount,
+        uint hashlock,
+        uint64 timelock
+    ) {
+        return (incoming_, counterparty_, tokenRoot_, tokenWallet_, amount_, hashlock_, timelock_);
+    }
+
+    function onWalletDeployed(
+        address tokenWallet
+    ) public {
+        require(msg.sender == tokenRoot_, HTLCErrors.INVALID_TOKEN_ROOT);
+        tokenWallet_ = tokenWallet;
+    }
+
+    function onAcceptTokensTransfer(
+        address tokenRoot,
+        uint128 amount,
+        address sender,
+        address senderWallet,
+        address remainingGasTo,
+        TvmCell payload
+    ) override external onlyOurWallet ready {
+        require(tokenRoot == tokenRoot_, HTLCErrors.INVALID_TOKEN_ROOT);
+
+        tvm.accept();
+        tvm.rawReserve(0.5 ever, 0);
+
+        TvmSlice payloadSlice = payload.toSlice();
+
+        if (payloadSlice.bits() == 588) {
+            (bool incoming, address counterparty) = payloadSlice.decode(bool, address);
+
+            incoming_ = incoming;
+            counterparty_ = counterparty;
+            amount_ = payloadSlice.bits();
+
+            (uint hashlock, uint64 timelock) = payloadSlice.decode(uint, uint64);
+            require(timelock > now, HTLCErrors.BAD_TIMELOCK);
+            require(timelock < now + 86400, HTLCErrors.BAD_TIMELOCK);
+            amount_ = amount;
+            timelock_ = timelock;
+            hashlock_ = hashlock;
+        } else {
+            ITokenWallet(msg.sender).transferToWallet{value: 0, flag: MsgFlag.ALL_NOT_RESERVED}(
+                amount,
+                senderWallet,
+                remainingGasTo,
+                true,
+                payload
+            );
+        }
+    }
+}

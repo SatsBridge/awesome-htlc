@@ -20,6 +20,10 @@ const {
   MAINNET_GIVER_ADDRESS,
   MAINNET_GIVER_PHRASE,
   MAINNET_PHRASE,
+  TON_NETWORK_ENDPOINT,
+  TON_GIVER_ADDRESS,
+  TON_GIVER_PHRASE,
+  TON_PHRASE,
 } = process.env;
 
 chai.use(lockliftChai);
@@ -127,6 +131,39 @@ const config: LockliftConfig = {
         // !!! Never commit it in your repos !!!
         phrase: MAINNET_PHRASE,
         amount: 20,
+      },
+    },
+    ton: {
+      blockchainConfig: "TON",
+      connection: {
+        id: 1000,
+        type: "jrpc",
+        group: "mainnet",
+        data: {
+          endpoint: TON_NETWORK_ENDPOINT,
+        },
+      },
+      // This giver is default Wallet
+      giver: {
+        address: TON_GIVER_ADDRESS,
+        phrase: TON_GIVER_PHRASE,
+        accountId: 0,
+      },
+      keys: {
+        phrase: TON_PHRASE,
+      },
+    },
+    preset: {
+      blockchainConfig: "TON", // or other presets, or we can provide our custom config by {cunstom: "MY BLOCKCHAIN CONFIG"}
+      connection: {
+        id: 1001,
+        // @ts-ignore
+        type: "proxy",
+        // @ts-ignore
+        data: {},
+      },
+      keys: {
+        phrase: TON_PHRASE,
       },
     },
   },

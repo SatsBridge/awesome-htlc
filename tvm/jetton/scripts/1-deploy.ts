@@ -20,8 +20,17 @@ async function main() {
           })
           .then(res => res.account),
   };
-  //const tokenRootAddress = new Address("0:044d80aedba620d3b99231a2dac82f077e8672899221dff04bf83b173227d14a");
-  const tokenRootAddress = new Address("0:34eefc8c8fb2b1e8da6fd6c86c1d5bcee1893bb81d34b3a085e301f2fba8d59c");
+  /*
+  {
+    "address": "0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe",
+    "name": "Tether USD",
+    "symbol": "USD₮",
+    "decimals": "6",
+    "image": "https://tether.to/images/logoCircle.png",
+    "description": "Tether Token for Tether USD"
+  }
+  */
+  const tokenRootAddress = new Address("0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe");
   const { contract: htlc, tx } = await locklift.factory.deployContract({
     contract: "HTLCForwarder",
     publicKey: signer.publicKey,
@@ -32,7 +41,7 @@ async function main() {
     constructorParams: {
       _owner: ownerWallet.account.address,
     },
-    value: locklift.utils.toNano(3),
+    value: locklift.utils.toNano(0.1),
   });
 
   console.log(`HTLCForwarder deployed at: ${htlc.address.toString()}`);

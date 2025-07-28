@@ -16,7 +16,7 @@ need for third-party intermediaries.
   * ['Swap'](./evm/swap/README.md) type that carries out internal state with all ongoing and conducted swaps,
   * ['Forwarder'](./evm/forwarder/README.md) type of contract that allows executing only one HTLC at a time with fixed internal state and therefore, 
   gas costs.
-* [Threaded Virtual Machine Solidity contracts](./tvm/README.md):
+* [Threaded Virtual Machine Solidity contracts](tvm/tip3/README.md):
   * Everscale/Venom implementations for TIP3 token standard.
 
 ### Reading Materials
