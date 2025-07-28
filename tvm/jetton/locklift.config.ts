@@ -11,15 +11,6 @@ const {
   LOCAL_GIVER_ADDRESS,
   LOCAL_GIVER_KEY,
   LOCAL_PHRASE,
-  VENOM_TESTNET_RPC_NETWORK_ENDPOINT,
-  VENOM_TESTNET_GQL_NETWORK_ENDPOINT,
-  VENOM_TESTNET_GIVER_ADDRESS,
-  VENOM_TESTNET_GIVER_PHRASE,
-  VENOM_TESTNET_PHRASE,
-  MAINNET_NETWORK_ENDPOINT,
-  MAINNET_GIVER_ADDRESS,
-  MAINNET_GIVER_PHRASE,
-  MAINNET_PHRASE,
   TON_NETWORK_ENDPOINT,
   TON_GIVER_ADDRESS,
   TON_GIVER_PHRASE,
@@ -96,41 +87,24 @@ const config: LockliftConfig = {
         amount: 20,
       },
     },
-    venom_testnet: {
+    ton: {
+      blockchainConfig: "TON",
       connection: {
         id: 1000,
         type: "jrpc",
-        group: "dev",
+        group: "mainnet",
         data: {
-          endpoint: VENOM_TESTNET_RPC_NETWORK_ENDPOINT,
+          endpoint: TON_NETWORK_ENDPOINT,
         },
       },
-      giver: {
-        address: VENOM_TESTNET_GIVER_ADDRESS,
-        phrase: VENOM_TESTNET_GIVER_PHRASE,
-        accountId: 0,
-      },
-      keys: {
-        // Use everdev to generate your phrase
-        // !!! Never commit it in your repos !!!
-        phrase: VENOM_TESTNET_PHRASE,
-        amount: 20,
-      },
-    },
-    main: {
-      // Specify connection settings for https://github.com/broxus/everscale-standalone-client/
-      connection: "mainnetJrpc",
       // This giver is default Wallet
       giver: {
-        address: MAINNET_GIVER_ADDRESS,
-        phrase: MAINNET_GIVER_PHRASE,
+        address: TON_GIVER_ADDRESS,
+        phrase: TON_GIVER_PHRASE,
         accountId: 0,
       },
       keys: {
-        // Use everdev to generate your phrase
-        // !!! Never commit it in your repos !!!
-        phrase: MAINNET_PHRASE,
-        amount: 20,
+        phrase: TON_PHRASE,
       },
     },
     preset: {
