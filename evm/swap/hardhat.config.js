@@ -1,28 +1,35 @@
-//require('@nomiclabs/hardhat-truffle5');
-//require('@nomicfoundation/hardhat-chai-matchers');
-require("@nomicfoundation/hardhat-toolbox");
-require("dotenv").config();
+// test
+require("@nomiclabs/hardhat-truffle5");
+require("@nomicfoundation/hardhat-chai-matchers");
+// legacy
+require("@nomicfoundation/hardhat-ethers");
+require("@nomicfoundation/hardhat-verify");
+// verification
+require("@nomicfoundation/hardhat-verify");
 
-const {
-MNEMONIC,
-INFURA_API_KEY,
-ETHERSCAN_API_KEY,
-ALCHEMY_API_KEY
-} = process.env;
+require("dotenv").config();
+const { MNEMONIC, INFURA_API_KEY, LINEASCAN_API_KEY, ALCHEMY_API_KEY, ETHERSCAN_API_KEY } =
+  process.env;
 
 module.exports = {
-  defaultNetwork: "localhost",
-  etherscan: {
-    apiKey: ETHERSCAN_API_KEY
-  },
+  defaultNetwork: "hardhat",
   networks: {
+    hardhat: {},
     localhost: {
-      url: "http://0.0.0.0:8545"
-    },
-    hardhat: {
+      url: "http://0.0.0.0:8545",
     },
     linea_testnet: {
       url: `https://linea-sepolia.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: {
+        mnemonic: MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+        passphrase: "",
+      },
+    },
+    linea_mainnet: {
+      url: `https://linea-mainnet.infura.io/v3/${INFURA_API_KEY}`,
       accounts: {
         mnemonic: MNEMONIC,
         path: "m/44'/60'/0'/0",
@@ -51,8 +58,8 @@ module.exports = {
         passphrase: "",
       },
     },
-    linea: {
-      url: `https://linea-mainnet.infura.io/v3/${INFURA_API_KEY}`,
+    sepolia: {
+      url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
       accounts: {
         mnemonic: MNEMONIC,
         path: "m/44'/60'/0'/0",
@@ -61,33 +68,31 @@ module.exports = {
         passphrase: "",
       },
     },
-    sepolia: {
-          url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
-          accounts: {
-            mnemonic: MNEMONIC,
-            path: "m/44'/60'/0'/0",
-            initialIndex: 0,
-            count: 20,
-            passphrase: "",
-          },
-        },
   },
   solidity: {
-    version: "0.8.20",
+    version: "0.8.24",
     settings: {
       optimizer: {
         enabled: true,
-        runs: 200
-      }
-    }
+        runs: 200,
+      },
+    },
   },
   paths: {
     sources: "./contracts",
     tests: "./test",
     cache: "./cache",
-    artifacts: "./artifacts"
+    artifacts: "./artifacts",
   },
   mocha: {
-    timeout: 40000
-  }
-}
+    timeout: 20000,
+  },
+  etherscan: {
+    apiKey: ETHERSCAN_API_KEY
+  },
+  sourcify: {
+    // Disabled by default
+    // Doesn't need an API key
+    enabled: true,
+  },
+};
